@@ -11,6 +11,9 @@ public class PhoneNumberEntity
     public int Id { get; set; }
 
     [Required]
+    public int CustomerId { get; set; }
+
+    [Required]
     [Column(TypeName = "varchar(20)")]
     public string PhoneNumber { get; set; } = null!;
 
