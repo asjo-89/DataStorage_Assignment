@@ -8,6 +8,7 @@ namespace Data.Repositories;
 public abstract class BaseRepository<TEntity>(DbContext context) : IBaseRepository<TEntity> where TEntity : class
 {
     private readonly DbContext _context = context;
+    private readonly DbSet<TEntity> _entities = context.Set<TEntity>();
 
     public async Task<TEntity> CreateAsync(TEntity entity)
     {
@@ -90,12 +91,12 @@ public abstract class BaseRepository<TEntity>(DbContext context) : IBaseReposito
         }
     }
 
-    public async Task<bool> DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> expression)
     {
         try
         {
             var entity = await _context.Set<TEntity>()
-                .FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id);
+                .FirstOrDefaultAsync(expression);
 
             if (entity == null) return false;
 

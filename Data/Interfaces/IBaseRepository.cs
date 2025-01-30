@@ -16,5 +16,5 @@ public interface IBaseRepository<TEntity> where TEntity : class
     Task<bool> UpdateAsync(Expression<Func<TEntity, bool>> expression, TEntity entity);
 
     //Delete
-    Task<bool> DeleteAsync(int id);
+    Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> expression);
 }
