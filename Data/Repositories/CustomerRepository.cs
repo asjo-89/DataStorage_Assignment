@@ -6,5 +6,4 @@ namespace Data.Repositories;
 
 public class CustomerRepository(DbContext context) : BaseRepository<CustomerEntity>(context), ICustomerRepository
 {
-    private readonly DbContext _context = context;
 }

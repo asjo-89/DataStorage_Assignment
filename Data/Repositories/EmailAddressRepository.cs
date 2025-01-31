@@ -6,5 +6,4 @@ namespace Data.Repositories;
 
 public class EmailAddressRepository(DbContext context) : BaseRepository<EmailAddressEntity>(context), IEmailAddressRepository
 {
-    private readonly DbContext _context = context;
 }

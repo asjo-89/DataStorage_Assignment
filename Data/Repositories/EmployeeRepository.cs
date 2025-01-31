@@ -6,5 +6,4 @@ namespace Data.Repositories;
 
 public class EmployeeRepository(DbContext context) : BaseRepository<EmployeeEntity>(context), IEmployeeRepository
 {
-    private readonly DbContext _context = context;
 }
