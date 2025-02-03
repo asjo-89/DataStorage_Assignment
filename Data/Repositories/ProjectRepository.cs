@@ -1,9 +1,10 @@
-﻿using Data.Entities;
+﻿using Data.Contexts;
+using Data.Entities;
 using Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repositories;
 
-public class ProjectRepository(DbContext context) : BaseRepository<ProjectEntity>(context), IProjectRepository
+public class ProjectRepository(DataContext context) : BaseRepository<ProjectEntity>(context), IProjectRepository
 {
 }

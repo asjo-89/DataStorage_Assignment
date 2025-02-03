@@ -1,13 +1,14 @@
-﻿using Data.Interfaces;
+﻿using Data.Contexts;
+using Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Linq.Expressions;
 
 namespace Data.Repositories;
 
-public abstract class BaseRepository<TEntity>(DbContext context) : IBaseRepository<TEntity> where TEntity : class
+public abstract class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEntity> where TEntity : class
 {
-    protected readonly DbContext _context = context;
+    protected readonly DataContext _context = context;
     protected readonly DbSet<TEntity> _entities = context.Set<TEntity>();
 
     public async Task<TEntity> CreateAsync(TEntity entity)
@@ -71,24 +72,24 @@ public abstract class BaseRepository<TEntity>(DbContext context) : IBaseReposito
         }
     }
 
-    public async Task<bool> UpdateAsync(Expression<Func<TEntity, bool>> expression, TEntity entity)
+    public async Task<bool> UpdateAsync(Expression<Func<TEntity, bool>> expression, TEntity updatedEntity)
     {
-        var entityToUpdate = await _context.Set<TEntity>()
-            .FirstOrDefaultAsync(expression);
-        if (entityToUpdate == null) return false;
-
         try
         {
-            _context.Entry(entityToUpdate)
-                .CurrentValues.SetValues(entity);
-            await _context.SaveChangesAsync();
-            return true;
+            var entityToUpdate = await _context.Set<TEntity>().FirstOrDefaultAsync(expression);
+            if (entityToUpdate != null && updatedEntity != null)
+            {
+                _context.Entry(entityToUpdate)
+               .CurrentValues.SetValues(updatedEntity);
+                await _context.SaveChangesAsync();
+                return true;
+            }
         }
         catch (Exception ex)
         {
             Debug.WriteLine($"Error updating entity { ex.Message }");
-            return false;
         }
+        return false;
     }
 
     public async Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> expression)

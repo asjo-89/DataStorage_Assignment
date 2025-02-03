@@ -1,9 +1,10 @@
-﻿using Data.Entities;
+﻿using Data.Contexts;
+using Data.Entities;
 using Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repositories;
 
-public class RoleRepository(DbContext context) : BaseRepository<RoleEntity>(context), IRoleRepository
+public class RoleRepository(DataContext context) : BaseRepository<RoleEntity>(context), IRoleRepository
 {
 }
