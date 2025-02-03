@@ -17,6 +17,7 @@ public abstract class BaseRepository<TEntity>(DataContext context) : IBaseReposi
         try
         {
             await _context.Set<TEntity>().AddAsync(entity);
+
             await _context.SaveChangesAsync();
             return entity;
         }

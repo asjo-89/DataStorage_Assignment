@@ -17,6 +17,6 @@ public class PhoneNumberEntity
     [Column(TypeName = "varchar(20)")]
     public string PhoneNumber { get; set; } = null!;
 
-
+    [ForeignKey(nameof(CustomerId))]
     public CustomerEntity Customer { get; set; } = null!;
 }

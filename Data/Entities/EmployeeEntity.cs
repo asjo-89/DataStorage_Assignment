@@ -19,7 +19,7 @@ public class EmployeeEntity
     [Required]
     public int RoleId { get; set; }
 
-
+    [ForeignKey(nameof(RoleId))]
     public RoleEntity Role { get; set; } = null!;
     public ICollection<ProjectEntity>? Projects { get; set; }
 }

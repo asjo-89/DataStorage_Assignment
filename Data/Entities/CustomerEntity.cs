@@ -13,7 +13,7 @@ public class CustomerEntity
     public string CustomerName { get; set; } = null!;
 
 
-    public ICollection<PhoneNumberEntity>? PhoneNumbers { get; set; }
-    public ICollection<EmailAddressEntity>? EmailAddresses { get; set; }
-    public ICollection<ProjectEntity>? Projects { get; set; }
+    public ICollection<PhoneNumberEntity>? PhoneNumbers { get; set; } = [];
+    public ICollection<EmailAddressEntity>? EmailAddresses { get; set; } = [];
+    public ICollection<ProjectEntity>? Projects { get; set; } = [];
 }

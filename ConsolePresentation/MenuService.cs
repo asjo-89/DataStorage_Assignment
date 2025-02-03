@@ -1,4 +1,6 @@
-﻿using Data.Entities;
+﻿using Business.Factories;
+using Business.Models;
+using Data.Entities;
 using Data.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,28 +10,31 @@ using System.Threading.Tasks;
 
 namespace ConsolePresentation
 {
-    public class MenuService
+    public class MenuService(ICustomerRepository customerRepository, IPhoneNumberRepository phoneNumberRepository)
     {
-        private readonly ICustomerRepository _customerRepository;
+        private readonly ICustomerRepository _customerRepository = customerRepository;
+        private readonly IPhoneNumberRepository _phoneNumberRepository = phoneNumberRepository;
 
-        public MenuService(ICustomerRepository customerRepository)
+        public async Task Run()
         {
-            _customerRepository = customerRepository;
-        }
+            var customer = new CustomerEntity()
+            {
+                CustomerName = "Test"
+            };
 
-        public void Run()
-        {
-            Console.WriteLine("Hello World");
+            var customer1 = await _customerRepository.CreateAsync(customer);
+
+
+            var phone = new PhoneNumberEntity()
+            {
+                PhoneNumber = "071-2345678",
+                CustomerId = customer.Id
+            };
+
+            var phoneNumber = await _phoneNumberRepository.CreateAsync(phone);
+
+            Console.WriteLine($"{customer1.CustomerName} + {phoneNumber.CustomerId}, {phoneNumber.PhoneNumber}");
             Console.ReadKey();
-
-            Console.Write("Ange customername: ");
-            var customerName = Console.ReadLine();
-
-            Console.Write("Ange phonenumnber: ");
-            var phoneNumber = Console.ReadLine();
-
-
-           
         }
     }
 }

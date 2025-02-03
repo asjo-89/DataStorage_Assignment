@@ -23,12 +23,15 @@ public class ProjectEntity
     public int StatusId { get; set; }
 
     [Required]
+    [ForeignKey(nameof(Customer))]
     public int CustomerId { get; set; }
 
     [Required]
+    [ForeignKey(nameof(Employee))]
     public int EmployeeId { get; set; }
 
     [Required]
+    [ForeignKey(nameof(Service))]
     public int ServiceId { get; set; }
 
 

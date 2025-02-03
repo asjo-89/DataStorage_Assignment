@@ -22,6 +22,7 @@ public class ServiceEntity
     public int UnitId { get; set; }
 
 
+    [ForeignKey(nameof(UnitId))]
     public UnitEntity Unit { get; set; } = null!;
-    public ICollection<ProjectEntity>? Projects { get; set; }
+    public ICollection<ProjectEntity>? Projects { get; set; } = [];
 }

@@ -6,6 +6,7 @@ using Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 internal class Program
 {
@@ -27,8 +28,11 @@ internal class Program
         }
 
         var services = new ServiceCollection()
-            .AddDbContext<DataContext>(x => x.UseSqlServer(connectionString))
+            .AddDbContext<DataContext>(x => x.UseSqlServer(connectionString)
+                .EnableSensitiveDataLogging()
+                .LogTo(Console.WriteLine, LogLevel.Information))
             .AddScoped<ICustomerRepository, CustomerRepository>()
+            .AddScoped<IPhoneNumberRepository, PhoneNumberRepository>()
             .AddScoped<MenuService>()
             .BuildServiceProvider();
 
