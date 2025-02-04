@@ -10,29 +10,17 @@ namespace Business.Factories
 
         public static Customer CreateModelFromDto(CustomerDto dto) => new()
         {
-            Id = dto.Id,
+            Id = Guid.NewGuid(),
             CustomerName = dto.CustomerName,
-            PhoneNumbers = dto.PhoneNumbers.Select(p => new PhoneNumber
-            {
-                Phone = p.PhoneNumber
-            }).ToList() ?? [],
-            Emails = dto.Emails?.Select(e => new EmailAddress
-            {
-                Email = e.Email
-            }).ToList() ?? []
+            PhoneNumber = dto.PhoneNumber,
+            Email = dto.Email
         };
 
         public static CustomerDto CreateDtoFromModel(Customer model) => new()
         {
             CustomerName = model.CustomerName,
-            PhoneNumbers = model.PhoneNumbers.Select(p => new PhoneNumberDto
-            {
-                PhoneNumber = p.Phone
-            }).ToList() ?? [],
-            Emails = model.Emails?.Select(e => new EmailDto
-            {
-                Email = e.Email
-            }).ToList() ?? []
+            PhoneNumber = model.PhoneNumber,
+            Email = model.Email
         };
 
 
@@ -40,30 +28,16 @@ namespace Business.Factories
         {
             Id = model.Id,
             CustomerName = model.CustomerName,
-            PhoneNumbers = model.PhoneNumbers.Select(p => new PhoneNumberEntity
-            {
-                CustomerId = model.Id,
-                PhoneNumber = p.Phone
-            }).ToList() ?? [],
-            EmailAddresses = model.Emails?.Select(e => new EmailAddressEntity
-            {
-                CustomerId = model.Id,
-                EmailAddress = e.Email
-            }).ToList() ?? []
+            PhoneNumber = model.PhoneNumber,
+            Email = model.Email!
         };
 
         public static Customer CreateModelFromEntity(CustomerEntity entity) => new()
         {
             Id = entity.Id,
             CustomerName = entity.CustomerName,
-            PhoneNumbers = entity.PhoneNumbers.Select(p => new PhoneNumber
-            {
-                Phone = p.PhoneNumber
-            }).ToList() ?? [],
-            Emails = entity.EmailAddresses?.Select(e => new EmailAddress
-            {
-                Email = e.EmailAddress
-            }).ToList() ?? []
+            PhoneNumber = entity.PhoneNumber,
+            Email = entity.Email
         };
     }
 }

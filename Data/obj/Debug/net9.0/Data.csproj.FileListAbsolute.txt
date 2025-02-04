@@ -7,9 +7,9 @@ C:\WIN24\VS_Code\Datalagring\DataStorage_Assignment\DataStorage_Assignment\Data\
 C:\WIN24\VS_Code\Datalagring\DataStorage_Assignment\DataStorage_Assignment\Data\obj\Debug\net9.0\Data.AssemblyInfoInputs.cache
 C:\WIN24\VS_Code\Datalagring\DataStorage_Assignment\DataStorage_Assignment\Data\obj\Debug\net9.0\Data.AssemblyInfo.cs
 C:\WIN24\VS_Code\Datalagring\DataStorage_Assignment\DataStorage_Assignment\Data\obj\Debug\net9.0\Data.csproj.CoreCompileInputs.cache
+C:\WIN24\VS_Code\Datalagring\DataStorage_Assignment\DataStorage_Assignment\Data\obj\Debug\net9.0\Data.sourcelink.json
 C:\WIN24\VS_Code\Datalagring\DataStorage_Assignment\DataStorage_Assignment\Data\obj\Debug\net9.0\Data.dll
 C:\WIN24\VS_Code\Datalagring\DataStorage_Assignment\DataStorage_Assignment\Data\obj\Debug\net9.0\refint\Data.dll
 C:\WIN24\VS_Code\Datalagring\DataStorage_Assignment\DataStorage_Assignment\Data\obj\Debug\net9.0\Data.pdb
 C:\WIN24\VS_Code\Datalagring\DataStorage_Assignment\DataStorage_Assignment\Data\obj\Debug\net9.0\Data.genruntimeconfig.cache
 C:\WIN24\VS_Code\Datalagring\DataStorage_Assignment\DataStorage_Assignment\Data\obj\Debug\net9.0\ref\Data.dll
-C:\WIN24\VS_Code\Datalagring\DataStorage_Assignment\DataStorage_Assignment\Data\obj\Debug\net9.0\Data.sourcelink.json

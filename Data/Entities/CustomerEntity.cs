@@ -6,14 +6,19 @@ namespace Data.Entities;
 public class CustomerEntity
 {
     [Key]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     [Required]
     [Column(TypeName = "nvarchar(100)")]
     public string CustomerName { get; set; } = null!;
 
+    [Required]
+    [Column(TypeName = "varchar(20)")]
+    public string PhoneNumber { get; set; } = null!;
 
-    public ICollection<PhoneNumberEntity>? PhoneNumbers { get; set; } = [];
-    public ICollection<EmailAddressEntity>? EmailAddresses { get; set; } = [];
+    [EmailAddress]
+    public string Email { get; set; } = null!;  
+
+
     public ICollection<ProjectEntity>? Projects { get; set; } = [];
 }

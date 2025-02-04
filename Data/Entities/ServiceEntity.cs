@@ -9,7 +9,7 @@ namespace Data.Entities;
 public class ServiceEntity
 {
     [Key]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     [Required]
     [Column(TypeName = "nvarchar(50)")]
@@ -19,10 +19,10 @@ public class ServiceEntity
     public decimal Price { get; set; }
 
     [Required]
-    public int UnitId { get; set; }
+    public Guid UnitId { get; set; }
 
 
-    [ForeignKey(nameof(UnitId))]
+
     public UnitEntity Unit { get; set; } = null!;
     public ICollection<ProjectEntity>? Projects { get; set; } = [];
 }

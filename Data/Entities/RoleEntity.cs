@@ -8,7 +8,7 @@ namespace Data.Entities;
 public class RoleEntity
 {
     [Key]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     [Required]
     [Column(TypeName = "nvarchar(50)")]

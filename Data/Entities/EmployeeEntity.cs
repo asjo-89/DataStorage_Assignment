@@ -6,7 +6,7 @@ namespace Data.Entities;
 public class EmployeeEntity
 {
     [Key]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     [Required]
     [Column(TypeName = "nvarchar(50)")]
@@ -17,9 +17,10 @@ public class EmployeeEntity
     public string LastName { get; set; } = null!;
 
     [Required]
-    public int RoleId { get; set; }
+    public Guid RoleId { get; set; }
 
-    [ForeignKey(nameof(RoleId))]
+
+
     public RoleEntity Role { get; set; } = null!;
     public ICollection<ProjectEntity>? Projects { get; set; }
 }

@@ -1,16 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Business.Dtos;
 
 public class CustomerDto
 {
-    public int Id { get; set; }
+    //public Guid Id { get; set; }
 
     [Required]
     public string CustomerName { get; set; } = null!;
 
     [Required]
-    public List<PhoneNumberDto> PhoneNumbers { get; set; } = [];
+    [Column(TypeName = "varchar(20)")]
+    public string PhoneNumber { get; set; } = null!;
 
-    public List<EmailDto>? Emails { get; set; } = [];
+    public string? Email { get; set; }
 }

@@ -6,7 +6,7 @@ namespace Data.Entities;
 public class ProjectEntity
 {
     [Key]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     [Required]
     [Column(TypeName = "nvarchar(50)")]
@@ -19,20 +19,16 @@ public class ProjectEntity
     public DateTime? EndDate { get; set; }
 
     [Required]
-    [ForeignKey(nameof(StatusInformation))]
-    public int StatusId { get; set; }
+    public Guid StatusId { get; set; }
 
     [Required]
-    [ForeignKey(nameof(Customer))]
-    public int CustomerId { get; set; }
+    public Guid CustomerId { get; set; }
 
     [Required]
-    [ForeignKey(nameof(Employee))]
-    public int EmployeeId { get; set; }
+    public Guid EmployeeId { get; set; }
 
     [Required]
-    [ForeignKey(nameof(Service))]
-    public int ServiceId { get; set; }
+    public Guid ServiceId { get; set; }
 
 
     public CustomerEntity Customer { get; set; } = null!;

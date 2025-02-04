@@ -9,7 +9,7 @@ namespace Data.Entities;
 public class UnitEntity
 {
     [Key]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     [Required]
     [Column(TypeName = "nvarchar(20)")]
