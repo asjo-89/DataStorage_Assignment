@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace Data.Repositories;
 
-public abstract class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEntity> where TEntity : class
+public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEntity> where TEntity : class
 {
     protected readonly DataContext _context = context;
     protected readonly DbSet<TEntity> _entities = context.Set<TEntity>();
@@ -41,7 +41,25 @@ public abstract class BaseRepository<TEntity>(DataContext context) : IBaseReposi
         }
     }
 
-    public async Task<TEntity> GetOneAsync(Expression<Func<TEntity, bool>> expression)
+    public async Task<TEntity> GetByIdAsync(Guid id)
+    {
+        try
+        {
+            var entity = await _context.Set<TEntity>()
+                .FirstOrDefaultAsync(e => EF.Property<Guid>(e, "Id") == id);
+
+            if (entity == null) return null!;
+
+            return entity;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error finding entity in database {ex.Message}");
+            return null!;
+        }
+    }
+
+    public async Task<TEntity> GetByPropertyAsync(Expression<Func<TEntity, bool>> expression)
     {
         try
         {

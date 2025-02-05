@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Entities;
 
+[Index(nameof(ProjectTitle), IsUnique = true)]
 public class ProjectEntity
 {
     [Key]
@@ -12,6 +14,7 @@ public class ProjectEntity
     [Column(TypeName = "nvarchar(50)")]
     public string ProjectTitle { get; set; } = null!;
 
+    [Required]
     [Column(TypeName = "nvarchar(300)")]
     public string? Description { get; set; }
 

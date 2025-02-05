@@ -9,7 +9,8 @@ public interface IBaseRepository<TEntity> where TEntity : class
 
     //Read
     Task<ICollection<TEntity>> GetAllAsync();
-    Task<TEntity> GetOneAsync(Expression<Func<TEntity, bool>> expression);
+    Task<TEntity> GetByIdAsync(Guid id);
+    Task<TEntity> GetByPropertyAsync(Expression<Func<TEntity, bool>> expression);
     Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression);
 
     //Update

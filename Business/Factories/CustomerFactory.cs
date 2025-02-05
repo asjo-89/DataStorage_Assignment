@@ -8,16 +8,25 @@ namespace Business.Factories
     {
         public static CustomerDto Create() => new();
 
-        public static Customer CreateModelFromDto(CustomerDto dto) => new()
+        //public static Customer CreateModelFromDto(CustomerDto dto) => new()
+        //{
+        //    Id = Guid.NewGuid(),
+        //    CustomerName = dto.CustomerName,
+        //    PhoneNumber = dto.PhoneNumber,
+        //    Email = dto.Email
+        //};
+
+        public static CustomerEntity CreateEntityFromDto(CustomerDto dto) => new()
         {
             Id = Guid.NewGuid(),
             CustomerName = dto.CustomerName,
             PhoneNumber = dto.PhoneNumber,
-            Email = dto.Email
+            Email = dto.Email!
         };
 
         public static CustomerDto CreateDtoFromModel(Customer model) => new()
         {
+            Id = model.Id,
             CustomerName = model.CustomerName,
             PhoneNumber = model.PhoneNumber,
             Email = model.Email

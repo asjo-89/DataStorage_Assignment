@@ -1,9 +1,17 @@
-﻿namespace Business.Dtos;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Business.Dtos;
 
 public class ServiceDto
 {
-    //public Guid Id { get; set; }
+    public Guid Id { get; set; }
+
+    [Required]
     public string ServiceName { get; set; } = null!;
+
+    [Required]
     public decimal Price { get; set; }
-    public UnitDto Unit {  get; set; } = null!;
+
+    [Required]
+    public string Unit {  get; set; } = null!;
 }
