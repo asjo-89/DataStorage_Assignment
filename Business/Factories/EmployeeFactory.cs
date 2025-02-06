@@ -8,6 +8,13 @@ namespace Business.Factories
     {
         public static EmployeeDto Create() => new();
 
+        public static EmployeeEntity CreateEntityFromDto(EmployeeDto dto) => new()
+        {
+            Id = Guid.NewGuid(),
+            FirstName = dto.FirstName,
+            LastName = dto.LastName,
+            RoleId = dto.RoleId
+        };
         public static Employee CreateModelFromDto(EmployeeDto dto) => new()
         {
             Id = Guid.NewGuid(),

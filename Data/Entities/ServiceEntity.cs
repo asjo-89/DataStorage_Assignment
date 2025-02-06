@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,7 +7,7 @@ namespace Data.Entities;
 
 
 [Index(nameof(ServiceName), IsUnique = true)]
-public class ServiceEntity
+public class ServiceEntity : IEntity
 {
     [Key]
     public Guid Id { get; set; }

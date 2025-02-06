@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Entities;
 
 [Index(nameof(RoleName), IsUnique = true)]
-public class RoleEntity
+public class RoleEntity : IEntity
 {
     [Key]
     public Guid Id { get; set; }

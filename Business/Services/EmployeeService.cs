@@ -7,7 +7,7 @@ using Data.Interfaces;
 
 namespace Business.Services;
 
-public class EmployeeService(IBaseRepository<EmployeeEntity> repository) : BaseService<Employee, EmployeeEntity>(repository, EmployeeFactory.CreateModelFromEntity, EmployeeFactory.CreateEntityFromModel), IEmployeeService
+public class EmployeeService(IBaseRepository<EmployeeEntity> repository) : BaseService<Employee, EmployeeEntity, EmployeeDto>(repository, EmployeeFactory.CreateModelFromEntity, EmployeeFactory.CreateEntityFromModel, EmployeeFactory.CreateEntityFromDto), IEmployeeService
 {
     //public async Task<Employee> CreateAsync(EmployeeDto dto)
     //{

@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace Data.Repositories;
 
-public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEntity> where TEntity : class
+public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEntity> where TEntity : class, IEntity
 {
     protected readonly DataContext _context = context;
     protected readonly DbSet<TEntity> _entities = context.Set<TEntity>();
@@ -91,11 +91,13 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
         }
     }
 
-    public async Task<bool> UpdateAsync(Expression<Func<TEntity, bool>> expression, TEntity updatedEntity)
+    public async Task<bool> UpdateAsync(Guid id, TEntity updatedEntity)
     {
         try
         {
-            var entityToUpdate = await _context.Set<TEntity>().FirstOrDefaultAsync(expression);
+            if (id == Guid.Empty) return false;
+
+            var entityToUpdate = await _context.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id);
             if (entityToUpdate != null && updatedEntity != null)
             {
                 _context.Entry(entityToUpdate)

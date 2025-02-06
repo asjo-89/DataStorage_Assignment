@@ -4,7 +4,6 @@ using Data.Entities;
 
 namespace Business.Interfaces;
 
-public interface IEmployeeService : IBaseService<Employee, EmployeeEntity>
+public interface IEmployeeService : IBaseService<Employee, EmployeeEntity, EmployeeDto>
 {
-    Task<Employee> CreateAsync(EmployeeDto dto);
 }

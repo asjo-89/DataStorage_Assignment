@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Entities;
 
 [Index(nameof(ProjectTitle), IsUnique = true)]
-public class ProjectEntity
+public class ProjectEntity : IEntity
 {
     [Key]
     public Guid Id { get; set; }

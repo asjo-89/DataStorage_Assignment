@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Data.Interfaces;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Entities;
 
-public class EmployeeEntity
+public class EmployeeEntity : IEntity
 {
     [Key]
     public Guid Id { get; set; }

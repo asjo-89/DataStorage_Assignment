@@ -1,3 +1,4 @@
+using Business.Dtos;
 using Business.Factories;
 using Business.Interfaces;
 using Business.Models;
@@ -21,9 +22,12 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
-builder.Services.AddScoped(typeof(IBaseService<Customer, CustomerEntity>), typeof(BaseService<Customer, CustomerEntity>));
+builder.Services.AddScoped(typeof(IBaseService<Customer, CustomerEntity, CustomerDto>), typeof(BaseService<Customer, CustomerEntity, CustomerDto>));
 builder.Services.AddScoped<Func<CustomerEntity, Customer>>(p => (entity) => CustomerFactory.CreateModelFromEntity(entity));
 builder.Services.AddScoped<Func<Customer, CustomerEntity>>(p => (model) => CustomerFactory.CreateEntityFromModel(model));
+builder.Services.AddScoped<Func<CustomerDto, CustomerEntity>>(p => (dto) => CustomerFactory.CreateEntityFromDto(dto));
+
+
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 

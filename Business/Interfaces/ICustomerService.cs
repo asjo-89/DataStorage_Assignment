@@ -5,9 +5,8 @@ using System.Linq.Expressions;
 
 namespace Business.Interfaces;
 
-public interface ICustomerService : IBaseService<Customer, CustomerEntity>
+public interface ICustomerService : IBaseService<Customer, CustomerEntity, CustomerDto>
 {
-    Task<Customer> CreateAsync(CustomerDto dto);
     Task<Customer> GetByCustomerNameAsync(string customerName); 
     Task<Customer> GetByEmailAsync(string email);
 }

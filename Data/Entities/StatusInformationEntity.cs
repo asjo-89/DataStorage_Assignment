@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,7 +7,7 @@ namespace Data.Entities;
 
 
 [Index(nameof(StatusName), IsUnique = true)]
-public class StatusInformationEntity
+public class StatusInformationEntity : IEntity
 {
     [Key]
     public Guid Id { get; set; }

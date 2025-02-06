@@ -4,7 +4,6 @@ using Data.Entities;
 
 namespace Business.Interfaces;
 
-public interface IProjectService : IBaseService<Project, ProjectEntity>
+public interface IProjectService : IBaseService<Project, ProjectEntity, ProjectDto>
 {
-    Task<Project> CreateAsync(ProjectDto dto);
 }

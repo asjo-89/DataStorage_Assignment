@@ -14,4 +14,5 @@ public class EmployeeDto
 
     [Required]
     public string RoleName { get; set; } = null!;
+    public Guid RoleId { get; set; }
 }

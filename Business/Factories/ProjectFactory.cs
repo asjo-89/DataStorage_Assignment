@@ -8,17 +8,17 @@ namespace Business.Factories
     {
         public static ProjectDto Create() => new();
 
-        public static Project CreateModelFromDto(ProjectDto dto) => new()
+        public static ProjectEntity CreateEntityFromDto(ProjectDto dto) => new()
         {
             Id = Guid.NewGuid(),
-            Title = dto.Title,
+            ProjectTitle = dto.Title,
             Description = dto.Description,
             StartDate = dto.StartDate,
             EndDate = dto.EndDate,
-            Status = dto.Status,
-            Customer = dto.Customer,
-            Employee = dto.Employee,
-            Service = dto.Service
+            StatusId = dto.StatusId,
+            CustomerId = dto.CustomerId,
+            EmployeeId = dto.EmployeeId,
+            ServiceId = dto.ServiceId
         };
 
         public static ProjectDto CreateDtoFromModel(Project model) => new()
