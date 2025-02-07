@@ -10,7 +10,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ServiceController(ICustomerService customerService) : ControllerBase
+    public class CustomerController(ICustomerService customerService) : ControllerBase
     {
         private readonly ICustomerService _customerService = customerService;
 
@@ -30,6 +30,8 @@ namespace WebApi.Controllers
             if (email) return BadRequest("The email is already assigned to another customer.");
 
             Customer newCustomer = await _customerService.CreateAsync(dto);
+
+            if (newCustomer == null) return BadRequest("Failed to create customer.");
 
             return Ok(newCustomer);
         }

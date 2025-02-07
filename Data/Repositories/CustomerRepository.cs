@@ -8,7 +8,7 @@ namespace Data.Repositories;
 
 public class CustomerRepository(DataContext context) : BaseRepository<CustomerEntity>(context), ICustomerRepository
 {
-    public async Task<CustomerEntity> GetCustomerWithDetails(Expression<Func<CustomerEntity, bool>> expression)
+    public async Task<CustomerEntity> GetCustomerWithDetailsAsync(Expression<Func<CustomerEntity, bool>> expression)
     {
         return await _context.Customers
             .Include(c => c.Projects)

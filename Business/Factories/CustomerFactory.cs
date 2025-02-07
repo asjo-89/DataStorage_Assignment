@@ -35,7 +35,8 @@ namespace Business.Factories
                 Id = p.Id,
                 Title = p.ProjectTitle,
                 StartDate = p.StartDate,
-                EndDate = p.EndDate
+                EndDate = p.EndDate,
+                Employee = $"{p.Employee.FirstName} {p.Employee.LastName}"
             }).ToList()
         };
     }

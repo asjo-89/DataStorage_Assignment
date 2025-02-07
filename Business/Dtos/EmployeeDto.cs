@@ -11,8 +11,8 @@ public class EmployeeDto
 
     [Required]
     public string LastName { get; set; } = null!;
+    public int RoleId { get; set; }
 
     [Required]
     public string RoleName { get; set; } = null!;
-    public int RoleId { get; set; }
 }

@@ -3,159 +3,68 @@
   "WorkspaceRootPath": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\webapi\\controllers\\servicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\servicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\webapi\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\services\\baseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\services\\baseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\webapi\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\services\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\services\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\webapi\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\interfaces\\icustomerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\interfaces\\icustomerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\interfaces\\ibaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\interfaces\\ibaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\interfaces\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\interfaces\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\factories\\rolefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\factories\\rolefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\interfaces\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\interfaces\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\interfaces\\iemployeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\interfaces\\iemployeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\interfaces\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\interfaces\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\factories\\customerfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\factories\\customerfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\contexts\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\contexts\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\dtos\\servicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\dtos\\servicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\entities\\employeeentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\entities\\employeeentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\entities\\customerentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\entities\\customerentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\entities\\roleentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\entities\\roleentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Migrations\\20250207110219_AddedStartIdTo1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\Migrations\\20250207110219_AddedStartIdTo1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\contexts\\datacontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\contexts\\datacontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\factories\\projectfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\factories\\projectfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\factories\\employeefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\factories\\employeefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\repositories\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\repositories\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/localhost/AssignmentDb/Asa/SqlTable/dbo.Customers.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\entities\\unitentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\entities\\unitentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\entities\\statusinformationentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\entities\\statusinformationentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\entities\\serviceentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\entities\\serviceentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\entities\\projectentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\entities\\projectentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\interfaces\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\interfaces\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\models\\unit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\models\\unit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\models\\statusinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\models\\statusinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\dtos\\customerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\dtos\\customerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\dtos\\projectdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\dtos\\projectdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\dtos\\roledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\dtos\\roledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\dtos\\statusinformationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\dtos\\statusinformationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\dtos\\unitdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\dtos\\unitdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\repositories\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\repositories\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -165,146 +74,153 @@
       "DocumentGroups": [
         {
           "DockedWidth": 292,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 356,
-          "SelectedChildIndex": 0,
-          "Children": [
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ServiceController.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Controllers\\ServiceController.cs",
-              "RelativeDocumentMoniker": "WebApi\\Controllers\\ServiceController.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Controllers\\ServiceController.cs",
-              "RelativeToolTip": "WebApi\\Controllers\\ServiceController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAIwEAAAAAZAAAAAAAAAA==",
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Controllers\\RoleController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\RoleController.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Controllers\\RoleController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\RoleController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T07:01:50.639Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IBaseRepository.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Interfaces\\IBaseRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Interfaces\\IBaseRepository.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Interfaces\\IBaseRepository.cs",
-              "RelativeToolTip": "Data\\Interfaces\\IBaseRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T07:15:44.699Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IEntity.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Interfaces\\IEntity.cs",
-              "RelativeDocumentMoniker": "Data\\Interfaces\\IEntity.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Interfaces\\IEntity.cs",
-              "RelativeToolTip": "Data\\Interfaces\\IEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:50:31.913Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BaseService.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Services\\BaseService.cs",
-              "RelativeDocumentMoniker": "Business\\Services\\BaseService.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Services\\BaseService.cs",
-              "RelativeToolTip": "Business\\Services\\BaseService.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAiwEAAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T07:18:57.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IBaseService.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Interfaces\\IBaseService.cs",
-              "RelativeDocumentMoniker": "Business\\Interfaces\\IBaseService.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Interfaces\\IBaseService.cs",
-              "RelativeToolTip": "Business\\Interfaces\\IBaseService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T07:18:03.612Z",
+              "WhenOpened": "2025-02-07T13:37:11.058Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ICustomerService.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Interfaces\\ICustomerService.cs",
-              "RelativeDocumentMoniker": "Business\\Interfaces\\ICustomerService.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Interfaces\\ICustomerService.cs",
-              "RelativeToolTip": "Business\\Interfaces\\ICustomerService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABLAAAAAAAAAA==",
+              "Title": "RoleService.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Services\\RoleService.cs",
+              "RelativeDocumentMoniker": "Business\\Services\\RoleService.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Services\\RoleService.cs",
+              "RelativeToolTip": "Business\\Services\\RoleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:23:53.32Z",
+              "WhenOpened": "2025-02-07T13:29:39.112Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CustomerService.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Services\\CustomerService.cs",
-              "RelativeDocumentMoniker": "Business\\Services\\CustomerService.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Services\\CustomerService.cs",
-              "RelativeToolTip": "Business\\Services\\CustomerService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAGAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "EmployeeDto.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\EmployeeDto.cs",
+              "RelativeDocumentMoniker": "Business\\Dtos\\EmployeeDto.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\EmployeeDto.cs",
+              "RelativeToolTip": "Business\\Dtos\\EmployeeDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T08:36:09.833Z",
+              "WhenOpened": "2025-02-07T13:22:28.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Program.cs",
+              "RelativeDocumentMoniker": "WebApi\\Program.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Program.cs",
+              "RelativeToolTip": "WebApi\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T13:16:28.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IEmployeeService.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Interfaces\\IEmployeeService.cs",
+              "RelativeDocumentMoniker": "Business\\Interfaces\\IEmployeeService.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Interfaces\\IEmployeeService.cs",
+              "RelativeToolTip": "Business\\Interfaces\\IEmployeeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T13:10:13.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CustomerRepository.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Repositories\\CustomerRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repositories\\CustomerRepository.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Repositories\\CustomerRepository.cs",
+              "RelativeToolTip": "Data\\Repositories\\CustomerRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T13:09:30.051Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "BaseRepository.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Repositories\\BaseRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Repositories\\BaseRepository.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Repositories\\BaseRepository.cs",
-              "RelativeToolTip": "Data\\Repositories\\BaseRepository.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAjwHgAAAA2AAAAAAAAAA==",
+              "Title": "IEmployeeRepository.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Interfaces\\IEmployeeRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Interfaces\\IEmployeeRepository.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Interfaces\\IEmployeeRepository.cs",
+              "RelativeToolTip": "Data\\Interfaces\\IEmployeeRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T07:16:40.382Z",
+              "WhenOpened": "2025-02-07T13:06:27.279Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ServiceDto.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\ServiceDto.cs",
-              "RelativeDocumentMoniker": "Business\\Dtos\\ServiceDto.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\ServiceDto.cs",
-              "RelativeToolTip": "Business\\Dtos\\ServiceDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\EmployeeController.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:41:10.891Z",
+              "WhenOpened": "2025-02-07T12:56:29.916Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DataContext.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Contexts\\DataContext.cs",
-              "RelativeDocumentMoniker": "Data\\Contexts\\DataContext.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Contexts\\DataContext.cs",
-              "RelativeToolTip": "Data\\Contexts\\DataContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABCAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\CustomerController.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAYwCEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T10:51:49.883Z",
+              "WhenOpened": "2025-02-07T11:49:36.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RoleFactory.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Factories\\RoleFactory.cs",
+              "RelativeDocumentMoniker": "Business\\Factories\\RoleFactory.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Factories\\RoleFactory.cs",
+              "RelativeToolTip": "Business\\Factories\\RoleFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T13:23:29.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "Business\\Services\\EmployeeService.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Services\\EmployeeService.cs*",
+              "RelativeToolTip": "Business\\Services\\EmployeeService.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T11:50:29.863Z",
               "EditorCaption": ""
             },
             {
@@ -315,370 +231,61 @@
               "RelativeDocumentMoniker": "Business\\Factories\\CustomerFactory.cs",
               "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Factories\\CustomerFactory.cs",
               "RelativeToolTip": "Business\\Factories\\CustomerFactory.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAApwCMAAABPAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAowCUAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:00:31.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Customer.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Customer.cs",
-              "RelativeDocumentMoniker": "Business\\Models\\Customer.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Customer.cs",
-              "RelativeToolTip": "Business\\Models\\Customer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:01:56.162Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Program.cs",
-              "RelativeDocumentMoniker": "WebApi\\Program.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Program.cs",
-              "RelativeToolTip": "WebApi\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T11:12:12.369Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Employee.cs",
-              "RelativeDocumentMoniker": "Business\\Models\\Employee.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Employee.cs",
-              "RelativeToolTip": "Business\\Models\\Employee.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:43:58.412Z",
+              "WhenOpened": "2025-02-07T11:57:42.773Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "RoleEntity.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\RoleEntity.cs",
-              "RelativeDocumentMoniker": "Data\\Entities\\RoleEntity.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\RoleEntity.cs",
-              "RelativeToolTip": "Data\\Entities\\RoleEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA5AAAAAAAAAA==",
+              "Title": "EmployeeRepository.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Repositories\\EmployeeRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Repositories\\EmployeeRepository.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Repositories\\EmployeeRepository.cs",
+              "RelativeToolTip": "Data\\Repositories\\EmployeeRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:46:41.004Z",
+              "WhenOpened": "2025-02-07T12:43:58.617Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "20250207110219_AddedStartIdTo1.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Migrations\\20250207110219_AddedStartIdTo1.cs",
-              "RelativeDocumentMoniker": "Data\\Migrations\\20250207110219_AddedStartIdTo1.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Migrations\\20250207110219_AddedStartIdTo1.cs",
-              "RelativeToolTip": "Data\\Migrations\\20250207110219_AddedStartIdTo1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T11:02:19.975Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "CustomerEntity.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\CustomerEntity.cs",
-              "RelativeDocumentMoniker": "Data\\Entities\\CustomerEntity.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\CustomerEntity.cs",
-              "RelativeToolTip": "Data\\Entities\\CustomerEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:46:08.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "EmployeeEntity.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\EmployeeEntity.cs",
-              "RelativeDocumentMoniker": "Data\\Entities\\EmployeeEntity.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\EmployeeEntity.cs",
-              "RelativeToolTip": "Data\\Entities\\EmployeeEntity.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:46:15.7Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Project.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Project.cs",
-              "RelativeDocumentMoniker": "Business\\Models\\Project.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Project.cs",
-              "RelativeToolTip": "Business\\Models\\Project.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:44:45.717Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "StatusInformationEntity.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\StatusInformationEntity.cs",
-              "RelativeDocumentMoniker": "Data\\Entities\\StatusInformationEntity.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\StatusInformationEntity.cs",
-              "RelativeToolTip": "Data\\Entities\\StatusInformationEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:46:54.724Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Role.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Role.cs",
-              "RelativeDocumentMoniker": "Business\\Models\\Role.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Role.cs",
-              "RelativeToolTip": "Business\\Models\\Role.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:44:59.097Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "DataContextFactory.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Contexts\\DataContextFactory.cs",
-              "RelativeDocumentMoniker": "Data\\Contexts\\DataContextFactory.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Contexts\\DataContextFactory.cs",
-              "RelativeToolTip": "Data\\Contexts\\DataContextFactory.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAowBcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T10:50:08.12Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "ServiceEntity.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\ServiceEntity.cs",
-              "RelativeDocumentMoniker": "Data\\Entities\\ServiceEntity.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\ServiceEntity.cs",
-              "RelativeToolTip": "Data\\Entities\\ServiceEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:46:47.36Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "dbo.Customers [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/localhost/AssignmentDb/Asa/SqlTable/dbo.Customers.sql",
-              "ToolTip": "dbo.Customers [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-02-07T10:04:33.317Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 11,
               "Title": "EmployeeFactory.cs",
               "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Factories\\EmployeeFactory.cs",
               "RelativeDocumentMoniker": "Business\\Factories\\EmployeeFactory.cs",
               "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Factories\\EmployeeFactory.cs",
               "RelativeToolTip": "Business\\Factories\\EmployeeFactory.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAowBEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T10:07:34.64Z",
+              "WhenOpened": "2025-02-07T11:53:19.565Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "ProjectFactory.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Factories\\ProjectFactory.cs",
-              "RelativeDocumentMoniker": "Business\\Factories\\ProjectFactory.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Factories\\ProjectFactory.cs",
-              "RelativeToolTip": "Business\\Factories\\ProjectFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "Business\\Models\\Employee.cs",
+              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Employee.cs",
+              "RelativeToolTip": "Business\\Models\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T10:07:55.252Z",
+              "WhenOpened": "2025-02-07T12:54:10.076Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "ProjectEntity.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\ProjectEntity.cs",
-              "RelativeDocumentMoniker": "Data\\Entities\\ProjectEntity.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\ProjectEntity.cs",
-              "RelativeToolTip": "Data\\Entities\\ProjectEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:46:27.068Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "UnitEntity.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\UnitEntity.cs",
-              "RelativeDocumentMoniker": "Data\\Entities\\UnitEntity.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Entities\\UnitEntity.cs",
-              "RelativeToolTip": "Data\\Entities\\UnitEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:47:00.375Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 14,
               "Title": "ICustomerRepository.cs",
               "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Interfaces\\ICustomerRepository.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\ICustomerRepository.cs",
               "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Interfaces\\ICustomerRepository.cs",
               "RelativeToolTip": "Data\\Interfaces\\ICustomerRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T08:56:26.907Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "Unit.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Unit.cs",
-              "RelativeDocumentMoniker": "Business\\Models\\Unit.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Unit.cs",
-              "RelativeToolTip": "Business\\Models\\Unit.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:45:36.458Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "StatusInformation.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\StatusInformation.cs",
-              "RelativeDocumentMoniker": "Business\\Models\\StatusInformation.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\StatusInformation.cs",
-              "RelativeToolTip": "Business\\Models\\StatusInformation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:45:30.229Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Service.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Service.cs",
-              "RelativeDocumentMoniker": "Business\\Models\\Service.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Models\\Service.cs",
-              "RelativeToolTip": "Business\\Models\\Service.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:45:05.163Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "RoleDto.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\RoleDto.cs",
-              "RelativeDocumentMoniker": "Business\\Dtos\\RoleDto.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\RoleDto.cs",
-              "RelativeToolTip": "Business\\Dtos\\RoleDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:41:04.819Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "ProjectDto.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\ProjectDto.cs",
-              "RelativeDocumentMoniker": "Business\\Dtos\\ProjectDto.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\ProjectDto.cs",
-              "RelativeToolTip": "Business\\Dtos\\ProjectDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:40:58.644Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "StatusInformationDto.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\StatusInformationDto.cs",
-              "RelativeDocumentMoniker": "Business\\Dtos\\StatusInformationDto.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\StatusInformationDto.cs",
-              "RelativeToolTip": "Business\\Dtos\\StatusInformationDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:41:16.172Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "UnitDto.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\UnitDto.cs",
-              "RelativeDocumentMoniker": "Business\\Dtos\\UnitDto.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\UnitDto.cs",
-              "RelativeToolTip": "Business\\Dtos\\UnitDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:41:21.506Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "EmployeeDto.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\EmployeeDto.cs",
-              "RelativeDocumentMoniker": "Business\\Dtos\\EmployeeDto.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\EmployeeDto.cs",
-              "RelativeToolTip": "Business\\Dtos\\EmployeeDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:40:51.55Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "CustomerDto.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\CustomerDto.cs",
-              "RelativeDocumentMoniker": "Business\\Dtos\\CustomerDto.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Dtos\\CustomerDto.cs",
-              "RelativeToolTip": "Business\\Dtos\\CustomerDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T09:40:41.957Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "CustomerRepository.cs",
-              "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Repositories\\CustomerRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Repositories\\CustomerRepository.cs",
-              "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Repositories\\CustomerRepository.cs",
-              "RelativeToolTip": "Data\\Repositories\\CustomerRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T08:57:04.794Z",
+              "WhenOpened": "2025-02-07T13:07:03.795Z",
               "EditorCaption": ""
             }
           ]

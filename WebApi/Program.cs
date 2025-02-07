@@ -21,13 +21,21 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+
 
 builder.Services.AddScoped(typeof(IBaseService<Customer, CustomerEntity, CustomerDto>), typeof(BaseService<Customer, CustomerEntity, CustomerDto>));
 builder.Services.AddScoped<Func<CustomerEntity, Customer>>(p => (entity) => CustomerFactory.CreateModelFromEntity(entity));
 builder.Services.AddScoped<Func<Customer, CustomerEntity>>(p => (model) => CustomerFactory.CreateEntityFromModel(model));
 builder.Services.AddScoped<Func<CustomerDto, CustomerEntity>>(p => (dto) => CustomerFactory.CreateEntityFromDto(dto));
 
+builder.Services.AddScoped(typeof(IBaseService<Employee, EmployeeEntity, EmployeeDto>), typeof(BaseService<Employee, EmployeeEntity, EmployeeDto>));
+builder.Services.AddScoped<Func<EmployeeEntity, Employee>>(p => (entity) => EmployeeFactory.CreateModelFromEntity(entity));
+builder.Services.AddScoped<Func<Employee, EmployeeEntity>>(p => (model) => EmployeeFactory.CreateEntityFromModel(model));
+builder.Services.AddScoped<Func<EmployeeDto, EmployeeEntity>>(p => (dto) => EmployeeFactory.CreateEntityFromDto(dto));
+
 builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 
 var app = builder.Build();
