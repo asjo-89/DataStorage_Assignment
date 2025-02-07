@@ -7,7 +7,8 @@ namespace Data.Entities;
 public class EmployeeEntity : IEntity
 {
     [Key]
-    public Guid Id { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
 
     [Required]
     [Column(TypeName = "nvarchar(50)")]
@@ -18,7 +19,7 @@ public class EmployeeEntity : IEntity
     public string LastName { get; set; } = null!;
 
     [Required]
-    public Guid RoleId { get; set; }
+    public int RoleId { get; set; }
 
 
 

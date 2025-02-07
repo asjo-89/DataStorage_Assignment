@@ -4,7 +4,7 @@ namespace Business.Dtos;
 
 public class EmployeeDto
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 
     [Required]
     public string FirstName { get; set; } = null!;
@@ -14,5 +14,5 @@ public class EmployeeDto
 
     [Required]
     public string RoleName { get; set; } = null!;
-    public Guid RoleId { get; set; }
+    public int RoleId { get; set; }
 }

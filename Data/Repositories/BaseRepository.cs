@@ -41,12 +41,12 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
         }
     }
 
-    public async Task<TEntity> GetByIdAsync(Guid id)
+    public async Task<TEntity> GetOneAsync(Expression<Func<TEntity, bool>> expression)
     {
         try
         {
             var entity = await _context.Set<TEntity>()
-                .FirstOrDefaultAsync(e => EF.Property<Guid>(e, "Id") == id);
+                .FirstOrDefaultAsync(expression);
 
             if (entity == null) return null!;
 
@@ -91,11 +91,11 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
         }
     }
 
-    public async Task<bool> UpdateAsync(Guid id, TEntity updatedEntity)
+    public async Task<bool> UpdateAsync(int id, TEntity updatedEntity)
     {
         try
         {
-            if (id == Guid.Empty) return false;
+            if (id == 0) return false;
 
             var entityToUpdate = await _context.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id);
             if (entityToUpdate != null && updatedEntity != null)
@@ -113,12 +113,12 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
         return false;
     }
 
-    public async Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> expression)
+    public async Task<bool> DeleteAsync(int id)
     {
         try
         {
             var entity = await _context.Set<TEntity>()
-                .FirstOrDefaultAsync(expression);
+                .FirstOrDefaultAsync(e => e.Id == id);
 
             if (entity == null) return false;
 

@@ -11,20 +11,10 @@ namespace Business.Factories
 
         public static CustomerEntity CreateEntityFromDto(CustomerDto dto) => new()
         {
-            Id = Guid.NewGuid(),
             CustomerName = dto.CustomerName,
             PhoneNumber = dto.PhoneNumber,
             Email = dto.Email!
         };
-
-        public static CustomerDto CreateDtoFromModel(Customer model) => new()
-        {
-            Id = model.Id,
-            CustomerName = model.CustomerName,
-            PhoneNumber = model.PhoneNumber,
-            Email = model.Email
-        };
-
 
         public static CustomerEntity CreateEntityFromModel(Customer model) => new()
         {
@@ -39,7 +29,14 @@ namespace Business.Factories
             Id = entity.Id,
             CustomerName = entity.CustomerName,
             PhoneNumber = entity.PhoneNumber,
-            Email = entity.Email
+            Email = entity.Email,
+            Projects = entity.Projects?.Select(p => new Project
+            {
+                Id = p.Id,
+                Title = p.ProjectTitle,
+                StartDate = p.StartDate,
+                EndDate = p.EndDate
+            }).ToList()
         };
     }
 }

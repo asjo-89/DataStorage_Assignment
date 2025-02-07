@@ -9,13 +9,13 @@ public interface IBaseRepository<TEntity> where TEntity : class, IEntity
 
     //Read
     Task<ICollection<TEntity>> GetAllAsync();
-    Task<TEntity> GetByIdAsync(Guid id);
+    Task<TEntity> GetOneAsync(Expression<Func<TEntity, bool>> expression);
     Task<TEntity> GetByPropertyAsync(Expression<Func<TEntity, bool>> expression);
     Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression);
 
     //Update
-    Task<bool> UpdateAsync(Guid id, TEntity entity);
+    Task<bool> UpdateAsync(int id, TEntity entity);
 
     //Delete
-    Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> expression);
+    Task<bool> DeleteAsync(int id);
 }

@@ -4,7 +4,7 @@ namespace Business.Dtos;
 
 public class CustomerDto
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 
     [Required]
     public string CustomerName { get; set; } = null!;

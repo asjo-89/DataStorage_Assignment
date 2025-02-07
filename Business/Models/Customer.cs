@@ -4,8 +4,9 @@ namespace Business.Models;
 
 public class Customer
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public string CustomerName { get; set; } = null!;
     public string PhoneNumber { get; set; } = null!; 
     public string? Email { get; set; }
+    public IEnumerable<Project>? Projects { get; set; }
 }

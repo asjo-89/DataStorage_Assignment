@@ -4,7 +4,7 @@ namespace Business.Dtos;
 
 public class RoleDto
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 
     [Required]
     public string RoleName { get; set; } = null!;

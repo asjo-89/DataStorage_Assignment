@@ -10,7 +10,6 @@ namespace Business.Factories
 
         public static ProjectEntity CreateEntityFromDto(ProjectDto dto) => new()
         {
-            Id = Guid.NewGuid(),
             ProjectTitle = dto.Title,
             Description = dto.Description,
             StartDate = dto.StartDate,
@@ -20,20 +19,6 @@ namespace Business.Factories
             EmployeeId = dto.EmployeeId,
             ServiceId = dto.ServiceId
         };
-
-        public static ProjectDto CreateDtoFromModel(Project model) => new()
-        {
-            Id = model.Id,
-            Title = model.Title,
-            Description = model.Description,
-            StartDate = model.StartDate,
-            EndDate = model.EndDate,
-            Status = model.Status,
-            Customer = model.Customer,
-            Employee = model.Employee,
-            Service = model.Service
-        };
-
 
         public static ProjectEntity CreateEntityFromModel(Project model) => new()
         {

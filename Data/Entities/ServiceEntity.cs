@@ -10,7 +10,8 @@ namespace Data.Entities;
 public class ServiceEntity : IEntity
 {
     [Key]
-    public Guid Id { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
 
     [Required]
     [Column(TypeName = "nvarchar(50)")]
@@ -20,7 +21,7 @@ public class ServiceEntity : IEntity
     public decimal Price { get; set; }
 
     [Required]
-    public Guid UnitId { get; set; }
+    public int UnitId { get; set; }
 
 
 

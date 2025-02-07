@@ -7,7 +7,8 @@ namespace Data.Entities;
 public class CustomerEntity : IEntity
 {
     [Key]
-    public Guid Id { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
 
     [Required]
     [Column(TypeName = "nvarchar(100)")]

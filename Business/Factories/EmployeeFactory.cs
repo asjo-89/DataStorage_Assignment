@@ -10,27 +10,10 @@ namespace Business.Factories
 
         public static EmployeeEntity CreateEntityFromDto(EmployeeDto dto) => new()
         {
-            Id = Guid.NewGuid(),
             FirstName = dto.FirstName,
             LastName = dto.LastName,
             RoleId = dto.RoleId
         };
-        public static Employee CreateModelFromDto(EmployeeDto dto) => new()
-        {
-            Id = Guid.NewGuid(),
-            FirstName = dto.FirstName,
-            LastName = dto.LastName,
-            RoleName = dto.RoleName
-        };
-
-        public static EmployeeDto CreateDtoFromModel(Employee model) => new()
-        {
-            Id = model.Id,
-            FirstName = model.FirstName,
-            LastName = model.LastName,
-            RoleName = model.RoleName
-        };
-
 
         public static EmployeeEntity CreateEntityFromModel(Employee model) => new()
         {

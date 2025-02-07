@@ -9,7 +9,8 @@ namespace Data.Entities;
 public class ProjectEntity : IEntity
 {
     [Key]
-    public Guid Id { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
 
     [Required]
     [Column(TypeName = "nvarchar(50)")]
@@ -23,16 +24,16 @@ public class ProjectEntity : IEntity
     public DateTime? EndDate { get; set; }
 
     [Required]
-    public Guid StatusId { get; set; }
+    public int StatusId { get; set; }
 
     [Required]
-    public Guid CustomerId { get; set; }
+    public int CustomerId { get; set; }
 
     [Required]
-    public Guid EmployeeId { get; set; }
+    public int EmployeeId { get; set; }
 
     [Required]
-    public Guid ServiceId { get; set; }
+    public int ServiceId { get; set; }
 
 
     public CustomerEntity Customer { get; set; } = null!;

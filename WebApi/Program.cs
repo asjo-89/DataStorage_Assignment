@@ -27,7 +27,6 @@ builder.Services.AddScoped<Func<CustomerEntity, Customer>>(p => (entity) => Cust
 builder.Services.AddScoped<Func<Customer, CustomerEntity>>(p => (model) => CustomerFactory.CreateEntityFromModel(model));
 builder.Services.AddScoped<Func<CustomerDto, CustomerEntity>>(p => (dto) => CustomerFactory.CreateEntityFromDto(dto));
 
-
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 

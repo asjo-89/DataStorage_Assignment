@@ -4,7 +4,6 @@ using Business.Interfaces;
 using Business.Models;
 using Data.Entities;
 using Data.Interfaces;
-using Data.Migrations;
 using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -35,17 +34,17 @@ public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> reposit
         return entities.Select(e => _entityToModel(e)).ToList();
     }
 
-    public async Task<TModel> GetByIdAsync(Guid id)
+    public async Task<TModel> GetOneAsync(Expression<Func<TEntity, bool>> expression)
     {
-        var entity = await _repository.GetByIdAsync(id);
+        var entity = await _repository.GetOneAsync(expression);
         return entity != null ? _entityToModel(entity) : null!;
     }
 
-    public async Task<bool> UpdateAsync(Guid id, TModel model)
+    public async Task<bool> UpdateAsync(int id, TModel model)
     {
         try
         {
-            if (id != Guid.Empty && model != null)
+            if (id != 0 && model != null)
             {
                 var entity = _modelToEntity(model);
                 var updatedEntity = await _repository.UpdateAsync(id, entity);
@@ -59,13 +58,13 @@ public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> reposit
         return false;
     }
 
-    public async Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> expression)
+    public async Task<bool> DeleteAsync(int id)
     {
         try
         {
-            if (expression != null)
+            if (id != 0)
             {
-                return await _repository.DeleteAsync(expression);
+                return await _repository.DeleteAsync(id);
             }
         }
         catch (Exception ex)

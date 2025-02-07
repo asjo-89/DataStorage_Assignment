@@ -7,6 +7,5 @@ namespace Business.Interfaces;
 
 public interface ICustomerService : IBaseService<Customer, CustomerEntity, CustomerDto>
 {
-    Task<Customer> GetByCustomerNameAsync(string customerName); 
-    Task<Customer> GetByEmailAsync(string email);
+    Task<Customer> GetCustomerWithDetailsAsync(string field, string value);
 }
