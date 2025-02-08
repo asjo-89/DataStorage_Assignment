@@ -24,7 +24,7 @@ public class ProjectEntity : IEntity
     public DateTime? EndDate { get; set; }
 
     [Required]
-    public int StatusId { get; set; }
+    public int StatusInformationId { get; set; }
 
     [Required]
     public int CustomerId { get; set; }

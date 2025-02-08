@@ -8,13 +8,13 @@ public interface IBaseRepository<TEntity> where TEntity : class, IEntity
     Task<TEntity> CreateAsync(TEntity entity);
 
     //Read
-    Task<ICollection<TEntity>> GetAllAsync();
-    Task<TEntity> GetOneAsync(Expression<Func<TEntity, bool>> expression);
-    Task<TEntity> GetByPropertyAsync(Expression<Func<TEntity, bool>> expression);
+    Task<IEnumerable<TEntity>> GetAllAsync();
+    Task<TEntity?> GetOneAsync(Expression<Func<TEntity, bool>> expression);
+    //Task<TEntity> GetByPropertyAsync(Expression<Func<TEntity, bool>> expression);
     Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression);
 
     //Update
-    Task<bool> UpdateAsync(int id, TEntity entity);
+    Task<TEntity?> UpdateAsync(TEntity entity);
 
     //Delete
     Task<bool> DeleteAsync(int id);

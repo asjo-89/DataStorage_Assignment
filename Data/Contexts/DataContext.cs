@@ -31,7 +31,7 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
         {
             entity.Property(e => e.Id)
                   .ValueGeneratedOnAdd()
-                  .HasAnnotation("SqlServer:Identity", "1, 1");
+                  .HasAnnotation("SqlServer:Identity", "101, 1");
         });
         modelBuilder.Entity<RoleEntity>(entity =>
         {

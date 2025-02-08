@@ -17,18 +17,17 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
         try
         {
             await _context.Set<TEntity>().AddAsync(entity);
-
             await _context.SaveChangesAsync();
             return entity;
         }
         catch(Exception ex)
         {
-            Debug.WriteLine($"Error creating customer {ex.Message}");
+            Debug.WriteLine($"Error creating customer : {ex.Message}");
             return null!;
         }
     }  
 
-    public async Task<ICollection<TEntity>> GetAllAsync()
+    public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
         try
         {
@@ -36,46 +35,45 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
         }
         catch(Exception ex)
         {
-            Debug.WriteLine($"Error getting list from database {ex.Message}");
+            Debug.WriteLine($"Error getting list from database : {ex.Message}");
             return [];
         }
     }
 
-    public async Task<TEntity> GetOneAsync(Expression<Func<TEntity, bool>> expression)
+    public async Task<TEntity?> GetOneAsync(Expression<Func<TEntity, bool>> expression)
     {
         try
         {
             var entity = await _context.Set<TEntity>()
                 .FirstOrDefaultAsync(expression);
-
             if (entity == null) return null!;
 
             return entity;
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Error finding entity in database {ex.Message}");
+            Debug.WriteLine($"Error finding entity in database : {ex.Message}");
             return null!;
         }
     }
 
-    public async Task<TEntity> GetByPropertyAsync(Expression<Func<TEntity, bool>> expression)
-    {
-        try
-        {
-            var entity = await _context.Set<TEntity>()
-                .FirstOrDefaultAsync(expression);
+    //public async Task<TEntity> GetByPropertyAsync(Expression<Func<TEntity, bool>> expression)
+    //{
+    //    try
+    //    {
+    //        var entity = await _context.Set<TEntity>()
+    //            .FirstOrDefaultAsync(expression);
 
-            if (entity == null) return null!;
+    //        if (entity == null) return null!;
 
-            return entity;
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine($"Error finding entity in database {ex.Message}");
-            return null!;
-        }
-    }
+    //        return entity;
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        Debug.WriteLine($"Error finding entity in database {ex.Message}");
+    //        return null!;
+    //    }
+    //}
 
     public async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression)
     {
@@ -86,31 +84,31 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
         }
         catch(Exception ex)
         {
-            Debug.WriteLine($"Error checking if entity exists {ex.Message}");
+            Debug.WriteLine($"Error checking if entity exists : {ex.Message}");
             return false;
         }
     }
 
-    public async Task<bool> UpdateAsync(int id, TEntity updatedEntity)
+    public async Task<TEntity?> UpdateAsync(TEntity updatedEntity)
     {
         try
         {
-            if (id == 0) return false;
+            if (updatedEntity == null) return null!;
 
-            var entityToUpdate = await _context.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id);
-            if (entityToUpdate != null && updatedEntity != null)
+            var entityToUpdate = await _context.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == updatedEntity.Id);
+            if (entityToUpdate != null)
             {
                 _context.Entry(entityToUpdate)
                .CurrentValues.SetValues(updatedEntity);
                 await _context.SaveChangesAsync();
-                return true;
+                return updatedEntity ?? null!;
             }
         }
         catch (Exception ex)
         {
             Debug.WriteLine($"Error updating entity { ex.Message }");
+            return null!;
         }
-        return false;
     }
 
     public async Task<bool> DeleteAsync(int id)
@@ -119,7 +117,6 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
         {
             var entity = await _context.Set<TEntity>()
                 .FirstOrDefaultAsync(e => e.Id == id);
-
             if (entity == null) return false;
 
             _context.Set<TEntity>().Remove(entity);
