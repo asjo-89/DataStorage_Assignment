@@ -5,6 +5,7 @@ namespace Data.Interfaces;
 
 public interface IEmployeeRepository : IBaseRepository<EmployeeEntity>
 {
-    Task<ICollection<EmployeeEntity>> GetEmployeesWithDetailsAsync();
     Task<EmployeeEntity> GetEmployeeWithDetailsAsync(Expression<Func<EmployeeEntity, bool>> expression);
+    Task<ICollection<EmployeeEntity>> GetEmployeesWithDetailsAsync();
+    Task<ICollection<EmployeeEntity>> GetEmployeesWithDetailsAsync(Expression<Func<EmployeeEntity, bool>> expression);
 }

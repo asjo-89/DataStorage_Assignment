@@ -15,12 +15,30 @@ namespace Business.Factories
             RoleId = dto.RoleId
         };
 
+        //public static EmployeeEntity CreateEntityFromModel(Employee model) => new()
+        //{
+        //    Id = model.Id,
+        //    FirstName = model.FirstName,
+        //    LastName = model.LastName,
+        //    RoleId = model.RoleId,
+        //    Role = new RoleEntity()
+        //    {
+        //        Id = model.RoleId,
+        //        RoleName = model.Role?.RoleName ?? string.Empty
+        //    }
+        //};
+
         public static EmployeeEntity CreateEntityFromModel(Employee model) => new()
         {
             Id = model.Id,
             FirstName = model.FirstName,
             LastName = model.LastName,
-            RoleId = model.RoleId
+            RoleId = model.RoleId,
+            Role = new RoleEntity
+        {
+            Id = model.RoleId, // Sätt RoleId här för att koppla den till rätt roll i databasen
+            RoleName = model.Role?.RoleName ?? string.Empty
+        }
         };
 
         public static Employee CreateModelFromEntity(EmployeeEntity entity) => new()

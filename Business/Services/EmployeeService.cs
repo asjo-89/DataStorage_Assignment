@@ -24,16 +24,7 @@ public class EmployeeService
         _employeeRepository = employeeRepository;
     }
 
-    public async Task<Employee> GetEmployeeWithDetailsAsync(string field, string value)
-    {
-        var expression = CreateExpressionAsync(field, value);
-        var entity = await _repository.GetOneAsync(expression);
-        if (entity == null!) return null!;
-
-        var employee = EmployeeFactory.CreateModelFromEntity(entity);
-
-        return employee;
-    }
+    
 
     public override async Task<Employee> CreateAsync(EmployeeDto dto)
     {
@@ -56,5 +47,33 @@ public class EmployeeService
         ICollection<EmployeeEntity> entities = await _employeeRepository.GetEmployeesWithDetailsAsync();
         
         return entities.Select(e => EmployeeFactory.CreateModelFromEntity(e)).ToList();
+    }
+
+    public async Task<ICollection<Employee>> GetEmployeesWithDetailsAsync(string field, string value)
+    {
+        var expression = CreateExpressionAsync(field, value);
+        ICollection<EmployeeEntity> entities = await _employeeRepository.GetEmployeesWithDetailsAsync(expression);
+
+        var employees = entities.Select(EmployeeFactory.CreateModelFromEntity).ToList();
+        return employees ?? [];
+    }
+
+    public async Task<Employee> UpdateEmployeeAsync(int id, Employee model)
+    {
+        try
+        {
+            if (model != null)
+            {
+                EmployeeEntity? entity = EmployeeFactory.CreateEntityFromModel(model);
+                EmployeeEntity? updatedEntity = await _repository.UpdateAsync(id, entity);
+                updatedEntity = await _employeeRepository.GetEmployeeWithDetailsAsync(e => e.Id == entity.Id);
+                return EmployeeFactory.CreateModelFromEntity(updatedEntity!) ?? null!;
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Failed to update :: {ex.Message}");
+        }
+        return null!;
     }
 }

@@ -35,19 +35,20 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("search")]
-        public async Task<IActionResult> GetEmployeeAsync([FromQuery] string field, [FromQuery] string value)
+        public async Task<IActionResult> GetEmployeesAsync([FromQuery] string field, [FromQuery] string value)
         {
-            Employee employee = await _employeeService.GetEmployeeWithDetailsAsync(field, value);
-            if (employee == null) return NotFound("No employee was found.");
+            ICollection<Employee> employees = await _employeeService.GetEmployeesWithDetailsAsync(field, value);
+            if (employees.Count == 0) return NotFound("No employee was found.");
 
-            return Ok(EmployeeFactory.CreateDtoFromModel(employee));
+            return Ok(employees);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAsync(int id, Employee employee)
         {
-            bool update = await _employeeService.UpdateAsync(id, employee);
-            if (update) return Ok(employee);
+            if (id != employee.Id) return BadRequest("Invalid id in request. Id can't be changed.");
+            Employee updatedEmployee = await _employeeService.UpdateEmployeeAsync(id, employee);
+            if (updatedEmployee != null) return Ok(updatedEmployee);
 
             return NotFound("Update failed. Employee was not found.");
         }
@@ -58,7 +59,7 @@ namespace WebApi.Controllers
             bool deleted = await _employeeService.DeleteAsync(id);
             if (deleted == false) return NotFound("No employee found. Failed to delete employee.");
 
-            return Ok(deleted);
+            return Ok("The employee was successfully deleted.");
         }
     }
 }

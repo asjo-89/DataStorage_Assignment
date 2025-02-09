@@ -23,4 +23,13 @@ public class EmployeeRepository(DataContext context) : BaseRepository<EmployeeEn
             .Include(e => e.Projects)
             .ToListAsync();
     }
+
+    public async Task<ICollection<EmployeeEntity>> GetEmployeesWithDetailsAsync(Expression<Func<EmployeeEntity, bool>> expression)
+    {
+        return await _context.Employees
+            .Where(expression)
+            .Include(e => e.Role)
+            .Include(e => e.Projects)
+            .ToListAsync();
+    }
 }

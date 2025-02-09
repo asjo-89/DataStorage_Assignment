@@ -80,7 +80,7 @@ public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> reposit
         return entity != null ? _modelFromEntity(entity) : null!;
     }
 
-    public async Task<bool> UpdateAsync(int id, TModel model)
+    public virtual async Task<bool> UpdateAsync(int id, TModel model)
     {
         try
         {
