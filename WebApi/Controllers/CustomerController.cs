@@ -1,4 +1,5 @@
 ﻿using Business.Dtos;
+using Business.Factories;
 using Business.Interfaces;
 using Business.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -20,20 +21,11 @@ namespace WebApi.Controllers
         {
             if (dto == null) return BadRequest("No data available to create customer.");
 
-            var customerName = await _customerService.AlreadyExistsAsync(_customerService.CreateExpressionAsync("CustomerName", dto.CustomerName));
-            if (customerName) return BadRequest("A customer with the same name already exists");
-
-            var phoneNumber = await _customerService.AlreadyExistsAsync(_customerService.CreateExpressionAsync("PhoneNumber", dto.PhoneNumber));
-            if (phoneNumber) return BadRequest("The phone number is already assigned to another customer.");
-            
-            var email = await _customerService.AlreadyExistsAsync(_customerService.CreateExpressionAsync("Email", dto.Email));
-            if (email) return BadRequest("The email is already assigned to another customer.");
-
             Customer newCustomer = await _customerService.CreateAsync(dto);
 
             if (newCustomer == null) return BadRequest("Failed to create customer.");
 
-            return Ok(newCustomer);
+            return Ok(CustomerFactory.CreateDtoFromModel(newCustomer));
         }
 
         [HttpGet]
@@ -52,11 +44,11 @@ namespace WebApi.Controllers
             Customer customer = await _customerService.GetCustomerWithDetailsAsync(field, value);
             if (customer == null) return NotFound("No customer was found.");
 
-            return Ok(customer);
+            return Ok(CustomerFactory.CreateDtoFromModel(customer));
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync(int id, Customer customer)
+        public async Task<IActionResult> UpdateAsync(int id, [FromBody]Customer customer)
         {
             bool update = await _customerService.UpdateAsync(id, customer);
             if (update) return Ok(customer);

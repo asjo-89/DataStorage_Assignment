@@ -14,7 +14,7 @@ namespace Business.Factories
             Description = dto.Description,
             StartDate = dto.StartDate,
             EndDate = dto.EndDate,
-            StatusId = dto.StatusId,
+            StatusInformationId = dto.StatusInformationId,
             CustomerId = dto.CustomerId,
             EmployeeId = dto.EmployeeId,
             ServiceId = dto.ServiceId
@@ -27,7 +27,7 @@ namespace Business.Factories
             Description = model.Description,
             StartDate = model.StartDate,
             EndDate = model.EndDate,
-            StatusId = model.StatusInformationId,
+            StatusInformationId = model.StatusInformationId,
             CustomerId = model.CustomerId,
             EmployeeId = model.EmployeeId,
             ServiceId = model.ServiceId
@@ -40,10 +40,23 @@ namespace Business.Factories
             Description = entity.Description!,
             StartDate = entity.StartDate,
             EndDate = entity.EndDate,
-            Status = entity.StatusInformation.StatusName,
-            Customer = entity.Customer.CustomerName,
-            Employee = $"{entity.Employee.FirstName} {entity.Employee.LastName}",
-            Service = entity.Service.ServiceName
+            StatusInformationId = entity.StatusInformationId,
+            CustomerId = entity.CustomerId,
+            EmployeeId = entity.EmployeeId,
+            ServiceId = entity.ServiceId
+        };
+
+        public static ProjectDto CreateDtoFromModel(Project model) => new()
+        {
+            Id = model.Id,
+            Title = model.Title,
+            Description = model.Description,
+            StartDate = model.StartDate,
+            EndDate = model.EndDate,
+            StatusInformation = $"{model.StatusInformation.StatusName}",
+            Customer = $"{model.Customer.CustomerName}",
+            Employee = $"{model.Employee.FirstName} {model.Employee.LastName}",
+            Service = $"{model.Service.ServiceName} {model.Service.Price} {model.Service.Unit}"
         };
     }
 }

@@ -4,18 +4,57 @@ using Business.Interfaces;
 using Business.Models;
 using Data.Entities;
 using Data.Interfaces;
+using Data.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace Business.Services;
 
-public class EmployeeService(IBaseRepository<EmployeeEntity> repository) 
-    : BaseService<Employee, EmployeeEntity, EmployeeDto>(repository, EmployeeFactory.CreateModelFromEntity, EmployeeFactory.CreateEntityFromModel, EmployeeFactory.CreateEntityFromDto), IEmployeeService
-{   
+public class EmployeeService
+    : BaseService<Employee, EmployeeEntity, EmployeeDto>, IEmployeeService
+{
+    private readonly IEmployeeRepository _employeeRepository;
+
+    public EmployeeService(IEmployeeRepository employeeRepository) 
+        : base(employeeRepository, 
+            EmployeeFactory.CreateModelFromEntity, 
+            EmployeeFactory.CreateEntityFromModel, 
+            EmployeeFactory.CreateEntityFromDto)
+    {
+        _employeeRepository = employeeRepository;
+    }
+
     public async Task<Employee> GetEmployeeWithDetailsAsync(string field, string value)
     {
         var expression = CreateExpressionAsync(field, value);
         var entity = await _repository.GetOneAsync(expression);
-        var customer = EmployeeFactory.CreateModelFromEntity(entity);
+        if (entity == null!) return null!;
 
-        return customer;
+        var employee = EmployeeFactory.CreateModelFromEntity(entity);
+
+        return employee;
+    }
+
+    public override async Task<Employee> CreateAsync(EmployeeDto dto)
+    {
+        if (await _repository.ExistsAsync(e => e.FirstName == dto.FirstName && e.LastName == dto.LastName))
+        {
+            Debug.WriteLine("An employee with the same name already exists.");
+            return null!;
+        }
+        
+        EmployeeEntity entity = await _repository.CreateAsync(EmployeeFactory.CreateEntityFromDto(dto));
+        if (entity == null) return null!;
+
+        EmployeeEntity newEntity = await _employeeRepository.GetEmployeeWithDetailsAsync(e => e.Id == entity.Id);
+
+        Employee employee = EmployeeFactory.CreateModelFromEntity(entity);
+        return employee ?? null!;
+    }
+    public override async Task<ICollection<Employee>> GetAllAsync()
+    {
+        ICollection<EmployeeEntity> entities = await _employeeRepository.GetEmployeesWithDetailsAsync();
+        
+        return entities.Select(e => EmployeeFactory.CreateModelFromEntity(e)).ToList();
     }
 }

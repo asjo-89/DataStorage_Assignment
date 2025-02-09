@@ -5,8 +5,9 @@ using System.Diagnostics;
 using System.Linq.Expressions;
 
 namespace Data.Repositories;
-
 public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEntity> where TEntity : class, IEntity
+
+    //public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEntity> where TEntity : class, IEntity
 {
     protected readonly DataContext _context = context;
     protected readonly DbSet<TEntity> _entities = context.Set<TEntity>();
@@ -89,20 +90,21 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
         }
     }
 
-    public async Task<TEntity?> UpdateAsync(TEntity updatedEntity)
+    public async Task<TEntity?> UpdateAsync(int id, TEntity updatedEntity)
     {
         try
         {
             if (updatedEntity == null) return null!;
 
-            var entityToUpdate = await _context.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == updatedEntity.Id);
+            var entityToUpdate = await _context.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id);
             if (entityToUpdate != null)
             {
                 _context.Entry(entityToUpdate)
-               .CurrentValues.SetValues(updatedEntity);
+                    .CurrentValues.SetValues(updatedEntity);
                 await _context.SaveChangesAsync();
                 return updatedEntity ?? null!;
             }
+            return null!;
         }
         catch (Exception ex)
         {

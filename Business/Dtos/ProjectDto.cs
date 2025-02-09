@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Business.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Business.Dtos;
 
@@ -11,22 +12,27 @@ public class ProjectDto
 
     [Required]
     public string Description { get; set; } = null!;
+
     public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
 
-    [Required]
-    public string Status { get; set; } = null!;
-    public int StatusId { get; set; }
 
     [Required]
-    public string Customer { get; set; } = null!;
+    public int StatusInformationId { get; set; }
+    public string StatusInformation { get; set; } = null!;
+
+
+    [Required]
     public int CustomerId { get; set; }
+    public string Customer { get; set; } = null!;
+
 
     [Required]
-    public string Employee { get; set; } = null!;
     public int EmployeeId { get; set; }
+    public string Employee { get; set; } = null!;
+
 
     [Required]
-    public string Service { get; set; } = null!;
     public int ServiceId { get; set; }
+    public string Service { get; set; } = null!;
 }

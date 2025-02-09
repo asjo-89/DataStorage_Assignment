@@ -23,4 +23,10 @@ public static class RoleFactory
         Id = model.Id,
         RoleName = model.RoleName
     };
+
+    public static RoleDto CreateDtoFromModel(Role model) => new()
+    {
+        Id = model.Id,
+        RoleName = model.RoleName
+    };
 }

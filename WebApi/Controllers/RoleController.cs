@@ -1,4 +1,5 @@
 ﻿using Business.Dtos;
+using Business.Factories;
 using Business.Interfaces;
 using Business.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -17,13 +18,9 @@ public class RoleController(IRoleService roleService) : ControllerBase
     {
         if (dto == null || string.IsNullOrWhiteSpace(dto.RoleName)) return BadRequest("No data available to create new role.");
 
-        var expression = _roleService.CreateExpressionAsync("Id", dto.RoleName);
-        bool exists = await _roleService.AlreadyExistsAsync(expression);
-        if (exists) return BadRequest("A role with that name already exists.");
+        Role newRole = await _roleService.CreateAsync(dto);
+        if (newRole == null) return BadRequest("Failed to create role.");
 
-        Role role = await _roleService.CreateAsync(dto);
-        if (role == null) return BadRequest("Failed to create role.");
-
-        return Ok(role);
+        return Ok(RoleFactory.CreateDtoFromModel(newRole));
     }
 }

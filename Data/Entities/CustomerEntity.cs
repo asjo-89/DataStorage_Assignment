@@ -19,7 +19,7 @@ public class CustomerEntity : IEntity
     public string PhoneNumber { get; set; } = null!;
 
     [EmailAddress]
-    public string Email { get; set; } = null!;  
+    public string? Email { get; set; }  
 
 
     public ICollection<ProjectEntity>? Projects { get; set; } = [];

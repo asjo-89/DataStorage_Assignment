@@ -2,7 +2,18 @@
 
 namespace Business.Interfaces;
 
-public interface IBaseService<TModel, TEntity, TDto> 
+
+//public interface IBaseService<TModel> where TModel : class
+//{
+//    Task<TModel> CreateAsync(TModel model);
+//    Task<IEnumerable<TModel>> GetAllAsync();
+//    Task<bool> ExistsAsync(Expression<Func<TModel, bool>> expression);
+//    Task<TModel?> GetAsync(int id);
+//    Task<TModel> UpdateAsync(TModel model);
+//    Task<bool> DeleteAsync(int id);
+//}
+
+public interface IBaseService<TModel, TEntity, TDto>
     where TModel : class where TEntity : class where TDto : class
 {
     Task<TModel> CreateAsync(TDto dto);

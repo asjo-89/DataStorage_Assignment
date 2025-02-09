@@ -1,4 +1,5 @@
 ﻿using Business.Dtos;
+using Business.Factories;
 using Business.Interfaces;
 using Business.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -16,17 +17,11 @@ namespace WebApi.Controllers
         public async Task<IActionResult> CreateAsync(EmployeeDto dto)
         {
             if (dto == null) return BadRequest("No data available to create employee.");
-
-            var firstName = await _employeeService.AlreadyExistsAsync(_employeeService.CreateExpressionAsync("FirstName", dto.FirstName));
-            if (firstName) return BadRequest("An employee with the same first name already exists.");
-
-            var lastName = await _employeeService.AlreadyExistsAsync(_employeeService.CreateExpressionAsync("LastName", dto.LastName));
-            if (lastName) return BadRequest("An employee with the same last name already exists.");
-
+                       
             Employee newEmployee = await _employeeService.CreateAsync(dto);
 
             if(newEmployee == null) return BadRequest("Failed to create employee.");
-            return Ok(newEmployee);
+            return Ok(EmployeeFactory.CreateDtoFromModel(newEmployee));
         }
 
         [HttpGet]
@@ -34,7 +29,7 @@ namespace WebApi.Controllers
         {
             var employees = await _employeeService.GetAllAsync();
 
-            if (employees == null || employees.Count <= 0) return NotFound("No customers found.");
+            if (employees == null || employees.Count <= 0) return NotFound("No employees found.");
 
             return Ok(employees);
         }
@@ -45,7 +40,7 @@ namespace WebApi.Controllers
             Employee employee = await _employeeService.GetEmployeeWithDetailsAsync(field, value);
             if (employee == null) return NotFound("No employee was found.");
 
-            return Ok(employee);
+            return Ok(EmployeeFactory.CreateDtoFromModel(employee));
         }
 
         [HttpPut("{id}")]

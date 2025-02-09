@@ -2,26 +2,26 @@
 
 public static class BaseFactory
 {
-    public static TModel CreateModelFromEntity<TModel, TEntity, TDto>(TEntity entity, Func<TEntity, TModel> entityToModelFactory)
+    public static TModel CreateModelFromEntity<TModel, TEntity, TDto>(TEntity entity, Func<TEntity, TModel> modelFromEntity)
         where TModel : class where TEntity : class
     {
         if (entity == null) return null!;
 
-        return entityToModelFactory(entity);
+        return modelFromEntity(entity);
     }
 
-    public static TEntity CreateEntityFromModel<TEntity, TModel>(TModel model, Func<TModel, TEntity> modelToEntityFactory)
+    public static TEntity CreateEntityFromModel<TEntity, TModel>(TModel model, Func<TModel, TEntity> entityFromModel)
         where TModel : class where TEntity : class
     {
         if (model == null) return null!;
 
-        return modelToEntityFactory(model);
+        return entityFromModel(model);
     }
-    public static TEntity CreateEntityFromDto<TEntity, TDto>(TDto dto, Func<TDto, TEntity> dtoToEntityFactory)
+    public static TEntity CreateEntityFromDto<TEntity, TDto>(TDto dto, Func<TDto, TEntity> entityFromDto)
        where TDto : class where TEntity : class
     {
         if (dto == null) return null!;
 
-        return dtoToEntityFactory(dto);
+        return entityFromDto(dto);
     }
 }

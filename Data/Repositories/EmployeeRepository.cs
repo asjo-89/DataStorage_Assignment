@@ -15,4 +15,12 @@ public class EmployeeRepository(DataContext context) : BaseRepository<EmployeeEn
             .Include(e => e.Projects)
             .FirstOrDefaultAsync(expression) ?? null!;
     }
+
+    public async Task<ICollection<EmployeeEntity>> GetEmployeesWithDetailsAsync()
+    {
+        return await _context.Employees
+            .Include(e => e.Role)
+            .Include(e => e.Projects)
+            .ToListAsync();
+    }
 }

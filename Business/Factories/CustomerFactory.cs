@@ -1,6 +1,7 @@
 ﻿using Business.Dtos;
 using Business.Models;
 using Data.Entities;
+using Data.Interfaces;
 
 namespace Business.Factories
 {
@@ -13,7 +14,7 @@ namespace Business.Factories
         {
             CustomerName = dto.CustomerName,
             PhoneNumber = dto.PhoneNumber,
-            Email = dto.Email!
+            Email = dto.Email
         };
 
         public static CustomerEntity CreateEntityFromModel(Customer model) => new()
@@ -21,7 +22,7 @@ namespace Business.Factories
             Id = model.Id,
             CustomerName = model.CustomerName,
             PhoneNumber = model.PhoneNumber,
-            Email = model.Email!
+            Email = model.Email
         };
 
         public static Customer CreateModelFromEntity(CustomerEntity entity) => new()
@@ -36,7 +37,32 @@ namespace Business.Factories
                 Title = p.ProjectTitle,
                 StartDate = p.StartDate,
                 EndDate = p.EndDate,
-                Employee = $"{p.Employee.FirstName} {p.Employee.LastName}"
+                EmployeeId = p.EmployeeId,
+                Employee = new Employee()
+                {
+                    Id = p.EmployeeId,
+                    FirstName = p.Employee.FirstName,
+                    LastName = p.Employee.LastName
+                },
+                StatusInformationId = p.StatusInformationId
+            }).ToList()
+        };
+
+        public static CustomerDto CreateDtoFromModel(Customer model) => new()
+        {
+            Id = model.Id,
+            CustomerName = model.CustomerName,
+            PhoneNumber = model.PhoneNumber,
+            Email = model.Email,
+            Projects = model.Projects?.Select(p => new ProjectDto
+            {
+                Id = p.Id,
+                Title = p.Title,
+                StartDate = p.StartDate,
+                EndDate = p.EndDate,
+                EmployeeId = p.EmployeeId,
+                Employee = $"{p.Employee.FirstName} {p.Employee.LastName}",
+                StatusInformation = $"{p.StatusInformation.StatusName}"
             }).ToList()
         };
     }

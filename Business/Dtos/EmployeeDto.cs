@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Business.Services;
+using System.ComponentModel.DataAnnotations;
 
 namespace Business.Dtos;
 
@@ -11,8 +12,10 @@ public class EmployeeDto
 
     [Required]
     public string LastName { get; set; } = null!;
-    public int RoleId { get; set; }
 
     [Required]
-    public string RoleName { get; set; } = null!;
+    public int RoleId { get; set; }
+    public string? RoleName { get; set; }
+
+    public IEnumerable<ProjectDto>? Projects { get; set; }
 }

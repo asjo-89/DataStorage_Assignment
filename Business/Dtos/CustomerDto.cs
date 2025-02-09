@@ -12,5 +12,8 @@ public class CustomerDto
     [Required]
     public string PhoneNumber { get; set; } = null!;
 
+    [EmailAddress]
     public string? Email { get; set; }
+
+    public IEnumerable<ProjectDto>? Projects { get; set; }
 }

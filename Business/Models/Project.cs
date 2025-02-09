@@ -16,18 +16,18 @@ public class Project
     public DateTime? EndDate { get; set; }
 
     [Required]
-    public string Status { get; set; } = null!;
     public int StatusInformationId { get; set; }
+    public StatusInformation StatusInformation { get; set; } = null!;
 
     [Required]
-    public string Customer { get; set; } = null!;
     public int CustomerId { get; set; }
+    public Customer Customer { get; set; } = null!;
 
     [Required]
-    public string Employee { get; set; } = null!;   
     public int EmployeeId { get; set; }
+    public Employee Employee { get; set; } = null!;   
 
     [Required]
-    public string Service { get; set; } = null!;
     public int ServiceId { get; set; }
+    public Service Service { get; set; } = null!;
 }

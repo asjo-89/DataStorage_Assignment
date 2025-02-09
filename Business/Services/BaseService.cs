@@ -4,51 +4,91 @@ using Business.Interfaces;
 using Business.Models;
 using Data.Entities;
 using Data.Interfaces;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Reflection;
 
 namespace Business.Services;
 
-public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> repository, Func<TEntity, TModel> entityToModel, Func<TModel, TEntity> modelToEntity, Func<TDto, TEntity> dtoToEntity) 
+//public class BaseService<TModel, TEntity>(IBaseRepository<TEntity> repository, BaseFactory<TModel,TEntity> factory) : IBaseService<TModel> 
+//    where TModel : class where TEntity : class
+//{
+//    protected readonly IBaseRepository<TEntity> _repository = repository;
+//    protected readonly BaseFactory<TModel, TEntity> _factory = factory;
+
+
+//    public Task<TModel> CreateAsync(TModel model)
+//    {
+//        var entity = _factory.CreateEntityFromModel(model);
+//    }
+
+//    public Task<bool> DeleteAsync(int id)
+//    {
+//        throw new NotImplementedException();
+//    }
+
+//    public Task<bool> ExistsAsync(Expression<Func<TModel, bool>> expression)
+//    {
+//        throw new NotImplementedException();
+//    }
+
+//    public Task<IEnumerable<TModel>> GetAllAsync()
+//    {
+//        throw new NotImplementedException();
+//    }
+
+//    public Task<TModel?> GetAsync(int id)
+//    {
+//        throw new NotImplementedException();
+//    }
+
+//    public Task<TModel> UpdateAsync(TModel model)
+//    {
+//        throw new NotImplementedException();
+//    }
+//}
+
+
+public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> repository, Func<TEntity, TModel> modelFromEntity, Func<TModel, TEntity> entityFromModel, Func<TDto, TEntity> entityFromDto)
     : IBaseService<TModel, TEntity, TDto> where TModel : class where TEntity : class, IEntity where TDto : class
 {
     protected readonly IBaseRepository<TEntity> _repository = repository;
-    protected readonly Func<TEntity, TModel> _entityToModel = entityToModel;
-    protected readonly Func<TModel, TEntity> _modelToEntity = modelToEntity;
-    protected readonly Func<TDto, TEntity> _dtoToEntity = dtoToEntity;
+    protected readonly Func<TEntity, TModel> _modelFromEntity = modelFromEntity;
+    protected readonly Func<TModel, TEntity> _entityFromModel = entityFromModel;
+    protected readonly Func<TDto, TEntity> _entityFromDto = entityFromDto;
 
 
-    public async Task<TModel> CreateAsync(TDto dto)
+    public virtual async Task<TModel> CreateAsync(TDto dto)
     {
         if (dto == null) return null!;
 
-        var entity = _dtoToEntity(dto);
+        var entity = _entityFromDto(dto);
         var createdEntity = await _repository.CreateAsync(entity);
-        return createdEntity != null ? _entityToModel(createdEntity) : null!;
+        return createdEntity != null ? _modelFromEntity(createdEntity) : null!;
     }
 
-    public async Task<ICollection<TModel>> GetAllAsync()
+    public virtual async Task<ICollection<TModel>> GetAllAsync()
     {
         var entities = await _repository.GetAllAsync();
-        return entities.Select(e => _entityToModel(e)).ToList();
+        return entities.Select(e => _modelFromEntity(e)).ToList();
     }
 
     public async Task<TModel> GetOneAsync(Expression<Func<TEntity, bool>> expression)
     {
         var entity = await _repository.GetOneAsync(expression);
-        return entity != null ? _entityToModel(entity) : null!;
+        return entity != null ? _modelFromEntity(entity) : null!;
     }
 
     public async Task<bool> UpdateAsync(int id, TModel model)
     {
         try
         {
-            if (id != 0 && model != null)
+            if (model != null)
             {
-                var entity = _modelToEntity(model);
+                var entity = _entityFromModel(model);
                 var updatedEntity = await _repository.UpdateAsync(id, entity);
-                return updatedEntity ? true : false;
+                return updatedEntity != null ? true : false;
             }
         }
         catch (Exception ex)
@@ -76,7 +116,7 @@ public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> reposit
 
     public async Task<bool> AlreadyExistsAsync(Expression<Func<TEntity, bool>> expression)
     {
-        if (expression == null) return true; 
+        if (expression == null) return true;
 
         return await _repository.ExistsAsync(expression);
     }

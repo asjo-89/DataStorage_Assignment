@@ -2,7 +2,9 @@
 
 namespace Data.Interfaces;
 
-public interface IBaseRepository<TEntity> where TEntity : class, IEntity
+public interface IBaseRepository<TEntity> where TEntity : class
+
+    //public interface IBaseRepository<TEntity> where TEntity : class, IEntity
 {
     // Create
     Task<TEntity> CreateAsync(TEntity entity);
@@ -14,7 +16,7 @@ public interface IBaseRepository<TEntity> where TEntity : class, IEntity
     Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression);
 
     //Update
-    Task<TEntity?> UpdateAsync(TEntity entity);
+    Task<TEntity?> UpdateAsync(int id, TEntity entity);
 
     //Delete
     Task<bool> DeleteAsync(int id);

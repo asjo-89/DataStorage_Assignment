@@ -13,5 +13,7 @@ public class ServiceDto
     public decimal Price { get; set; }
 
     [Required]
-    public string Unit {  get; set; } = null!;
+    public int UnitId {  get; set; }
+
+    public UnitDto? Unit { get; set; }
 }
