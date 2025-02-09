@@ -21,10 +21,9 @@ public class ServiceEntity : IEntity
     public decimal Price { get; set; }
 
     [Required]
-    public int UnitId { get; set; }
+    [Column(TypeName = "varchar(10)")]
+    public string Unit { get; set; } = null!;
 
 
-
-    public UnitEntity Unit { get; set; } = null!;
-    public ICollection<ProjectEntity>? Projects { get; set; } = [];
+    public ICollection<ProjectEntity> Projects { get; set; } = [];
 }

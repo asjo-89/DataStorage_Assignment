@@ -17,17 +17,19 @@ public class Project
 
     [Required]
     public int StatusInformationId { get; set; }
-    public StatusInformation StatusInformation { get; set; } = null!;
 
     [Required]
     public int CustomerId { get; set; }
-    public Customer Customer { get; set; } = null!;
 
     [Required]
     public int EmployeeId { get; set; }
-    public Employee Employee { get; set; } = null!;   
 
     [Required]
     public int ServiceId { get; set; }
+
+
+    public Customer Customer { get; set; } = null!;
+    public StatusInformation StatusInformation { get; set; } = null!;
+    public Employee Employee { get; set; } = null!;   
     public Service Service { get; set; } = null!;
 }

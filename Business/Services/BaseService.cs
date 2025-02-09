@@ -71,7 +71,7 @@ public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> reposit
     public virtual async Task<ICollection<TModel>> GetAllAsync()
     {
         var entities = await _repository.GetAllAsync();
-        return entities.Select(e => _modelFromEntity(e)).ToList();
+        return entities.Select(e => _modelFromEntity(e)).ToList() ?? [];
     }
 
     public async Task<TModel> GetOneAsync(Expression<Func<TEntity, bool>> expression)

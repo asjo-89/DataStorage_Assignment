@@ -22,5 +22,5 @@ public class CustomerEntity : IEntity
     public string? Email { get; set; }  
 
 
-    public ICollection<ProjectEntity>? Projects { get; set; } = [];
+    public ICollection<ProjectEntity> Projects { get; set; } = [];
 }

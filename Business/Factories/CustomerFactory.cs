@@ -31,7 +31,7 @@ namespace Business.Factories
             CustomerName = entity.CustomerName,
             PhoneNumber = entity.PhoneNumber,
             Email = entity.Email,
-            Projects = entity.Projects?.Select(p => new Project
+            Projects = entity.Projects.Select(p => new Project
             {
                 Id = p.Id,
                 Title = p.ProjectTitle,
@@ -54,7 +54,7 @@ namespace Business.Factories
             CustomerName = model.CustomerName,
             PhoneNumber = model.PhoneNumber,
             Email = model.Email,
-            Projects = model.Projects?.Select(p => new ProjectDto
+            Projects = model.Projects.Select(p => new ProjectDto
             {
                 Id = p.Id,
                 Title = p.Title,

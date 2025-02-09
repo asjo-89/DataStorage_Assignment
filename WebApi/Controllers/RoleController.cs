@@ -2,6 +2,7 @@
 using Business.Factories;
 using Business.Interfaces;
 using Business.Models;
+using Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
@@ -22,5 +23,22 @@ public class RoleController(IRoleService roleService) : ControllerBase
         if (newRole == null) return BadRequest("Failed to create role.");
 
         return Ok(RoleFactory.CreateDtoFromModel(newRole));
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllAsync()
+    {
+        return Ok(await _roleService.GetAllAsync());
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteAsync(int id)
+    {
+        if (id == 0) return BadRequest("Invalid id. No service was deleted.");
+
+        var deleted = await _roleService.DeleteAsync(id);
+        if (!deleted) return NotFound("No service was found.");
+
+        return Ok("The service was successfully deleted.");
     }
 }

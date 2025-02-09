@@ -23,6 +23,7 @@ builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 
 
 
@@ -41,10 +42,17 @@ builder.Services.AddScoped<Func<RoleEntity, Role>>(p => (entity) => RoleFactory.
 builder.Services.AddScoped<Func<Role, RoleEntity>>(p => (model) => RoleFactory.CreateEntityFromModel(model));
 builder.Services.AddScoped<Func<RoleDto, RoleEntity>>(p => (dto) => RoleFactory.CreateEntityFromDto(dto));
 
+builder.Services.AddScoped(typeof(IBaseService<Service, ServiceEntity, ServiceDto>), typeof(BaseService<Service, ServiceEntity, ServiceDto>));
+builder.Services.AddScoped<Func<ServiceEntity, Service>>(p => (entity) => ServiceFactory.CreateModelFromEntity(entity));
+builder.Services.AddScoped<Func<Service, ServiceEntity>>(p => (model) => ServiceFactory.CreateEntityFromModel(model));
+builder.Services.AddScoped<Func<ServiceDto, ServiceEntity>>(p => (dto) => ServiceFactory.CreateEntityFromDto(dto));
+
+
 
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IServicesService, ServicesService>();
 
 
 

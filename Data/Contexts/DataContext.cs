@@ -6,7 +6,6 @@ namespace Data.Contexts;
 public class DataContext(DbContextOptions<DataContext> options) : DbContext(options)
 {
     public DbSet<RoleEntity> Roles { get; set; }
-    public DbSet<UnitEntity> Units { get; set; }
     public DbSet<StatusInformationEntity> StatusInformation { get; set; }
     public DbSet<CustomerEntity> Customers { get; set; }
     public DbSet<EmployeeEntity> Employees { get; set; }
@@ -46,12 +45,6 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
                   .HasAnnotation("SqlServer:Identity", "1, 1");
         });
         modelBuilder.Entity<ServiceEntity>(entity =>
-        {
-            entity.Property(e => e.Id)
-                  .ValueGeneratedOnAdd()
-                  .HasAnnotation("SqlServer:Identity", "1, 1");
-        });
-        modelBuilder.Entity<UnitEntity>(entity =>
         {
             entity.Property(e => e.Id)
                   .ValueGeneratedOnAdd()

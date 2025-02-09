@@ -35,10 +35,10 @@ namespace Business.Factories
             LastName = model.LastName,
             RoleId = model.RoleId,
             Role = new RoleEntity
-        {
-            Id = model.RoleId, // Sätt RoleId här för att koppla den till rätt roll i databasen
-            RoleName = model.Role?.RoleName ?? string.Empty
-        }
+            {
+                Id = model.RoleId, 
+                RoleName = model.Role?.RoleName ?? string.Empty
+            }
         };
 
         public static Employee CreateModelFromEntity(EmployeeEntity entity) => new()
@@ -51,7 +51,7 @@ namespace Business.Factories
             {
                 RoleName = entity.Role.RoleName
             },
-            Projects = entity.Projects?.Select(p => new Project
+            Projects = entity.Projects.Select(p => new Project
             {
                 Id = p.Id,
                 Title = p.ProjectTitle,
@@ -69,7 +69,7 @@ namespace Business.Factories
             LastName = model.LastName,
             RoleId = model.RoleId,
             RoleName = model.Role?.RoleName,
-            Projects = model.Projects?.Select(p => new ProjectDto
+            Projects = model.Projects.Select(p => new ProjectDto
             {
                 Id = p.Id,
                 Title = p.Title,

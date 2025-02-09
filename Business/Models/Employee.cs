@@ -12,5 +12,5 @@ public class Employee
     [Required]
     public int RoleId { get; set; }
     public Role? Role { get; set; }
-    public IEnumerable<Project>? Projects { get; set; }
+    public IEnumerable<Project> Projects { get; set; } = [];
 }

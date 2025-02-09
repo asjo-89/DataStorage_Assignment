@@ -11,5 +11,5 @@ public class Service
     [Required]
     public decimal Price { get; set; }
     [Required]
-    public UnitDto Unit { get; set; } = null!;
+    public string Unit { get; set; } = null!;
 }
