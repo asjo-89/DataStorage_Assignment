@@ -23,23 +23,12 @@ namespace WebApi.Controllers
             return Ok(ServiceFactory.CreateDtoFromModel(service));
         }
 
-        //[HttpPost("unit")]
-        //public async Task<IActionResult> CreateUnitAsync(UnitDto dto)
-        //{
-        //    if (dto == null) return BadRequest("No data available to create unit.");
-
-        //    Unit unit = await _unitService.CreateAsync(dto);
-        //    if (unit == null) return BadRequest("Failed to create unit.");
-
-        //    return Ok(UnitFactory.CreateDtoFromModel(unit));
-        //}
-
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
             var services = await _servicesService.GetAllAsync();
             if (services.Count == 0) return NotFound("There are no services in the list.");
-            return Ok(await _servicesService.GetAllAsync());
+            return Ok(services);
         }
 
         [HttpDelete("{id}")]

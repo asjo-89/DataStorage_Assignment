@@ -24,7 +24,8 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
-
+builder.Services.AddScoped<IStatusInformationRepository, StatusInformationRepository>();
+builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 
 
 builder.Services.AddScoped(typeof(IBaseService<Customer, CustomerEntity, CustomerDto>), typeof(BaseService<Customer, CustomerEntity, CustomerDto>));
@@ -47,12 +48,24 @@ builder.Services.AddScoped<Func<ServiceEntity, Service>>(p => (entity) => Servic
 builder.Services.AddScoped<Func<Service, ServiceEntity>>(p => (model) => ServiceFactory.CreateEntityFromModel(model));
 builder.Services.AddScoped<Func<ServiceDto, ServiceEntity>>(p => (dto) => ServiceFactory.CreateEntityFromDto(dto));
 
+builder.Services.AddScoped(typeof(IBaseService<StatusInformation, StatusInformationEntity, StatusInformationDto>), typeof(BaseService<StatusInformation, StatusInformationEntity, StatusInformationDto>));
+builder.Services.AddScoped<Func<StatusInformationEntity, StatusInformation>>(p => (entity) => StatusInformationFactory.CreateModelFromEntity(entity));
+builder.Services.AddScoped<Func<StatusInformation, StatusInformationEntity>>(p => (model) => StatusInformationFactory.CreateEntityFromModel(model));
+builder.Services.AddScoped<Func<StatusInformationDto, StatusInformationEntity>>(p => (dto) => StatusInformationFactory.CreateEntityFromDto(dto));
+
+builder.Services.AddScoped(typeof(IBaseService<Project, ProjectEntity, ProjectDto>), typeof(BaseService<Project, ProjectEntity, ProjectDto>));
+builder.Services.AddScoped<Func<ProjectEntity, Project>>(p => (entity) => ProjectFactory.CreateModelFromEntity(entity));
+builder.Services.AddScoped<Func<Project, ProjectEntity>>(p => (model) => ProjectFactory.CreateEntityFromModel(model));
+builder.Services.AddScoped<Func<ProjectDto, ProjectEntity>>(p => (dto) => ProjectFactory.CreateEntityFromDto(dto));
+
 
 
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IServicesService, ServicesService>();
+builder.Services.AddScoped<IStatusInformationService, StatusInformationService>();
+builder.Services.AddScoped<IProjectService, ProjectService>();
 
 
 

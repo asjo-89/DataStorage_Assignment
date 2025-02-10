@@ -11,46 +11,10 @@ using System.Reflection;
 
 namespace Business.Services;
 
-//public class BaseService<TModel, TEntity>(IBaseRepository<TEntity> repository, BaseFactory<TModel,TEntity> factory) : IBaseService<TModel> 
-//    where TModel : class where TEntity : class
-//{
-//    protected readonly IBaseRepository<TEntity> _repository = repository;
-//    protected readonly BaseFactory<TModel, TEntity> _factory = factory;
 
 
-//    public Task<TModel> CreateAsync(TModel model)
-//    {
-//        var entity = _factory.CreateEntityFromModel(model);
-//    }
-
-//    public Task<bool> DeleteAsync(int id)
-//    {
-//        throw new NotImplementedException();
-//    }
-
-//    public Task<bool> ExistsAsync(Expression<Func<TModel, bool>> expression)
-//    {
-//        throw new NotImplementedException();
-//    }
-
-//    public Task<IEnumerable<TModel>> GetAllAsync()
-//    {
-//        throw new NotImplementedException();
-//    }
-
-//    public Task<TModel?> GetAsync(int id)
-//    {
-//        throw new NotImplementedException();
-//    }
-
-//    public Task<TModel> UpdateAsync(TModel model)
-//    {
-//        throw new NotImplementedException();
-//    }
-//}
-
-
-public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> repository, Func<TEntity, TModel> modelFromEntity, Func<TModel, TEntity> entityFromModel, Func<TDto, TEntity> entityFromDto)
+public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> repository, 
+    Func<TEntity, TModel> modelFromEntity, Func<TModel, TEntity> entityFromModel, Func<TDto, TEntity> entityFromDto)
     : IBaseService<TModel, TEntity, TDto> where TModel : class where TEntity : class, IEntity where TDto : class
 {
     protected readonly IBaseRepository<TEntity> _repository = repository;

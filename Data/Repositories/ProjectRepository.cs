@@ -8,13 +8,23 @@ namespace Data.Repositories;
 
 public class ProjectRepository(DataContext context) : BaseRepository<ProjectEntity>(context), IProjectRepository
 {
-    public async Task<ProjectEntity> GetProjectWithDetailsAsync(Expression<Func<ProjectEntity, bool>> expression)
+    public async Task<ProjectEntity> GetProjectAsync(int id)
     {
         return await _context.Projects
-            .Include(e => e.Customer)
-            .Include(e => e.Employee)
-            .Include(e => e.Service)
-            .Include(e => e.StatusInformation)
-            .FirstOrDefaultAsync(expression) ?? null!;
+            .Include(p => p.Customer)
+            .Include(p => p.Employee)
+            .Include(p => p.Service)
+            .Include(p => p.StatusInformation)
+            .FirstOrDefaultAsync(p => p.Id == id) ?? null!;
+    }
+
+    public async Task<ICollection<ProjectEntity>> GetAllProjectsAsync()
+    {
+        return await _context.Projects
+            .Include(p => p.Customer)
+            .Include(p => p.Employee)
+            .Include(p => p.Service)
+            .Include(p => p.StatusInformation)
+            .ToListAsync() ?? [];
     }
 }

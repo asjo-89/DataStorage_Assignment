@@ -6,8 +6,6 @@ using System.Linq.Expressions;
 
 namespace Data.Repositories;
 public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEntity> where TEntity : class, IEntity
-
-    //public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEntity> where TEntity : class, IEntity
 {
     protected readonly DataContext _context = context;
     protected readonly DbSet<TEntity> _entities = context.Set<TEntity>();
@@ -28,7 +26,7 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
         }
     }  
 
-    public async Task<IEnumerable<TEntity>> GetAllAsync()
+    public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
     {
         try
         {
@@ -57,24 +55,6 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
             return null!;
         }
     }
-
-    //public async Task<TEntity> GetByPropertyAsync(Expression<Func<TEntity, bool>> expression)
-    //{
-    //    try
-    //    {
-    //        var entity = await _context.Set<TEntity>()
-    //            .FirstOrDefaultAsync(expression);
-
-    //        if (entity == null) return null!;
-
-    //        return entity;
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        Debug.WriteLine($"Error finding entity in database {ex.Message}");
-    //        return null!;
-    //    }
-    //}
 
     public async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression)
     {

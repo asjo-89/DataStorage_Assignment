@@ -15,19 +15,6 @@ namespace Business.Factories
             RoleId = dto.RoleId
         };
 
-        //public static EmployeeEntity CreateEntityFromModel(Employee model) => new()
-        //{
-        //    Id = model.Id,
-        //    FirstName = model.FirstName,
-        //    LastName = model.LastName,
-        //    RoleId = model.RoleId,
-        //    Role = new RoleEntity()
-        //    {
-        //        Id = model.RoleId,
-        //        RoleName = model.Role?.RoleName ?? string.Empty
-        //    }
-        //};
-
         public static EmployeeEntity CreateEntityFromModel(Employee model) => new()
         {
             Id = model.Id,
@@ -37,7 +24,7 @@ namespace Business.Factories
             Role = new RoleEntity
             {
                 Id = model.RoleId, 
-                RoleName = model.Role?.RoleName ?? string.Empty
+                RoleName = model.Role.RoleName
             }
         };
 
@@ -49,6 +36,7 @@ namespace Business.Factories
             RoleId = entity.RoleId,
             Role = new Role()
             {
+                Id = entity.RoleId,
                 RoleName = entity.Role.RoleName
             },
             Projects = entity.Projects.Select(p => new Project

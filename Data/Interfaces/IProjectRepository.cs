@@ -5,5 +5,6 @@ namespace Data.Interfaces;
 
 public interface IProjectRepository : IBaseRepository<ProjectEntity>
 {
-    Task<ProjectEntity> GetProjectWithDetailsAsync(Expression<Func<ProjectEntity, bool>> expression);
+    Task<ICollection<ProjectEntity>> GetAllProjectsAsync();
+    Task<ProjectEntity> GetProjectAsync(int id);
 }

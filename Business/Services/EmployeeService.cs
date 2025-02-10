@@ -33,7 +33,12 @@ public class EmployeeService
             Debug.WriteLine("An employee with the same name already exists.");
             return null!;
         }
-        
+
+        //Den failar och klagar på null på role men lägger ändå till i db
+        //Employee employee = await base.CreateAsync(dto);
+        //return employee ?? null!;
+
+
         EmployeeEntity entity = await _repository.CreateAsync(EmployeeFactory.CreateEntityFromDto(dto));
         if (entity == null) return null!;
 
