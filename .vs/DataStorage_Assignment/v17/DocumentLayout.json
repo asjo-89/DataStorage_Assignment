@@ -65,8 +65,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 524,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 6,
@@ -222,7 +226,7 @@
               "RelativeDocumentMoniker": "WebApi\\Controllers\\ProjectController.cs",
               "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Controllers\\ProjectController.cs",
               "RelativeToolTip": "WebApi\\Controllers\\ProjectController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-10T10:09:21.672Z",
               "EditorCaption": ""
