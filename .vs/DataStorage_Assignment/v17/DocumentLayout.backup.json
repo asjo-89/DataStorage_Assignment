@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\repositories\\projectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\repositories\\projectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\webapi\\controllers\\projectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B32671F7-6EE9-4F78-9B60-3EDA46D9B0E4}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\projectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\business\\services\\projectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B81AE25-D60D-4E85-9DC1-595E68469F52}|Business\\Business.csproj|solutionrelative:business\\services\\projectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\repositories\\projectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|solutionrelative:data\\repositories\\projectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6567BEBF-E7BB-4023-BFE0-28D30C8B05F9}|Data\\Data.csproj|c:\\win24\\vs_code\\datalagring\\datastorage_assignment\\datastorage_assignment\\data\\interfaces\\iprojectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -65,8 +65,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 524,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 6,
@@ -77,8 +81,7 @@
               "RelativeToolTip": "Business\\Services\\BaseService.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAywDMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T09:48:52.736Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T09:48:52.736Z"
             },
             {
               "$type": "Document",
@@ -90,8 +93,7 @@
               "RelativeToolTip": "Data\\Interfaces\\IProjectRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T09:47:43.522Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T09:47:43.522Z"
             },
             {
               "$type": "Document",
@@ -103,12 +105,11 @@
               "RelativeToolTip": "Data\\Repositories\\BaseRepository.cs",
               "ViewState": "AgIAAEgAAAAAAAAAAAAuwEkAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T09:40:50.255Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T09:40:50.255Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ProjectRepository.cs",
               "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Data\\Repositories\\ProjectRepository.cs",
               "RelativeDocumentMoniker": "Data\\Repositories\\ProjectRepository.cs",
@@ -122,52 +123,47 @@
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "dbo.Projects [Data]",
+              "Title": "dbo.Projects.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/localhost/AssignmentDb/Asa/SqlTable/dbo.Projects.sql",
-              "ToolTip": "dbo.Projects [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/localhost/AssignmentDb/Asa/SqlTable/dbo.Projects.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-02-10T10:22:10.932Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T10:22:10.932Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "dbo.Services [Data]",
+              "Title": "dbo.Services.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/localhost/AssignmentDb/Asa/SqlTable/dbo.Services.sql",
-              "ToolTip": "dbo.Services [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/localhost/AssignmentDb/Asa/SqlTable/dbo.Services.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-02-10T10:18:05.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T10:18:05.631Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "dbo.StatusInformation [Data]",
+              "Title": "dbo.StatusInformation.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/localhost/AssignmentDb/Asa/SqlTable/dbo.StatusInformation.sql",
-              "ToolTip": "dbo.StatusInformation [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/localhost/AssignmentDb/Asa/SqlTable/dbo.StatusInformation.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-02-10T10:18:32.004Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T10:18:32.004Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "dbo.Employees [Data]",
+              "Title": "dbo.Employees.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/localhost/AssignmentDb/Asa/SqlTable/dbo.Employees.sql",
-              "ToolTip": "dbo.Employees [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/localhost/AssignmentDb/Asa/SqlTable/dbo.Employees.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-02-10T10:17:39.29Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T10:17:39.29Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "dbo.Customers [Data]",
+              "Title": "dbo.Customers.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/localhost/AssignmentDb/Asa/SqlTable/dbo.Customers.sql",
-              "ToolTip": "dbo.Customers [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/localhost/AssignmentDb/Asa/SqlTable/dbo.Customers.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-02-10T10:17:21.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T10:17:21.748Z"
             }
           ]
         },
@@ -185,8 +181,7 @@
               "RelativeToolTip": "WebApi\\Controllers\\EmployeeController.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAIwC4AAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T13:24:13.25Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T13:24:13.25Z"
             },
             {
               "$type": "Document",
@@ -198,8 +193,7 @@
               "RelativeToolTip": "Business\\Dtos\\ProjectDto.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T10:28:00.486Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T10:28:00.486Z"
             },
             {
               "$type": "Document",
@@ -211,25 +205,24 @@
               "RelativeToolTip": "Business\\Factories\\ProjectFactory.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAAAEUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T10:25:54.31Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T10:25:54.31Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ProjectController.cs",
               "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Controllers\\ProjectController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\ProjectController.cs",
               "ToolTip": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\WebApi\\Controllers\\ProjectController.cs",
               "RelativeToolTip": "WebApi\\Controllers\\ProjectController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-10T10:09:21.672Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProjectService.cs",
               "DocumentMoniker": "C:\\WIN24\\VS_Code\\Datalagring\\DataStorage_Assignment\\DataStorage_Assignment\\Business\\Services\\ProjectService.cs",
               "RelativeDocumentMoniker": "Business\\Services\\ProjectService.cs",
@@ -237,8 +230,7 @@
               "RelativeToolTip": "Business\\Services\\ProjectService.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAiwEIAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T09:50:41.084Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T09:50:41.084Z"
             },
             {
               "$type": "Document",
@@ -250,8 +242,7 @@
               "RelativeToolTip": "WebApi\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T10:05:46.068Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T10:05:46.068Z"
             }
           ]
         }
