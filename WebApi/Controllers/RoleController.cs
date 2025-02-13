@@ -31,6 +31,14 @@ public class RoleController(IRoleService roleService) : ControllerBase
         return Ok(await _roleService.GetAllAsync());
     }
 
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetOneAsync(int id)
+    {
+        Role role = await _roleService.GetOneAsync(x => x.Id == id);
+        RoleDto dto = RoleFactory.CreateDtoFromModel(role);
+        return Ok(role);
+    }
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAsync(int id)
     {

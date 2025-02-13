@@ -68,16 +68,29 @@ builder.Services.AddScoped<IStatusInformationService, StatusInformationService>(
 builder.Services.AddScoped<IProjectService, ProjectService>();
 
 
+var AllowedConnections = "_allowedConnections";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: AllowedConnections,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5174")
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(AllowedConnections);
 
 app.UseAuthorization();
 
