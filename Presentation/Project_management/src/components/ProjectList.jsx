@@ -5,55 +5,55 @@ function ProjectList() {
     <>
         <div className="ongoing">
             <div className="title">
-              <p>Ongoing</p>
+              <h2>Ongoing</h2>
             </div>
             <button className="project-mini">
-              <span className="project-name">Project name</span>
-              <span className="date">2025-01-01 - 2025-03-01</span>
-              <span className="manager">Manager name</span>
-              <span className="customer">Customer name</span>
+              <h3 className="project-name">Project name</h3>
+              <p className="date">2025-01-01 - 2025-03-01</p>
+              <p className="manager">Manager name</p>
+              <p className="customer">Customer name</p>
             </button>
             <button className="project-mini">
-              <span className="project-name">Project name</span>
-              <span className="date">2025-01-01 - 2025-03-01</span>
-              <span className="manager">Manager name</span>
-              <span className="customer">Customer name</span>
+              <h3 className="project-name">Project name</h3>
+              <p className="date">2025-01-01 - 2025-03-01</p>
+              <p className="manager">Manager name</p>
+              <p className="customer">Customer name</p>
             </button>
         </div>
 
         <div className="not-started">
             <div className="title">
-              <p>Ongoing</p>
+              <h2>Not started</h2>
             </div>
             <button className="project-mini">
-              <span className="project-name">Project name</span>
-              <span className="date">2025-01-01 - 2025-03-01</span>
-              <span className="manager">Manager name</span>
-              <span className="customer">Customer name</span>
+              <h3 className="project-name">Project name</h3>
+              <p className="date">2025-01-01 - 2025-03-01</p>
+              <p className="manager">Manager name</p>
+              <p className="customer">Customer name</p>
             </button>
             <button className="project-mini">
-              <span className="project-name">Project name</span>
-              <span className="date">2025-01-01 - 2025-03-01</span>
-              <span className="manager">Manager name</span>
-              <span className="customer">Customer name</span>
+              <h3 className="project-name">Project name</h3>
+              <p className="date">2025-01-01 - 2025-03-01</p>
+              <p className="manager">Manager name</p>
+              <p className="customer">Customer name</p>
             </button>
         </div>
 
         <div className="completed">
             <div className="title">
-              <p>Ongoing</p>
+              <h2>Completed</h2>
             </div>
             <button className="project-mini">
-              <span className="project-name">Project name</span>
-              <span className="date">2025-01-01 - 2025-03-01</span>
-              <span className="manager">Manager name</span>
-              <span className="customer">Customer name</span>
+              <h3 className="project-name">Project name</h3>
+              <p className="date">2025-01-01 - 2025-03-01</p>
+              <p className="manager">Manager name</p>
+              <p className="customer">Customer name</p>
             </button>
               <button className="project-mini">
-              <span className="project-name">Project name</span>
-              <span className="date">2025-01-01 - 2025-03-01</span>
-              <span className="manager">Manager name</span>
-              <span className="customer">Customer name</span>
+              <h3 className="project-name">Project name</h3>
+              <p className="date">2025-01-01 - 2025-03-01</p>
+              <p className="manager">Manager name</p>
+              <p className="customer">Customer name</p>
             </button>
         </div>
     </>

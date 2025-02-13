@@ -7,8 +7,7 @@ function AddProject() {
     <>
         <div className="wrapper">
             <div className="main-container">
-            <div className="main-title">
-            <button className="btn">Add project</button>
+            <div className="add-title">
                 <p>New project</p>
             </div>
 

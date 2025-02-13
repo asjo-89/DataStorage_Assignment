@@ -4,44 +4,39 @@ function CustomersList() {
   return (
     <>
         <button className="customer-mini">
-            <span className="customer-name">Customer name</span>
-            <span className="phonenumber">1023719283</span>
-            <span className="email">asdlkja@dsadomasd.as</span>
+            <h3>Customer name</h3>
+            <p className="phonenumber">1023719283</p>
+            <p className="email">asdlkja@dsadomasd.as</p>
         </button>
         <button className="customer-mini">
-            <span className="customer-name">Customer name</span>
-            <span className="phonenumber">1023719283</span>
-            <span className="email">asdlkja@dsadomasd.as</span>
+            <h3>Customer name</h3>
+            <p className="phonenumber">1023719283</p>
+            <p className="email">asdlkja@dsadomasd.as</p>
         </button>
         <button className="customer-mini">
-            <span className="customer-name">Customer name</span>
-            <span className="phonenumber">1023719283</span>
-            <span className="email">asdlkja@dsadomasd.as</span>
+            <h3>Customer name</h3>
+            <p className="phonenumber">1023719283</p>
+            <p className="email">asdlkja@dsadomasd.as</p>
         </button>
         <button className="customer-mini">
-            <span className="customer-name">Customer name</span>
-            <span className="phonenumber">1023719283</span>
-            <span className="email">asdlkja@dsadomasd.as</span>
+            <h3>Customer name</h3>
+            <p className="phonenumber">1023719283</p>
+            <p className="email">asdlkja@dsadomasd.as</p>
         </button>
         <button className="customer-mini">
-            <span className="customer-name">Customer name</span>
-            <span className="phonenumber">1023719283</span>
-            <span className="email">asdlkja@dsadomasd.as</span>
+            <h3>Customer name</h3>
+            <p className="phonenumber">1023719283</p>
+            <p className="email">asdlkja@dsadomasd.as</p>
         </button>
         <button className="customer-mini">
-            <span className="customer-name">Customer name</span>
-            <span className="phonenumber">1023719283</span>
-            <span className="email">asdlkja@dsadomasd.as</span>
+            <h3>Customer name</h3>
+            <p className="phonenumber">1023719283</p>
+            <p className="email">asdlkja@dsadomasd.as</p>
         </button>
         <button className="customer-mini">
-            <span className="customer-name">Customer name</span>
-            <span className="phonenumber">1023719283</span>
-            <span className="email">asdlkja@dsadomasd.as</span>
-        </button>
-        <button className="customer-mini">
-            <span className="customer-name">Customer name</span>
-            <span className="phonenumber">1023719283</span>
-            <span className="email">asdlkja@dsadomasd.as</span>
+            <h3>Customer name</h3>
+            <p className="phonenumber">1023719283</p>
+            <p className="email">asdlkja@dsadomasd.as</p>
         </button>
     </>
   )

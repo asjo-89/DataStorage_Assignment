@@ -4,32 +4,32 @@ function EmployeesList() {
   return (
     <>
         <button className="employee-mini">
-            <span className="employee-name">Employee name</span>
-            <span className="projects"># projects</span>
+            <h3>Employee name</h3>
+            <h4 className="projects"># projects</h4>
         </button>
         <button className="employee-mini">
-            <span className="employee-name">Employee name</span>
-            <span className="projects"># projects</span>
+            <h3>Employee name</h3>
+            <h4 className="projects"># projects</h4>
         </button>
         <button className="employee-mini">
-            <span className="employee-name">Employee name</span>
-            <span className="projects"># projects</span>
+            <h3>Employee name</h3>
+            <h4 className="projects"># projects</h4>
         </button>
         <button className="employee-mini">
-            <span className="employee-name">Employee name</span>
-            <span className="projects"># projects</span>
+            <h3>Employee name</h3>
+            <h4 className="projects"># projects</h4>
         </button>
         <button className="employee-mini">
-            <span className="employee-name">Employee name</span>
-            <span className="projects"># projects</span>
+            <h3>Employee name</h3>
+            <h4 className="projects"># projects</h4>
         </button>
         <button className="employee-mini">
-            <span className="employee-name">Employee name</span>
-            <span className="projects"># projects</span>
+            <h3>Employee name</h3>
+            <h4 className="projects"># projects</h4>
         </button>
         <button className="employee-mini">
-            <span className="employee-name">Employee name</span>
-            <span className="projects"># projects</span>
+            <h3>Employee name</h3>
+            <h4 className="projects"># projects</h4>
         </button>
     </>
   )

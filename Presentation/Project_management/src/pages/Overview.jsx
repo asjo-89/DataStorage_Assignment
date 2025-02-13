@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/sidebar'
 import ProjectList from '../components/ProjectList'
+import { NavLink } from 'react-router-dom'
 
 function Overview() {
   return (
@@ -8,8 +9,10 @@ function Overview() {
         <div className="wrapper">
             <div className="main-container">
             <div className="main-title">
-            <button className="btn">Add project</button>
-                <p>Project management</p>
+              <NavLink to="/addProject" className="btn">
+                  Add project
+              </NavLink>
+              <h1>Project management</h1>
             </div>
 
             <Sidebar />

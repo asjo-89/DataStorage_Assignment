@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/sidebar'
 import Details from '../components/Details'
+import { NavLink } from 'react-router-dom'
 
 function ProjectDetails() {
   return (
@@ -8,8 +9,10 @@ function ProjectDetails() {
         <div className="wrapper">
             <div className="main-container">
             <div className="main-title">
-            <button className="btn">Project details</button>
-                <p>New project</p>
+              <NavLink to="/addProject" className="btn">
+                  Add project
+              </NavLink>
+              <h1>Project details</h1>
             </div>
 
             <Sidebar />

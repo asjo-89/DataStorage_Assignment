@@ -12,6 +12,45 @@ body {
 .wrapper {
   background-color: #354041;
 }
+h1 {
+  font-size: 2rem;
+  align-self: baseline;
+}
+
+h2 {  
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: .7rem;
+  font-weight: 400;
+}
+
+.input-label {
+  margin-left: .5rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.input {
+  padding: .5em;
+  border-radius: 1rem;
+  background-color: #b5bab8ea;
+  box-shadow: 0 0 5px 2px #000101ee;
+  border: none;
+
+  &:focus {
+    outline: none;
+    border: none;
+    background-color: #f7fefbea;
+  }
+}
 
 .main-container {
   width: 90svw;
@@ -25,9 +64,11 @@ body {
 
 .btn {
   min-width: 170px;
-  max-width: 250px;
+  max-width: 300px;
   padding: .5em .5em;
   height: 40px;
+  text-decoration: none;
+  text-align: center;
   border-radius: 1rem;
   margin-bottom: .5rem;
   background-color: #0280347c;
@@ -45,6 +86,43 @@ body {
 
   &:active {
     background-color: #0b6e33ae;
+  }
+}
+
+
+.save {
+  background-color: #028034b4;
+
+  &:hover {
+    background-color: #01973dae;
+  }
+
+  &:active {
+    background-color: #0b6e33ae;
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+    background-color: #01973dae;
+  }
+}
+
+.cancel {
+  background-color: #ce0505cd;
+
+  &:hover {
+    background-color: #d80303cd;
+  }
+
+  &:active {
+    background-color: #9f0202cd;
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+    background-color: #d80303cd;
   }
 }
 
@@ -67,9 +145,21 @@ body {
   z-index: 5;
 }
 
+.admin-title, .add-title {
+  width: 100%;
+  min-width: 400px;
+  height: 60px;
+  padding: .3em;
+  background-color: #022d36;
+  box-shadow: 0 0 5px 1px #00191e;
+  border-radius: 0 0 1rem 0;
+  text-align: center;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  z-index: 5;
+}
+
 .title {
-  font-size: 1.1rem;
-  font-weight: 600;
   width: 100%;
   height: 35px;
   display: flex;
@@ -98,32 +188,30 @@ body {
     align-content: center;
     gap: 1em;
     font-size: 1.2rem;
-    font-weight: 500;  
-    
-    & .active {
-      color: #A0A5A5;
-    }
+    font-weight: 500; 
+  }
+  
+  .list-object {
+    color: #fff;
+    transition: all .2s ease;
+    cursor: pointer;
+    padding: .5em;
+    text-decoration: none;
+  }
 
-    & li {
-      transition: all .2s ease;
-      cursor: pointer;
-      padding: .5em;
-    }
+  .list-object:hover {
+    color: #9d9f9f;
+  }
 
-    & li:hover {
-      color: #9d9f9f;
-    }
-
-    & li:active {
-      color: #666666;
-      transition: all .15s;
-    }
+  .active {
+    color: #a5a4a4;
+    transition: all .15s;
   }
 }
 
 .content-projects {
   width: 100%;
-  height: 100%;
+  height: 700px;
   grid-column: 2 / -1;
   grid-row: 2 / -1;
   padding: 1.5rem 0 1.5rem 1.5rem;
@@ -156,7 +244,7 @@ body {
 }
 .content-employees {
   width: 100%;
-  height: 100%;
+  height: 700px;
   padding: 1.5rem 0 1.5rem 1.5rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -168,7 +256,7 @@ body {
 
 .content-customers {
   width: 100%;
-  height: 100%;
+  height: 700px;
   padding: 1.5rem 0 1.5rem 1.5rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -180,141 +268,121 @@ body {
 
 .content-project {
   width: 100%;
-  height: 100%;
-  padding: 1.5rem 0 1.5rem 1.5rem;
+  height: 630px;
+  padding: 1.5rem 0 0 1.5rem;
   grid-column: 2 / -1;
   grid-row: 2 / -1;
 
   .container {
     width: 100%;
-    height: 100%;
+    height: 500px;
     padding: 1.5rem;
     border-radius: 0 1rem 1rem 1rem;
     background-color: #2C2B2F;
     box-shadow: 0 0 5px 1px #000101a4;
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-  }
-
-  .input-label {
-    margin-left: .5rem;
-    font-size: 1rem;
-    font-weight: 400;
-  }
-
-  .input {
-    padding: .5em;
-    border-radius: 1rem;
-    background-color: #b5bab8ea;
-    box-shadow: 0 0 5px 2px #000101ee;
-    border: none;
-
-    &:focus {
-      outline: none;
-      border: none;
-      background-color: #f7fefbea;
-    }
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
   }
 
   .name {
-    grid-column: 1 / 3;
+    grid-column: 1 / 4;
     grid-row: 1;
     display: flex;
     flex-direction: column;
     gap: .5rem;
 
     .input {
-      width: 300px;
+      width: 100%;
       height: 30px;
     }
   }
   .description {
-    grid-column: 1 / 3;
+    grid-column: 1 / 4;
     grid-row: 2 / 7;
     display: flex;
     flex-direction: column;
     gap: .5rem;
 
     .input {
-      width: 300px;
-      height: 600px;
+      width: 100%;
+      height: 345px;
     }
   }
   .manager {
-    grid-column: 1 / 3;
-    grid-row: 7;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-
-    .input {
-      width: 300px;
-      height: 30px;
-    }
-  }
-
-  .start-date {
-    grid-column: 3;
-    grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-
-    .input {
-      width: 180px;
-      height: 30px;
-    }
-  }
-  .end-date {
-    grid-column: 3;
-    grid-row: 2;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-
-    .input {
-      width: 180px;
-      height: 30px;
-    }
-  }
-
-  .customer {
-    grid-column: 3;
-    grid-row: 3;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-
-    .input {
-      width: 180px;
-      height: 30px;
-    }
-  }
-
-  .service {
-    grid-column: 3;
-    grid-row: 4;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-
-    .input {
-      width: 180px;
-      height: 30px;
-    }
-  }
-
-  .status {
-    grid-column: 3;
+    grid-column: 4 / -1;
     grid-row: 5;
     display: flex;
     flex-direction: column;
     gap: .5rem;
 
     .input {
-      width: 180px;
+      width: 100%;
+      height: 30px;
+    }
+  }
+
+  .start-date {
+    grid-column: 4;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    .input {
+      width: 100%;
+      height: 30px;
+    }
+  }
+  .end-date {
+    grid-column: 5;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    .input {
+      width: 100%;
+      height: 30px;
+    }
+  }
+
+  .customer {
+    grid-column: 4 / -1;
+    grid-row: 4;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    .input {
+      width: 100%;
+      height: 30px;
+    }
+  }
+
+  .service {
+    grid-column: 4 / -1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    .input {
+      width: 100%;
+      height: 30px;
+    }
+  }
+
+  .status {
+    grid-column: 4 / -1;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    .input {
+      width: 100%;
       height: 30px;
     }
   }
@@ -324,49 +392,19 @@ body {
   }
 
   .save {
+    grid-column: 4;
     grid-row: 6;
-    background-color: #028034b4;
-
-    &:hover {
-      background-color: #01973dae;
-    }
-  
-    &:active {
-      background-color: #0b6e33ae;
-    }
-
-    &:focus {
-      outline: none;
-      border: none;
-      background-color: #01973dae;
-    }
   }
 
   .cancel {
-    grid-row: 7;
-    background-color: #ce0505cd;
-
-    &:hover {
-      background-color: #d80303cd;
-    }
-  
-    &:active {
-      background-color: #9f0202cd;
-    }
-
-    &:focus {
-      outline: none;
-      border: none;
-      background-color: #d80303cd;
-    }
+    grid-column: 5;
+    grid-row: 6;
   }
-
-  
 }
 
 .content-details {
   width: 100%;
-  height: 430px;
+  height: 440px;
   padding: 1.5rem 0 1.5rem 1.5rem;
   grid-column: 2 / -1;
   grid-row: 2 / -1;
@@ -408,8 +446,6 @@ body {
         justify-self: center;
         grid-column: 2 / 5;
         grid-row: 1;
-        font-size: 1.1rem;
-        font-weight: 500;
       }
     
       .text-1 {
@@ -442,6 +478,7 @@ body {
     }
 
     .description-box {
+      margin-top: .5rem;
       grid-column: 1 / -1;
       grid-row: 2;
     }
@@ -515,11 +552,6 @@ body {
     grid-column: 2;
     grid-row: 4;
   }
-
-  .details-group7 {
-    grid-column: 3;
-    grid-row: 4;
-  }
 }
 
 .project-mini {
@@ -540,21 +572,6 @@ body {
 
   &:hover {
     background-color: #303135;
-  }
-
-  .project-name {
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  .date {
-    font-size: .7rem;
-    font-weight: 400;
-  }
-
-  .manager, .customer {
-    font-size: .8rem;
-    font-weight: 400;
   }
 }
 
@@ -577,16 +594,6 @@ body {
 
   &:hover {
     background-color: #303135;
-  }
-
-  .employee-name {
-    font-size: .8rem;
-    font-weight: 600;
-  }
-
-  .projects {
-    font-size: .7rem;
-    font-weight: 400;
   }
 }
 
@@ -657,5 +664,64 @@ body {
   .title {
     background-color: #02a543be;
     box-shadow: 0 0 5px 1px #01263877;
+  }
+}
+
+.container-admin {
+  width: 100%;
+  height: 640px;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  
+  .card {
+    width: 100%;
+    padding: .8rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: .5rem;
+    background-color: #2C2B2F;
+    box-shadow: 0 0 5px 1px #000101a4;
+  }
+
+  .input-label {
+    font-size: .9rem;
+  }
+ 
+  .btn.save {
+    width: 100%;
+  }
+
+  .customer {
+    height: 300px;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .manager {
+    height: 235px;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .service {
+    height: 300px;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .status {
+    height: 165px;
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .role {
+    height: 170px;
+    grid-column: 3;
+    grid-row: 1;
   }
 }

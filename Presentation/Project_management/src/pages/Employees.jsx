@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/sidebar'
-import ProjectList from '../components/ProjectList'
 import EmployeesList from '../components/EmployeesList'
+import { NavLink } from 'react-router-dom'
 
 function Employees() {
   return (
@@ -9,8 +9,10 @@ function Employees() {
         <div className="wrapper">
             <div className="main-container">
             <div className="main-title">
-            <button className="btn">Add employee</button>
-                <p>Employees</p>
+              <NavLink to="/admin" className="btn">
+                  Add employee
+              </NavLink>
+              <h1>Employees</h1>
             </div>
 
             <Sidebar />
