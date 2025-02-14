@@ -57,15 +57,15 @@ namespace Business.Factories
             LastName = model.LastName,
             RoleId = model.RoleId,
             RoleName = model.Role?.RoleName,
-            Projects = model.Projects.Select(p => new ProjectDto
-            {
-                Id = p.Id,
-                Title = p.Title,
-                StartDate = p.StartDate,
-                EndDate = p.EndDate,
-                StatusInformation = $"{p.StatusInformation.StatusName}",
-                Customer = $"{p.Customer.CustomerName}",
-            })
+            //Projects = model.Projects.Select(p => new ProjectDto
+            //{
+            //    Id = p.Id,
+            //    Title = p.Title,
+            //    StartDate = p.StartDate,
+            //    EndDate = p.EndDate,
+            //    StatusInformation = $"{p.StatusInformation.StatusName}",
+            //    Customer = $"{p.Customer.CustomerName}",
+            //})
         };
     }
 }

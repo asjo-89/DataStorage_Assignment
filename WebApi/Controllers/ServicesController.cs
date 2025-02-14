@@ -2,6 +2,7 @@
 using Business.Factories;
 using Business.Interfaces;
 using Business.Models;
+using Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -29,6 +30,15 @@ namespace WebApi.Controllers
             var services = await _servicesService.GetAllAsync();
             if (services.Count == 0) return NotFound("There are no services in the list.");
             return Ok(services);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetOneAsync(int id)
+        {
+            Service service = await _servicesService.GetOneAsync(x => x.Id == id);
+            ServiceDto dto = ServiceFactory.CreateDtoFromModel(service);
+            if (dto == null) return BadRequest("No statuse was found");
+            return Ok(dto);
         }
 
         [HttpDelete("{id}")]

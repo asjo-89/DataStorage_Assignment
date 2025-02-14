@@ -1,9 +1,12 @@
 import React from 'react'
 import Sidebar from '../components/sidebar'
 import Details from '../components/Details'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 function ProjectDetails() {
+  const location = useLocation();
+  const project = location.state.project || {};
+console.log(location)
   return (
     <>
         <div className="wrapper">
@@ -18,7 +21,7 @@ function ProjectDetails() {
             <Sidebar />
 
             <div className="content-details">
-                <Details /> 
+                <Details project={project} /> 
             </div>
             </div>
         </div>

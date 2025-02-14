@@ -54,6 +54,13 @@ public class EmployeeService
         return entities.Select(e => EmployeeFactory.CreateModelFromEntity(e)).ToList();
     }
 
+    public async Task<Employee> GetEmployeeAsync(int id)
+    {
+        EmployeeEntity entity = await _employeeRepository.GetEmployeeWithDetailsAsync(x => x.Id == id);
+        Employee employee = EmployeeFactory.CreateModelFromEntity(entity);
+        return employee ?? null!;
+    }
+
     public async Task<ICollection<Employee>> GetEmployeesWithDetailsAsync(string field, string value)
     {
         var expression = CreateExpressionAsync(field, value);

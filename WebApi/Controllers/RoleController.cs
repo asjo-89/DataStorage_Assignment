@@ -36,7 +36,7 @@ public class RoleController(IRoleService roleService) : ControllerBase
     {
         Role role = await _roleService.GetOneAsync(x => x.Id == id);
         RoleDto dto = RoleFactory.CreateDtoFromModel(role);
-        return Ok(role);
+        return Ok(dto);
     }
 
     [HttpDelete("{id}")]

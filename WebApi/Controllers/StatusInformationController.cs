@@ -31,6 +31,15 @@ namespace WebApi.Controllers
             return Ok(statuses);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetOneAsync(int id)
+        {
+            StatusInformation status = await _statusInformationService.GetOneAsync(x => x.Id == id);
+            StatusInformationDto dto = StatusInformationFactory.CreateDtoFromModel(status);
+            if (dto == null) return BadRequest("No statuse was found");
+            return Ok(dto);
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {

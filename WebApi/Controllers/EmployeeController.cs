@@ -2,6 +2,7 @@
 using Business.Factories;
 using Business.Interfaces;
 using Business.Models;
+using Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -32,6 +33,15 @@ namespace WebApi.Controllers
             if (employees == null || employees.Count <= 0) return NotFound("No employees found.");
 
             return Ok(employees);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetOneAsync(int id)
+        {
+            Employee employee = await _employeeService.GetEmployeeAsync(id);
+            EmployeeDto dto = EmployeeFactory.CreateDtoFromModel(employee);
+            if (dto == null) return BadRequest("No employee was found");
+            return Ok(dto);
         }
 
         [HttpGet("search")]

@@ -8,7 +8,7 @@ function AddProject() {
         <div className="wrapper">
             <div className="main-container">
             <div className="add-title">
-                <p>New project</p>
+                <h1>New project</h1>
             </div>
 
             <Sidebar />

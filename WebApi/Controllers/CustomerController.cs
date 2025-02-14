@@ -38,6 +38,16 @@ namespace WebApi.Controllers
             return Ok(customers);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetOneAsync(int id)
+        {
+            Customer customer = await _customerService.GetOneAsync(x => x.Id == id);
+            CustomerDto dto = CustomerFactory.CreateDtoFromModel(customer);
+            if (dto == null) return NotFound("No customer found.");
+
+            return Ok(dto);
+        }
+
         [HttpGet("search")]
         public async Task<IActionResult> GetCustomerAsync([FromQuery] string field, [FromQuery] string value)
         {
