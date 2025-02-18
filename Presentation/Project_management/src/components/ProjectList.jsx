@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 function ProjectList() {
   const [projects, setProjects] = useState([]);
-  const [stautses, setStatuses] = useState([]);
+  const [statuses, setStatuses] = useState([]);
   const [customers, setCustomers] = useState([]);
   const [employees, setEmployees] = useState([]);
   const [services, setServices] = useState([]);
@@ -23,6 +23,7 @@ function ProjectList() {
       const customerIds = [...new Set(data.map(proj => proj.customerId))];
       fetchCustomers(customerIds);
       const employeeIds = [...new Set(data.map(proj => proj.employeeId))];
+      console.log(`EmployeeIds: ${employeeIds}`);
       fetchEmployees(employeeIds);
       const serviceIds = [...new Set(data.map(proj => proj.serviceId))];
       fetchServices(serviceIds);
@@ -59,8 +60,12 @@ function ProjectList() {
 
       const customers = {};
       data.forEach(customer => {
-        customers[customer.id] = customer.customerName;
-      })
+        customers[customer.id] = {
+          customerName: customer.customerName,
+          phoneNumber: customer.phoneNumber,
+          email: customer.email
+        };
+      });
       console.log(customers);
       setCustomers(customers);
     }
@@ -78,7 +83,7 @@ function ProjectList() {
 
       const employees = {};
       data.forEach(employee => {
-        employees[employee.id] = `${employee.firstName} ${employee.lastName}`
+        employees[employee.id] = `${employee.firstName} ${employee.lastName}`;
       });
       setEmployees(employees);
     }
@@ -96,7 +101,11 @@ function ProjectList() {
 
       const services = {};
       data.forEach(service => {
-        services[service.id] = `${service.serviceName} ${service.price} ${service.unit}`;
+        services[service.id] = {
+          serviceName: service.serviceName,
+          price: service.price,
+          unit: service.unit
+        };
       });
       setServices(services);
     }
@@ -104,7 +113,6 @@ function ProjectList() {
       console.error("Failed fetching services: ", error);
     }
   }
-
 
   return (
     <>
@@ -115,11 +123,11 @@ function ProjectList() {
             {projects
               .filter((project) => (project.statusInformationId == 1))
               .map((project) => (
-              <NavLink to="/projectDetails" state={{project: project}} key={project.id} className="project-mini">
+              <NavLink to="/projectDetails" state={{project: project, customer: customers[project.customerId], customers: customers, employee: employees[project.employeeId], employees: employees,  services: services, statuses: statuses}} key={project.id} className="project-mini">
                 <h3 className="project-name">{project.id} - {project.title}</h3>
                 <p className="date">{project.startDate} - {project.endDate}</p>
                 <p className="manager">{employees[project.employeeId] ?? "Unknown"}</p>
-                <p className="customer">{customers[project.customerId] ?? "Unknown"}</p>
+                <p className="customer">{customers[project.customerId]?.customerName ?? "Unknown"}</p>
               </NavLink>
             ))}
         </div>
@@ -131,11 +139,11 @@ function ProjectList() {
             {projects
               .filter((project) => (project.statusInformationId == 2))
               .map((project) => (
-                <NavLink to="/projectDetails" state={{project: project}} key={project.id} className="project-mini">
+                <NavLink to="/projectDetails" state={{project: project, customer: customers[project.customerId]}} key={project.id} className="project-mini">
                   <h3 className="project-name">{project.id} - {project.title}</h3>
                   <p className="date">{project.startDate} - {project.endDate}</p>
                   <p className="manager">{employees[project.employeeId] ?? "Unknown"}</p>
-                  <p className="customer">{customers[project.customerId] ?? "Unknown"}</p>
+                  <p className="customer">{customers[project.customerId]?.customerName ?? "Unknown"}</p>
                 </NavLink>
               ))}
         </div>
@@ -147,11 +155,11 @@ function ProjectList() {
             {projects
               .filter((project) => (project.statusInformationId == 3))
               .map((project) => (
-                <NavLink to="/projectDetails" state={{project: project}} key={project.id} className="project-mini">
+                <NavLink to="/projectDetails" state={{project: project, customer: customers[project.customerId]}} key={project.id} className="project-mini">
                   <h3 className="project-name">{project.id} - {project.title}</h3>
                   <p className="date">{project.startDate} - {project.endDate}</p>
                   <p className="manager">{employees[project.employeeId] ?? "Unknown"}</p>
-                  <p className="customer">{customers[project.customerId] ?? "Unknown"}</p>
+                  <p className="customer">{customers[project.customerId]?.customerName ?? "Unknown"}</p>
                 </NavLink>
               ))}
         </div>

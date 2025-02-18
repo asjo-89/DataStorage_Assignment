@@ -404,7 +404,7 @@ h4 {
 
 .content-details {
   width: 100%;
-  height: 440px;
+  height: 520px;
   padding: 1.5rem 0 1.5rem 1.5rem;
   grid-column: 2 / -1;
   grid-row: 2 / -1;
@@ -415,7 +415,7 @@ h4 {
 
   .card-1 {
     width: 100%;
-    grid-column: 1 / 11;
+    grid-column: 1 / 10;
     grid-row: 1 / 12;
     border-radius: 1rem;
     padding: .5rem 1rem;
@@ -455,26 +455,6 @@ h4 {
         font-size: .8rem;
         font-weight: 400;
       }
-
-      .edit {
-        width: 35px;
-        aspect-ratio: 1;
-        cursor: pointer;
-        border-radius: .5rem;
-        justify-self: flex-end;
-        grid-column: 5;
-        grid-row: 1;
-        color: white;
-        background-color: transparent;
-        border: none;
-
-        img {
-          place-self: center;
-          width: 18px;
-          aspect-ratio: 1;
-          z-index: 5;
-        }
-      }
     }
 
     .description-box {
@@ -485,14 +465,23 @@ h4 {
 
     .manager-name {
       margin-left: 1rem;
-      grid-column: 1 / -1;
+      grid-column: 1;
       grid-row: 3;
+    }
+    
+    .buttons {
+      width: 350px;
+      grid-column: 2;
+      grid-row: 3;
+      display: flex;
+      gap: 1rem;
+      justify-self: end;
     }
   }
 
   .card-2 {
     min-width: 220px;
-    grid-column: 11 / -1;
+    grid-column: 10 / -1;
     grid-row: 1 / 8;
     border-radius: 1rem;
     padding: .5rem 1rem;
@@ -503,7 +492,7 @@ h4 {
   .card-3 {
     min-width: 220px;
     height: 130px;
-    grid-column: 11 / -1;
+    grid-column: 10 / -1;
     grid-row: 8/-1;
     border-radius: 1rem;
     padding: .5rem 1rem;

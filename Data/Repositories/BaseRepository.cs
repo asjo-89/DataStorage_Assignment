@@ -111,4 +111,6 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
             return false;
         }
     }
+
+    //Transaction management
 }
