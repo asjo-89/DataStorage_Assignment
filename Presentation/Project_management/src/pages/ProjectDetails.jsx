@@ -5,12 +5,10 @@ import { NavLink, useLocation } from 'react-router-dom'
 
 function ProjectDetails() {
   const location = useLocation();
-  const { project, customer, customers, employee, employees, services, statuses } = location.state || {};
-// console.log(location)
+  const { project } = location.state || {};
 
-if (!employees || Object.keys(employees).length === 0) {
-  return <div>Loading employees...</div>;
-}
+  console.log("import22", project)
+
   return (
     <>
         <div className="wrapper">
@@ -25,7 +23,7 @@ if (!employees || Object.keys(employees).length === 0) {
             <Sidebar />
 
             <div className="content-details">
-                <Details project={project} customer={customer} employee={employee} employees={employees} customers={customers} services={services} statuses={statuses} /> 
+                <Details project={project} /> 
             </div>
             </div>
         </div>

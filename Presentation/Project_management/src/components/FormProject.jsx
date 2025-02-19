@@ -18,31 +18,31 @@ function FormProject() {
   const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
-    getStatuses();
-    getServices();
-    getEmployees();
-    getCustomers();
+    fetchStatuses();
+    fetchServices();
+    fetchEmployees();
+    fetchCustomers();
   }, []);
 
-  const getStatuses = async () => {
+  const fetchStatuses = async () => {
     const response = await fetch("https://localhost:7273/api/statusInformation");
     const data = await response.json();
     setStatuses(data);
   }
   
-  const getServices = async () => {
+  const fetchServices = async () => {
     const response = await fetch("https://localhost:7273/api/services");
     const data = await response.json();
     setServices(data);
   }
 
-  const getEmployees = async () => {
+  const fetchEmployees = async () => {
     const response = await fetch("https://localhost:7273/api/employee");
     const data = await response.json();
     setEmployees(data);
   }
 
-  const getCustomers = async () => {
+  const fetchCustomers = async () => {
     const response = await fetch("https://localhost:7273/api/customer");
     const data = await response.json();
     setCustomers(data);
@@ -52,37 +52,73 @@ function FormProject() {
   
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const fieldNotEmpty = Object.fromEntries(
+      Object.entries(inputs).map(([key, value]) => [key, value === "" ? null : value])
+    );
+    try {
+      const response = await fetch(`https://localhost:7273/api/project/`, {
+        method: "post",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(fieldNotEmpty)
+      });
+      if(!response.ok) {
+        console.log("Failed to post inputs ", JSON.stringify(fieldNotEmpty));
+        return;
+      }
+
+      const data = await response.json();
+      console.log("POST succeeded: ", {data})
+    }
+    catch (error) {
+      console.log({error})
+    }
   }
 
   const handleChange = (e) => {
     let value = e.target.value;
     let name = e.target.name;
     setInputs({...inputs, [name]: value});
+    console.log(inputs);
   }
   
   const employeeList = employees 
-    ? Object.entries(employees).map(([id, employee]) => ({id, name: `${employee.firstName} ${employee.lastName}`}))
+    ? employees.map((employee) => (
+      {
+        id: employee.id, 
+        name: `${employee.firstName} ${employee.lastName}`
+      }))
     : [];
 
   const customerList = customers
-    ? Object.entries(customers).map(([id, customer]) => ({id, name: customer.customerName}))
+    ? customers.map((customer) => (
+      {
+        id: customer.id, 
+        name: customer.customerName
+      }))
     : [];
 
     const statusList = statuses
-      ? Object.entries(statuses).map(([id, status]) => ({id, name: status.statusName}))
+      ? statuses.map((status) => (
+        {
+          id: status.id, 
+          name: status.statusName
+        }))
       : [];
 
     const serviceList = services  
-      ? Object.entries(services).map(([id, service]) => ({id, name: service.serviceName}))
+      ? services.map((service) => (
+        {
+          id: service.id, 
+          name: service.serviceName
+        }))
       : [];
 
 
   return (
     <>
-      <div className="container">
-        <form>
+        <form className="container" onSubmit={handleSubmit}>
           <div className="name">
             <label className="input-label" htmlFor="title"> Project name {inputs.title} </label>
             <input className="input" type="text" name="title" value={inputs.title} onChange={handleChange} />
@@ -95,9 +131,9 @@ function FormProject() {
 
           <div className="manager">
             <label className="input-label" htmlFor="employeeId"> Manager {inputs.employeeId} </label>
-            <select className="input" type="text" name="employeeId" value={employees.id} onChange={handleChange}>
+            <select className="input" type="text" name="employeeId" value={inputs.employeeId} onChange={handleChange}>
               {employeeList.map((employee) => (
-                <option key={employee.id} value={employees.id}>{employee.name}</option>
+                <option key={employee.id} value={employee.id}>{employee.name}</option>
               ))}              
             </select>                
           </div>
@@ -114,7 +150,7 @@ function FormProject() {
 
           <div className="customer">
             <label className="input-label" htmlFor="customerId"> Customer {inputs.customerId} </label>
-            <select className="input" type="text" name="customerId" value={customers.id} onChange={handleChange}>
+            <select className="input" type="text" name="customerId" value={inputs.customerId} onChange={handleChange}>
               {customerList.map((customer) => (
                 <option key={customer.id} value={customer.id}>
                   {customer.name}
@@ -125,7 +161,7 @@ function FormProject() {
 
           <div className="service">
             <label className="input-label" htmlFor="serviceId"> Service {inputs.serviceId} </label>
-            <select className="input" type="text" name="serviceId" value={services.id} defaulValue="" onChange={handleChange}>
+            <select className="input" type="text" name="serviceId" value={inputs.serviceId} onChange={handleChange}>
               {serviceList.map((service) => (
                 <option key={service.id} value={service.id}>
                   {service.name}
@@ -136,7 +172,7 @@ function FormProject() {
 
           <div className="status">
             <label className="input-label" htmlFor="statusInformationId"> Status {inputs.statusInformationId} </label>
-            <select className="input" type="text" name="statusInformationId" value={statuses.id} onChange={handleChange}>
+            <select className="input" type="text" name="statusInformationId" value={inputs.statusInformationId} onChange={handleChange}>
               {statusList.map((status) => (
                 <option key={status.id} value={status.id}>
                   {status.name}
@@ -145,10 +181,9 @@ function FormProject() {
             </select>
           </div>
           
-          <NavLink to="/" type="submit" onClick={handleSubmit} className="btn save">Save</NavLink>
+          <button type="submit" className="btn save">Save</button>
           <NavLink to="/" className="btn cancel">Cancel</NavLink>
         </form>
-      </div>
     </>
   )
 }

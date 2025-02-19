@@ -34,7 +34,7 @@ namespace Business.Factories
             Projects = entity.Projects.Select(p => new Project
             {
                 Id = p.Id,
-                Title = p.ProjectTitle,
+                ProjectTitle = p.ProjectTitle,
                 StartDate = p.StartDate,
                 EndDate = p.EndDate,
                 EmployeeId = p.EmployeeId,
@@ -57,12 +57,21 @@ namespace Business.Factories
             Projects = model.Projects.Select(p => new ProjectDto
             {
                 Id = p.Id,
-                Title = p.Title,
+                ProjectTitle = p.ProjectTitle,
                 StartDate = p.StartDate,
                 EndDate = p.EndDate,
                 EmployeeId = p.EmployeeId,
-                Employee = $"{p.Employee.FirstName} {p.Employee.LastName}",
-                StatusInformation = $"{p.StatusInformation.StatusName}"
+                Employee = new EmployeeDto
+                {
+                    Id = p.EmployeeId,
+                    FirstName = p.Employee.FirstName,
+                    LastName = p.Employee.LastName
+                },
+                StatusInformation = new StatusInformationDto
+                {
+                    Id = p.StatusInformationId,
+                    StatusName = p.StatusInformation.StatusName,
+                }
             }).ToList()
         };
     }

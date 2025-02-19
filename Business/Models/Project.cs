@@ -8,7 +8,7 @@ public class Project
     public int Id { get; set; }
 
     [Required]
-    public string Title { get; set; } = null!;
+    public string ProjectTitle { get; set; } = null!;
 
     [Required]
     public string Description { get; set; } = null!;

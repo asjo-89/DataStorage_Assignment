@@ -27,7 +27,7 @@ public class ProjectService
     public override async Task<Project> CreateAsync(ProjectDto dto)
     {
         if (dto == null) return null!;
-        if (await _repository.ExistsAsync(p => p.ProjectTitle == dto.Title))
+        if (await _repository.ExistsAsync(p => p.ProjectTitle == dto.ProjectTitle))
         {
             Debug.WriteLine("A project with the same title already exists.");
             return null!;

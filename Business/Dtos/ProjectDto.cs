@@ -7,7 +7,7 @@ public class ProjectDto
     public int Id { get; set; }
 
     [Required]
-    public string Title { get; set; } = null!;
+    public string ProjectTitle { get; set; } = null!;
 
     [Required]
     public string Description { get; set; } = null!;
@@ -18,20 +18,20 @@ public class ProjectDto
 
     [Required]
     public int StatusInformationId { get; set; }
-    public string? StatusInformation { get; set; }
+    public StatusInformationDto? StatusInformation { get; set; }
 
 
     [Required]
     public int CustomerId { get; set; }
-    public string? Customer { get; set; }
+    public CustomerDto? Customer { get; set; }
 
 
     [Required]
     public int EmployeeId { get; set; }
-    public string? Employee { get; set; }
+    public EmployeeDto? Employee { get; set; }
 
 
     [Required]
     public int ServiceId { get; set; }
-    public string? Service { get; set; }
+    public ServiceDto? Service { get; set; }
 }

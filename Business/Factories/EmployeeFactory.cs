@@ -42,7 +42,7 @@ namespace Business.Factories
             Projects = entity.Projects.Select(p => new Project
             {
                 Id = p.Id,
-                Title = p.ProjectTitle,
+                ProjectTitle = p.ProjectTitle,
                 StartDate = p.StartDate,
                 EndDate = p.EndDate,
                 StatusInformationId = p.StatusInformationId,

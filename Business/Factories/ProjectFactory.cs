@@ -1,6 +1,7 @@
 ﻿using Business.Dtos;
 using Business.Models;
 using Data.Entities;
+using Data.Interfaces;
 
 namespace Business.Factories
 {
@@ -11,7 +12,7 @@ namespace Business.Factories
         public static Project CreateModelFromDto(ProjectDto dto) => new()
         {
             Id = dto.Id,
-            Title = dto.Title,
+            ProjectTitle = dto.ProjectTitle,
             Description = dto.Description,
             StartDate = dto.StartDate,
             EndDate = dto.EndDate,
@@ -23,7 +24,7 @@ namespace Business.Factories
 
         public static ProjectEntity CreateEntityFromDto(ProjectDto dto) => new()
         {
-            ProjectTitle = dto.Title,
+            ProjectTitle = dto.ProjectTitle,
             Description = dto.Description,
             StartDate = dto.StartDate,
             EndDate = dto.EndDate,
@@ -36,7 +37,7 @@ namespace Business.Factories
         public static ProjectEntity CreateEntityFromModel(Project model) => new()
         {
             Id = model.Id,
-            ProjectTitle = model.Title,
+            ProjectTitle = model.ProjectTitle,
             Description = model.Description,
             StartDate = model.StartDate,
             EndDate = model.EndDate,
@@ -49,7 +50,7 @@ namespace Business.Factories
         public static Project CreateModelFromEntity(ProjectEntity entity) => new()
         {
             Id = entity.Id,
-            Title = entity.ProjectTitle,
+            ProjectTitle = entity.ProjectTitle,
             Description = entity.Description!,
             StartDate = entity.StartDate,
             EndDate = entity.EndDate,
@@ -63,7 +64,9 @@ namespace Business.Factories
             Customer = new Customer
             {
                 Id = entity.CustomerId,
-                CustomerName = entity.Customer.CustomerName
+                CustomerName = entity.Customer.CustomerName,
+                PhoneNumber = entity.Customer.PhoneNumber,
+                Email = entity.Customer?.Email
             },
             EmployeeId = entity.EmployeeId,
             Employee = new Employee
@@ -85,18 +88,39 @@ namespace Business.Factories
         public static ProjectDto CreateDtoFromModel(Project model) => new()
         {
             Id = model.Id,
-            Title = model.Title,
+            ProjectTitle = model.ProjectTitle,
             Description = model.Description,
             StartDate = model.StartDate,
             EndDate = model.EndDate,
             StatusInformationId = model.StatusInformationId,
-            StatusInformation = model.StatusInformation.StatusName,
+            StatusInformation = new StatusInformationDto
+            {
+                Id = model.StatusInformationId,
+                StatusName = model.StatusInformation.StatusName,
+            },
             CustomerId = model.CustomerId,
-            Customer = model.Customer.CustomerName,
+            Customer = new CustomerDto
+            {
+                Id = model.CustomerId,
+                CustomerName = model.Customer.CustomerName,
+                PhoneNumber = model.Customer.PhoneNumber,
+                Email = model.Customer?.Email
+            },
             EmployeeId = model.EmployeeId,
-            Employee = $"{model.Employee.FirstName} {model.Employee.LastName}",
+            Employee = new EmployeeDto
+            {
+                Id = model.EmployeeId,
+                FirstName = model.Employee.FirstName,
+                LastName = model.Employee.LastName
+            },
             ServiceId = model.ServiceId,
-            Service = $"{model.Service.ServiceName} {model.Service.Price} {model.Service.Unit}"
+            Service = new ServiceDto
+            {
+                Id = model.ServiceId,
+                ServiceName = model.Service.ServiceName,
+                Price = model.Service.Price,
+                Unit = model.Service.Unit
+            }
         };
     }
 }

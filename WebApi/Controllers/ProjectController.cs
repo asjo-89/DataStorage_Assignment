@@ -4,6 +4,7 @@ using Business.Interfaces;
 using Business.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace WebApi.Controllers
 {
@@ -16,6 +17,8 @@ namespace WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateAsync(ProjectDto dto)
         {
+            Console.WriteLine($"Received DTO: {JsonConvert.SerializeObject(dto)}");
+
             if (dto == null) return BadRequest("No data available to create new project.");
             
             Project project = await _projectService.CreateAsync(dto);
