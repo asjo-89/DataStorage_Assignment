@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import ProjectCards from './ProjectCards';
 
 function ProjectList() {
