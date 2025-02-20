@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Business.Dtos;
 
-public class EmployeeDto
+public class EmployeeRegForm
 {
     public int Id { get; set; }
 
@@ -18,8 +18,8 @@ public class EmployeeDto
     [Required]
     public int RoleId { get; set; }
 
-    [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-    public string? RoleName { get; set; }
+    //[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+    //public string? RoleName { get; set; }
 
-    public IEnumerable<ProjectDto>? Projects { get; set; }
+    public IEnumerable<ProjectRegForm>? Projects { get; set; }
 }

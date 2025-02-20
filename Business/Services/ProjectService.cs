@@ -11,7 +11,7 @@ using System.Linq.Expressions;
 namespace Business.Services;
 
 public class ProjectService 
-    : BaseService<Project, ProjectEntity, ProjectDto>, IProjectService
+    : BaseService<Project, ProjectEntity, ProjectRegForm>, IProjectService
 {
     protected readonly IProjectRepository _projectRepository;
 
@@ -24,7 +24,7 @@ public class ProjectService
         _projectRepository = projectRepository;
     }
 
-    public override async Task<Project> CreateAsync(ProjectDto dto)
+    public override async Task<Project> CreateAsync(ProjectRegForm dto)
     {
         if (dto == null) return null!;
         if (await _repository.ExistsAsync(p => p.ProjectTitle == dto.ProjectTitle))

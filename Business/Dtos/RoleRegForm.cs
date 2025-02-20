@@ -2,7 +2,7 @@
 
 namespace Business.Dtos;
 
-public class RoleDto
+public class RoleRegForm
 {
     public int Id { get; set; }
 

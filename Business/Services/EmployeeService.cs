@@ -11,7 +11,7 @@ using System.Diagnostics;
 namespace Business.Services;
 
 public class EmployeeService
-    : BaseService<Employee, EmployeeEntity, EmployeeDto>, IEmployeeService
+    : BaseService<Employee, EmployeeEntity, EmployeeRegForm>, IEmployeeService
 {
     private readonly IEmployeeRepository _employeeRepository;
 
@@ -26,7 +26,7 @@ public class EmployeeService
 
     
 
-    public override async Task<Employee> CreateAsync(EmployeeDto dto)
+    public override async Task<Employee> CreateAsync(EmployeeRegForm dto)
     {
         if (await _repository.ExistsAsync(e => e.FirstName == dto.FirstName && e.LastName == dto.LastName))
         {

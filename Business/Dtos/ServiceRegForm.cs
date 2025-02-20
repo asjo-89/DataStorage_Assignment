@@ -2,7 +2,7 @@
 
 namespace Business.Dtos;
 
-public class ServiceDto
+public class ServiceRegForm
 {
     public int Id { get; set; }
 

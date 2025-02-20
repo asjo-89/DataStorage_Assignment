@@ -11,7 +11,7 @@ using System.Linq.Expressions;
 namespace Business.Services;
 
 public class CustomerService(IBaseRepository<CustomerEntity> repository)
-    : BaseService<Customer, CustomerEntity, CustomerDto>(repository, CustomerFactory.CreateModelFromEntity, CustomerFactory.CreateEntityFromModel, CustomerFactory.CreateEntityFromDto), ICustomerService
+    : BaseService<Customer, CustomerEntity, CustomerRegForm>(repository, CustomerFactory.CreateModelFromEntity, CustomerFactory.CreateEntityFromModel, CustomerFactory.CreateEntityFromDto), ICustomerService
 {
 
 
@@ -26,7 +26,7 @@ public class CustomerService(IBaseRepository<CustomerEntity> repository)
         return customer;
     }
 
-    public override async Task<Customer> CreateAsync(CustomerDto dto)
+    public override async Task<Customer> CreateAsync(CustomerRegForm dto)
     {
         if (await _repository.ExistsAsync(c => c.CustomerName == dto.CustomerName))
         {

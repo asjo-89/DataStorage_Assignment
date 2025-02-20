@@ -15,7 +15,7 @@ namespace WebApi.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync(EmployeeDto dto)
+        public async Task<IActionResult> CreateAsync(EmployeeRegForm dto)
         {
             if (dto == null) return BadRequest("No data available to create employee.");
                        
@@ -39,7 +39,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetOneAsync(int id)
         {
             Employee employee = await _employeeService.GetEmployeeAsync(id);
-            EmployeeDto dto = EmployeeFactory.CreateDtoFromModel(employee);
+            EmployeeRegForm dto = EmployeeFactory.CreateDtoFromModel(employee);
             if (dto == null) return BadRequest("No employee was found");
             return Ok(dto);
         }

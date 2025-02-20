@@ -8,7 +8,7 @@ using Data.Interfaces;
 namespace Business.Services;
 
 public class StatusInformationService(IBaseRepository<StatusInformationEntity> repository) 
-    : BaseService<StatusInformation, StatusInformationEntity, StatusInformationDto>(repository,
+    : BaseService<StatusInformation, StatusInformationEntity, StatusInformationRegForm>(repository,
         StatusInformationFactory.CreateModelFromEntity, 
         StatusInformationFactory.CreateEntityFromModel,
         StatusInformationFactory.CreateEntityFromDto), 

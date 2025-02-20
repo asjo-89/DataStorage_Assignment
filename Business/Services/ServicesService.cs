@@ -9,7 +9,7 @@ using System.Diagnostics;
 namespace Business.Services
 {
     public class ServicesService(IBaseRepository<ServiceEntity> repository)
-        : BaseService<Service, ServiceEntity, ServiceDto>(repository, 
+        : BaseService<Service, ServiceEntity, ServiceRegForm>(repository, 
             ServiceFactory.CreateModelFromEntity, 
             ServiceFactory.CreateEntityFromModel, 
             ServiceFactory.CreateEntityFromDto), 

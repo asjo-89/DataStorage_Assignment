@@ -9,7 +9,7 @@ using System.Diagnostics;
 namespace Business.Services
 {
     public class RoleService(IBaseRepository<RoleEntity> repository)
-    : BaseService<Role, RoleEntity, RoleDto>(repository, 
+    : BaseService<Role, RoleEntity, RoleRegForm>(repository, 
         RoleFactory.CreateModelFromEntity, 
         RoleFactory.CreateEntityFromModel, 
         RoleFactory.CreateEntityFromDto), 

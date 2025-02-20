@@ -4,6 +4,6 @@ using Data.Entities;
 
 namespace Business.Interfaces;
 
-public interface IStatusInformationService : IBaseService<StatusInformation, StatusInformationEntity, StatusInformationDto>
+public interface IStatusInformationService : IBaseService<StatusInformation, StatusInformationEntity, StatusInformationRegForm>
 {
 }

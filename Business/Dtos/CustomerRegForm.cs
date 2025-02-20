@@ -2,7 +2,7 @@
 
 namespace Business.Dtos;
 
-public class CustomerDto
+public class CustomerRegForm
 {
     public int Id { get; set; }
 
@@ -18,5 +18,5 @@ public class CustomerDto
     [RegularExpression(@"^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")]
     public string? Email { get; set; }
 
-    public IEnumerable<ProjectDto>? Projects { get; set; }
+    public IEnumerable<ProjectRegForm>? Projects { get; set; }
 }

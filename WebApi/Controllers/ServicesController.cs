@@ -14,7 +14,7 @@ namespace WebApi.Controllers
         private readonly IServicesService _servicesService = servicesService;
 
         [HttpPost]
-        public async Task<IActionResult> CreateServiceAsync(ServiceDto dto)
+        public async Task<IActionResult> CreateServiceAsync(ServiceRegForm dto)
         {
             if (dto == null) return BadRequest("No data available to create service.");
 
@@ -36,7 +36,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetOneAsync(int id)
         {
             Service service = await _servicesService.GetOneAsync(x => x.Id == id);
-            ServiceDto dto = ServiceFactory.CreateDtoFromModel(service);
+            ServiceRegForm dto = ServiceFactory.CreateDtoFromModel(service);
             if (dto == null) return BadRequest("No statuse was found");
             return Ok(dto);
         }

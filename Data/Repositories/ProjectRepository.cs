@@ -8,23 +8,47 @@ namespace Data.Repositories;
 
 public class ProjectRepository(DataContext context) : BaseRepository<ProjectEntity>(context), IProjectRepository
 {
-    public async Task<ProjectEntity> GetProjectAsync(int id)
+    public async Task<ProjectEntity> GetWithDetailsAsync(Expression<Func<ProjectEntity, bool>> expression)
     {
         return await _context.Projects
-            .Include(p => p.Customer)
-            .Include(p => p.Employee)
-            .Include(p => p.Service)
             .Include(p => p.StatusInformation)
-            .FirstOrDefaultAsync(p => p.Id == id) ?? null!;
+            .Include(p => p.Service)
+            .Include(p => p.Employee)
+            .Include(p => p.Customer)
+            .FirstOrDefaultAsync(expression) ?? null!;
     }
-
-    public async Task<ICollection<ProjectEntity>> GetAllProjectsAsync()
+    public async Task<IEnumerable<ProjectEntity>> GetAllWithDetailsAsync()
     {
         return await _context.Projects
+            .Include(p => p.StatusInformation)
+            .Include(p => p.Service)
             .Include(p => p.Customer)
             .Include(p => p.Employee)
-            .Include(p => p.Service)
-            .Include(p => p.StatusInformation)
             .ToListAsync() ?? [];
     }
+
+
+
+
+
+
+    //public async Task<ProjectEntity> GetProjectAsync(int id)
+    //{
+    //    return await _context.Projects
+    //        .Include(p => p.Customer)
+    //        .Include(p => p.Employee)
+    //        .Include(p => p.Service)
+    //        .Include(p => p.StatusInformation)
+    //        .FirstOrDefaultAsync(p => p.Id == id) ?? null!;
+    //}
+
+    //public async Task<ICollection<ProjectEntity>> GetAllProjectsAsync()
+    //{
+    //    return await _context.Projects
+    //        .Include(p => p.Customer)
+    //        .Include(p => p.Employee)
+    //        .Include(p => p.Service)
+    //        .Include(p => p.StatusInformation)
+    //        .ToListAsync() ?? [];
+    //}
 }

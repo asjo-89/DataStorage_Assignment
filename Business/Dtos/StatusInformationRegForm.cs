@@ -2,7 +2,7 @@
 
 namespace Business.Dtos;
 
-public class StatusInformationDto
+public class StatusInformationRegForm
 {
     public int Id { get; set; }
 

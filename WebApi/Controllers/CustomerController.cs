@@ -17,7 +17,7 @@ namespace WebApi.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync(CustomerDto dto)
+        public async Task<IActionResult> CreateAsync(CustomerRegForm dto)
         {
             if (dto == null) return BadRequest("No data available to create customer.");
 
@@ -42,7 +42,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetOneAsync(int id)
         {
             Customer customer = await _customerService.GetOneAsync(x => x.Id == id);
-            CustomerDto dto = CustomerFactory.CreateDtoFromModel(customer);
+            CustomerRegForm dto = CustomerFactory.CreateDtoFromModel(customer);
             if (dto == null) return NotFound("No customer found.");
 
             return Ok(dto);

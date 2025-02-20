@@ -4,7 +4,7 @@ using Data.Entities;
 
 namespace Business.Interfaces;
 
-public interface IProjectService : IBaseService<Project, ProjectEntity, ProjectDto>
+public interface IProjectService : IBaseService<Project, ProjectEntity, ProjectRegForm>
 {
     Task<Project> GetProjectAsync(int id);
     Task<Project?> UpdateProjectAsync(int id, Project project);

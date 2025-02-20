@@ -15,7 +15,7 @@ public class RoleController(IRoleService roleService) : ControllerBase
 
 
     [HttpPost]
-    public async Task<IActionResult> CreateAsync(RoleDto dto)
+    public async Task<IActionResult> CreateAsync(RoleRegForm dto)
     {
         if (dto == null || string.IsNullOrWhiteSpace(dto.RoleName)) return BadRequest("No data available to create new role.");
 
@@ -35,7 +35,7 @@ public class RoleController(IRoleService roleService) : ControllerBase
     public async Task<IActionResult> GetOneAsync(int id)
     {
         Role role = await _roleService.GetOneAsync(x => x.Id == id);
-        RoleDto dto = RoleFactory.CreateDtoFromModel(role);
+        RoleRegForm dto = RoleFactory.CreateDtoFromModel(role);
         return Ok(dto);
     }
 

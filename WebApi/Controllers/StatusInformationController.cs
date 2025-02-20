@@ -13,7 +13,7 @@ namespace WebApi.Controllers
         private readonly IStatusInformationService _statusInformationService = statusInformationService;
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync(StatusInformationDto dto)
+        public async Task<IActionResult> CreateAsync(StatusInformationRegForm dto)
         {
             if (dto == null) return BadRequest("No data available to create new status.");
 
@@ -35,7 +35,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetOneAsync(int id)
         {
             StatusInformation status = await _statusInformationService.GetOneAsync(x => x.Id == id);
-            StatusInformationDto dto = StatusInformationFactory.CreateDtoFromModel(status);
+            StatusInformationRegForm dto = StatusInformationFactory.CreateDtoFromModel(status);
             if (dto == null) return BadRequest("No statuse was found");
             return Ok(dto);
         }

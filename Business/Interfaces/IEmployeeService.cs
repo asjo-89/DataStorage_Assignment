@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Business.Interfaces;
 
-public interface IEmployeeService : IBaseService<Employee, EmployeeEntity, EmployeeDto>
+public interface IEmployeeService : IBaseService<Employee, EmployeeEntity, EmployeeRegForm>
 {
     //Task<Employee> GetEmployeeWithDetailsAsync(string field, string value);
     Task<Employee> GetEmployeeAsync(int id);

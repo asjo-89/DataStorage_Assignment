@@ -15,7 +15,7 @@ namespace WebApi.Controllers
         private readonly IProjectService _projectService = projectService;
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync(ProjectDto dto)
+        public async Task<IActionResult> CreateAsync(ProjectRegForm dto)
         {
             Console.WriteLine($"Received DTO: {JsonConvert.SerializeObject(dto)}");
 
@@ -24,7 +24,7 @@ namespace WebApi.Controllers
             Project project = await _projectService.CreateAsync(dto);
             if (project == null) return BadRequest("Project could not be created.");
 
-            ProjectDto newProject = ProjectFactory.CreateDtoFromModel(project);
+            ProjectRegForm newProject = ProjectFactory.CreateDtoFromModel(project);
             return Ok(newProject);
         }
 
@@ -43,12 +43,12 @@ namespace WebApi.Controllers
             Project project = await _projectService.GetProjectAsync(id);
             if (project == null) return NotFound("No project found.");
 
-            ProjectDto projectDto = ProjectFactory.CreateDtoFromModel(project);
+            ProjectRegForm projectDto = ProjectFactory.CreateDtoFromModel(project);
             return Ok(projectDto);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync(int id, ProjectDto dto)
+        public async Task<IActionResult> UpdateAsync(int id, ProjectRegForm dto)
         {
             if (id != dto.Id) return BadRequest("Invalid request. Id can't be changed.");
             
@@ -58,7 +58,7 @@ namespace WebApi.Controllers
             Project? project = await _projectService.UpdateProjectAsync(id, projectToUpdate);
             if (project == null) return BadRequest("Unable to update project.");
 
-            ProjectDto updatedProject = ProjectFactory.CreateDtoFromModel(project);
+            ProjectRegForm updatedProject = ProjectFactory.CreateDtoFromModel(project);
 
             return Ok(updatedProject);
         }

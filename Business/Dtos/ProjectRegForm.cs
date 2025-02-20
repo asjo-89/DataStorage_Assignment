@@ -2,7 +2,7 @@
 
 namespace Business.Dtos;
 
-public class ProjectDto
+public class ProjectRegForm
 {
     public int Id { get; set; }
 
@@ -24,27 +24,27 @@ public class ProjectDto
     [Required]
     public int StatusInformationId { get; set; }
 
-    [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-    public StatusInformationDto? StatusInformation { get; set; }
+    //[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+    //public StatusInformationRegForm? StatusInformation { get; set; }
 
 
     [Required]
     public int CustomerId { get; set; }
 
-    [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-    public CustomerDto? Customer { get; set; }
+    //[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+    //public CustomerRegForm? Customer { get; set; }
 
 
     [Required]
     public int EmployeeId { get; set; }
 
-    [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-    public EmployeeDto? Employee { get; set; }
+    //[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+    //public EmployeeRegForm? Employee { get; set; }
 
 
     [Required]
     public int ServiceId { get; set; }
 
-    [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-    public ServiceDto? Service { get; set; }
+    //[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+    //public ServiceRegForm? Service { get; set; }
 }
