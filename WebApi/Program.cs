@@ -28,32 +28,32 @@ builder.Services.AddScoped<IStatusInformationRepository, StatusInformationReposi
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 
 
-builder.Services.AddScoped(typeof(IBaseService<Customer, CustomerRegForm>), typeof(BaseService<Customer, CustomerEntity, CustomerRegForm>));
+builder.Services.AddScoped(typeof(IBaseService<Customer,CustomerEntity, CustomerRegForm>), typeof(BaseService<Customer, CustomerEntity, CustomerRegForm>));
 builder.Services.AddScoped<Func<CustomerEntity, Customer>>(p => (entity) => CustomerFactory.Create(entity));
 builder.Services.AddScoped<Func<Customer, CustomerEntity>>(p => (model) => CustomerFactory.Create(model));
 builder.Services.AddScoped<Func<CustomerRegForm, CustomerEntity>>(p => (dto) => CustomerFactory.Create(dto));
 
-builder.Services.AddScoped(typeof(IBaseService<Employee, EmployeeRegForm>), typeof(BaseService<Employee, EmployeeEntity, EmployeeRegForm>));
+builder.Services.AddScoped(typeof(IBaseService<Employee, EmployeeEntity, EmployeeRegForm>), typeof(BaseService<Employee, EmployeeEntity, EmployeeRegForm>));
 builder.Services.AddScoped<Func<EmployeeEntity, Employee>>(p => (entity) => EmployeeFactory.Create(entity));
 builder.Services.AddScoped<Func<Employee, EmployeeEntity>>(p => (model) => EmployeeFactory.Create(model));
 builder.Services.AddScoped<Func<EmployeeRegForm, EmployeeEntity>>(p => (dto) => EmployeeFactory.Create(dto));
 
-builder.Services.AddScoped(typeof(IBaseService<Role, RoleRegForm>), typeof(BaseService<Role, RoleEntity, RoleRegForm>));
+builder.Services.AddScoped(typeof(IBaseService<Role, RoleEntity, RoleRegForm>), typeof(BaseService<Role, RoleEntity, RoleRegForm>));
 builder.Services.AddScoped<Func<RoleEntity, Role>>(p => (entity) => RoleFactory.Create(entity));
 builder.Services.AddScoped<Func<Role, RoleEntity>>(p => (model) => RoleFactory.Create(model));
 builder.Services.AddScoped<Func<RoleRegForm, RoleEntity>>(p => (dto) => RoleFactory.Create(dto));
 
-builder.Services.AddScoped(typeof(IBaseService<Service, ServiceRegForm>), typeof(BaseService<Service, ServiceEntity, ServiceRegForm>));
+builder.Services.AddScoped(typeof(IBaseService<Service, ServiceEntity, ServiceRegForm>), typeof(BaseService<Service, ServiceEntity, ServiceRegForm>));
 builder.Services.AddScoped<Func<ServiceEntity, Service>>(p => (entity) => ServiceFactory.Create(entity));
 builder.Services.AddScoped<Func<Service, ServiceEntity>>(p => (model) => ServiceFactory.Create(model));
 builder.Services.AddScoped<Func<ServiceRegForm, ServiceEntity>>(p => (dto) => ServiceFactory.Create(dto));
 
-builder.Services.AddScoped(typeof(IBaseService<StatusInformation, StatusInformationRegForm>), typeof(BaseService<StatusInformation, StatusInformationEntity, StatusInformationRegForm>));
+builder.Services.AddScoped(typeof(IBaseService<StatusInformation, StatusInformationEntity, StatusInformationRegForm>), typeof(BaseService<StatusInformation, StatusInformationEntity, StatusInformationRegForm>));
 builder.Services.AddScoped<Func<StatusInformationEntity, StatusInformation>>(p => (entity) => StatusInformationFactory.Create(entity));
 builder.Services.AddScoped<Func<StatusInformation, StatusInformationEntity>>(p => (model) => StatusInformationFactory.Create(model));
 builder.Services.AddScoped<Func<StatusInformationRegForm, StatusInformationEntity>>(p => (dto) => StatusInformationFactory.Create(dto));
 
-builder.Services.AddScoped(typeof(IBaseService<Project, ProjectRegForm>), typeof(BaseService<Project, ProjectEntity, ProjectRegForm>));
+builder.Services.AddScoped(typeof(IBaseService<Project, ProjectEntity, ProjectRegForm>), typeof(BaseService<Project, ProjectEntity, ProjectRegForm>));
 builder.Services.AddScoped<Func<ProjectEntity, Project>>(p => (entity) => ProjectFactory.Create(entity));
 builder.Services.AddScoped<Func<Project, ProjectEntity>>(p => (model) => ProjectFactory.Create(model));
 builder.Services.AddScoped<Func<ProjectRegForm, ProjectEntity>>(p => (dto) => ProjectFactory.Create(dto));

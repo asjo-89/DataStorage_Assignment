@@ -2,6 +2,7 @@
 using Business.Factories;
 using Business.Interfaces;
 using Business.Models;
+using Data.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -17,22 +18,20 @@ namespace WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateAsync(ProjectRegForm dto)
         {
-            Console.WriteLine($"Received DTO: {JsonConvert.SerializeObject(dto)}");
 
             if (dto == null) return BadRequest("No data available to create new project.");
             
             Project project = await _projectService.CreateAsync(dto);
             if (project == null) return BadRequest("Project could not be created.");
 
-            ProjectRegForm newProject = ProjectFactory.CreateDtoFromModel(project);
-            return Ok(newProject);
+            return Ok(project);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
-            var projects = await _projectService.GetAllAsync();
-            if (projects == null || projects.Count == 0) return NotFound("No projects was found.");
+            IEnumerable<Project> projects = await _projectService.GetAllAsync();
+            if (!projects.Any()) return NotFound("No projects was found.");
    
             return Ok(projects);
         }
@@ -40,36 +39,35 @@ namespace WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProjectAsync(int id)
         {
-            Project project = await _projectService.GetProjectAsync(id);
+            Project project = await _projectService.GetOneAsync(x => x.Id == id);
             if (project == null) return NotFound("No project found.");
 
-            ProjectRegForm projectDto = ProjectFactory.CreateDtoFromModel(project);
-            return Ok(projectDto);
+            return Ok(project);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync(int id, ProjectRegForm dto)
+        [HttpPut]
+        public async Task<IActionResult> UpdateAsync(ProjectRegForm dto)
         {
-            if (id != dto.Id) return BadRequest("Invalid request. Id can't be changed.");
+            if (dto == null) return BadRequest("Incorrect data. Failed to update project.");
             
-            Project projectToUpdate = ProjectFactory.CreateModelFromDto(dto);
-            if (projectToUpdate == null) return BadRequest("Could not convert dto to model.");
+            ProjectEntity entity = ProjectFactory.Create(dto);
+            if (entity == null) return BadRequest("Failed to update project. Could not convert from form to model.");
 
-            Project? project = await _projectService.UpdateProjectAsync(id, projectToUpdate);
+            Project? project = await _projectService.UpdateAsync(ProjectFactory.Create(entity));
             if (project == null) return BadRequest("Unable to update project.");
 
-            ProjectRegForm updatedProject = ProjectFactory.CreateDtoFromModel(project);
-
-            return Ok(updatedProject);
+            return Ok(project);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync(int id)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAsync(Project project)
         {
-            if (id == 0) return BadRequest("Invalid request. Project could not be deleted.");
+            if (project == null) return BadRequest("Invalid request. Project could not be deleted.");
 
-            bool deleted = await _projectService.DeleteAsync(id);
-            return deleted ? Ok("Project was successfully deleted") : NotFound("Failed to delete project. Project was not found.");
+            bool deleted = await _projectService.DeleteAsync(project);
+            return deleted 
+                ? Ok("Project was successfully deleted") 
+                : NotFound("Failed to delete project. Project was not found.");
         }
     }
 }

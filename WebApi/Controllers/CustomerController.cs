@@ -1,9 +1,7 @@
 ﻿using Business.Dtos;
-using Business.Factories;
 using Business.Interfaces;
 using Business.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,15 +23,15 @@ namespace WebApi.Controllers
 
             if (newCustomer == null) return BadRequest("Failed to create customer.");
 
-            return Ok(CustomerFactory.CreateDtoFromModel(newCustomer));
+            return Ok(newCustomer);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
-            var customers = await _customerService.GetAllAsync();
+            IEnumerable<Customer> customers = await _customerService.GetAllAsync();
 
-            if (customers == null || customers.Count <= 0) return NotFound("No customers found.");
+            if (customers == null) return NotFound("No customers found.");
 
             return Ok(customers);
         }
@@ -42,34 +40,24 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetOneAsync(int id)
         {
             Customer customer = await _customerService.GetOneAsync(x => x.Id == id);
-            CustomerRegForm dto = CustomerFactory.CreateDtoFromModel(customer);
-            if (dto == null) return NotFound("No customer found.");
+            if (customer == null) return NotFound("No customer found.");
 
-            return Ok(dto);
+            return Ok(customer);
         }
 
-        [HttpGet("search")]
-        public async Task<IActionResult> GetCustomerAsync([FromQuery] string field, [FromQuery] string value)
+        [HttpPut]
+        public async Task<IActionResult> UpdateAsync(Customer customer)
         {
-            Customer customer = await _customerService.GetCustomerWithDetailsAsync(field, value);
-            if (customer == null) return NotFound("No customer was found.");
-
-            return Ok(CustomerFactory.CreateDtoFromModel(customer));
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync(int id, [FromBody]Customer customer)
-        {
-            bool update = await _customerService.UpdateAsync(id, customer);
-            if (update) return Ok(customer);
+            Customer updatedCustomer = await _customerService.UpdateAsync(customer);
+            if (updatedCustomer != null) return Ok(customer);
 
             return NotFound("Update failed. Customer was not found.");
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync(int id)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAsync(Customer customer)
         {
-            bool deleted = await _customerService.DeleteAsync(id);
+            bool deleted = await _customerService.DeleteAsync(customer);
             if (deleted == false) return NotFound("No customer found. Failed to delete customer.");
 
             return Ok(deleted);

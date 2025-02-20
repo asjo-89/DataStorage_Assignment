@@ -21,14 +21,14 @@ namespace WebApi.Controllers
             Service service = await _servicesService.CreateAsync(dto);
             if (service == null) return BadRequest("Failed to create service.");
 
-            return Ok(ServiceFactory.CreateDtoFromModel(service));
+            return Ok(service);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
-            var services = await _servicesService.GetAllAsync();
-            if (services.Count == 0) return NotFound("There are no services in the list.");
+            IEnumerable<Service> services = await _servicesService.GetAllAsync();
+            if (services == null) return NotFound("There are no services in the list.");
             return Ok(services);
         }
 
@@ -36,17 +36,16 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetOneAsync(int id)
         {
             Service service = await _servicesService.GetOneAsync(x => x.Id == id);
-            ServiceRegForm dto = ServiceFactory.CreateDtoFromModel(service);
-            if (dto == null) return BadRequest("No statuse was found");
-            return Ok(dto);
+            if (service == null) return BadRequest("No status was found");
+            return Ok(service);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync(int id)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAsync(Service service)
         {
-            if (id == 0) return BadRequest("Invalid id. No service was deleted.");
+            if (service == null) return BadRequest("Invalid id. No service was deleted.");
 
-            var deleted = await _servicesService.DeleteAsync(id);
+            bool deleted = await _servicesService.DeleteAsync(service);
             if (!deleted) return NotFound("No service was found.");
 
             return Ok("The service was successfully deleted.");

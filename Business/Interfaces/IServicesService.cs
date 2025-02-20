@@ -4,8 +4,7 @@ using Data.Entities;
 
 namespace Business.Interfaces
 {
-    public interface IServicesService : IBaseService<Service, ServiceRegForm>
+    public interface IServicesService : IBaseService<Service, ServiceEntity, ServiceRegForm>
     {
-        //Task<Service> CreateServiceAsync(ServiceDto dto);
     }
 }

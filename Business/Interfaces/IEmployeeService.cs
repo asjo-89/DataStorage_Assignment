@@ -5,12 +5,6 @@ using System.Linq.Expressions;
 
 namespace Business.Interfaces;
 
-public interface IEmployeeService : IBaseService<Employee, EmployeeRegForm>
+public interface IEmployeeService : IBaseService<Employee, EmployeeEntity, EmployeeRegForm>
 {
-    //Task<Employee> GetEmployeeWithDetailsAsync(string field, string value);
-    Task<Employee> GetEmployeeAsync(int id);
-    Task<ICollection<Employee>> GetEmployeesWithDetailsAsync(string field, string value);
-    Task<Employee> UpdateEmployeeAsync(int id, Employee model);
-
-
 }

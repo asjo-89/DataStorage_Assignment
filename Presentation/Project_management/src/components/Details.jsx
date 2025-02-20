@@ -112,7 +112,7 @@ useEffect(() => {
     console.log("Sending data to API:", JSON.stringify(fieldNotEmpty, null, 2));
 
     try {
-      const response = await fetch(`https://localhost:7273/api/project/${editedProject.id}`, {
+      const response = await fetch(`https://localhost:7273/api/project/`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(fieldNotEmpty)

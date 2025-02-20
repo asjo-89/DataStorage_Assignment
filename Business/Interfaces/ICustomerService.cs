@@ -5,7 +5,6 @@ using System.Linq.Expressions;
 
 namespace Business.Interfaces;
 
-public interface ICustomerService : IBaseService<Customer, CustomerRegForm>
+public interface ICustomerService : IBaseService<Customer, CustomerEntity, CustomerRegForm>
 {
-    Task<Customer> GetCustomerWithDetailsAsync(string field, string value);
 }

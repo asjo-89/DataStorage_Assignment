@@ -20,7 +20,7 @@ namespace WebApi.Controllers
             StatusInformation status = await _statusInformationService.CreateAsync(dto);
             if (status == null) return BadRequest("Failed to create status.");
 
-            return Ok(StatusInformationFactory.CreateDtoFromModel(status));
+            return Ok();
         }
 
         [HttpGet]
@@ -35,16 +35,15 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetOneAsync(int id)
         {
             StatusInformation status = await _statusInformationService.GetOneAsync(x => x.Id == id);
-            StatusInformationRegForm dto = StatusInformationFactory.CreateDtoFromModel(status);
-            if (dto == null) return BadRequest("No statuse was found");
-            return Ok(dto);
+            if (status == null) return BadRequest("No statuse was found");
+            return Ok(status);
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync(int id)
+        public async Task<IActionResult> DeleteAsync(StatusInformation status)
         {
-            if (id == 0) return BadRequest("Invalid id. No status was deleted.");
-            bool deleted = await _statusInformationService.DeleteAsync(id);
+            if (status == null) return BadRequest("Invalid id. No status was deleted.");
+            bool deleted = await _statusInformationService.DeleteAsync(status);
             if (!deleted) return NotFound("No status was found.");
             return Ok("The status was successfully deleted.");
         }

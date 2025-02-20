@@ -10,9 +10,9 @@ namespace Business.Services
 {
     public class RoleService(IBaseRepository<RoleEntity> repository)
     : BaseService<Role, RoleEntity, RoleRegForm>(repository, 
-        RoleFactory.CreateModelFromEntity, 
-        RoleFactory.CreateEntityFromModel, 
-        RoleFactory.CreateEntityFromDto), 
+        RoleFactory.Create, 
+        RoleFactory.Create, 
+        RoleFactory.Create), 
     IRoleService
     {
     }

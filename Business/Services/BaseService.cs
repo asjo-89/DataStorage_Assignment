@@ -1,5 +1,6 @@
 ﻿using Business.Interfaces;
 using Data.Interfaces;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Diagnostics;
 using System.Linq.Expressions;
 
@@ -15,7 +16,7 @@ public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> reposit
     protected readonly Func<TModel, TEntity> _modelToEntity = modelToEntity;
 
 
-    public async Task<TModel> CreateAsync(TDto dto)
+    public virtual async Task<TModel> CreateAsync(TDto dto)
     {
         if (dto == null) return null!;
 
@@ -24,12 +25,13 @@ public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> reposit
         {
             await _repository.BeginTransactionAsync();
 
-            var newEntity = await _repository.CreateAsync(entity);
-            if (newEntity == null) return null!;
+            EntityEntry<TEntity> entry = await _repository.CreateAsync(entity);
+            if (entry == null) return null!;
 
             await _repository.SaveChangesAsync();
             await _repository.CommitTransactionAsync();
 
+            TEntity newEntity = entry.Entity;
             TModel model = _entityToModel(newEntity);
             return model;
         }
@@ -41,14 +43,14 @@ public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> reposit
         }
     }
 
-    public async Task<ICollection<TModel>> GetAllAsync()
+    public virtual async Task<IEnumerable<TModel>> GetAllAsync()
     {
         IEnumerable<TEntity>? entities = await _repository.GetAllAsync();
         List<TModel> models = entities.Select(e => _entityToModel(e)).ToList() ?? [];
-        return models;
+        return models ?? [];
     }
 
-    public async Task<TModel> GetOneAsync(Expression<Func<TEntity, bool>> expression)
+    public virtual async Task<TModel> GetOneAsync(Expression<Func<TEntity, bool>> expression)
     {
         TEntity? entity = await _repository.GetOneAsync(expression);
         TModel model = _entityToModel(entity);
@@ -65,7 +67,7 @@ public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> reposit
             await _repository.BeginTransactionAsync();
 
             TEntity entity = _modelToEntity(model);
-            TEntity? updatedEntity = await _repository.UpdateAsync(entity);
+            TEntity? updatedEntity = _repository.UpdateAsync(entity);
             if (updatedEntity == null) return null!;
 
             await _repository.SaveChangesAsync();
@@ -91,14 +93,12 @@ public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> reposit
             await _repository.BeginTransactionAsync();
 
             TEntity entity = _modelToEntity(model);
-            var result = await _repository.DeleteAsync(entity);
+            _repository.DeleteAsync(entity);
 
-            if (result)
-            {
-                await _repository.SaveChangesAsync();
-                await _repository.CommitTransactionAsync();
-            }
-            return false;
+            await _repository.SaveChangesAsync();
+            await _repository.CommitTransactionAsync();
+            
+            return true;
         }
         catch (Exception ex)
         {

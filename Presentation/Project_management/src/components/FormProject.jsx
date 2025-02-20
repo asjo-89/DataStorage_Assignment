@@ -3,14 +3,14 @@ import { NavLink } from 'react-router-dom'
 
 function FormProject() {
   const [inputs, setInputs] = useState({
-    title: "",
+    projectTitle: "",
     description: "",
     startDate: "",
     endDate: "",
     statusInformationId: "",
     employeeId: "",
     customerId: "",
-    serviceId: ""
+    serviceId: "",
   });
   const [statuses, setStatuses] = useState([]);
   const [services, setServices] = useState([]);
@@ -57,6 +57,8 @@ function FormProject() {
     const fieldNotEmpty = Object.fromEntries(
       Object.entries(inputs).map(([key, value]) => [key, value === "" ? null : value])
     );
+    console.log("Sending data:", JSON.stringify(fieldNotEmpty));
+
     try {
       const response = await fetch(`https://localhost:7273/api/project/`, {
         method: "post",
@@ -120,8 +122,8 @@ function FormProject() {
     <>
         <form className="container" onSubmit={handleSubmit}>
           <div className="name">
-            <label className="input-label" htmlFor="title"> Project name {inputs.title} </label>
-            <input className="input" type="text" name="title" value={inputs.title} onChange={handleChange} />
+            <label className="input-label" htmlFor="projectTitle"> Project name {inputs.projectTitle} </label>
+            <input className="input" type="text" name="projectTitle" value={inputs.projectTitle} onChange={handleChange} />
           </div>
 
           <div className="description">

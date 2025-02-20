@@ -22,7 +22,7 @@ public class RoleController(IRoleService roleService) : ControllerBase
         Role newRole = await _roleService.CreateAsync(dto);
         if (newRole == null) return BadRequest("Failed to create role.");
 
-        return Ok(RoleFactory.CreateDtoFromModel(newRole));
+        return Ok(newRole);
     }
 
     [HttpGet]
@@ -34,17 +34,17 @@ public class RoleController(IRoleService roleService) : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetOneAsync(int id)
     {
+        if (id == 0) return BadRequest("Incorrect search data.");
         Role role = await _roleService.GetOneAsync(x => x.Id == id);
-        RoleRegForm dto = RoleFactory.CreateDtoFromModel(role);
-        return Ok(dto);
+        return Ok(role);
     }
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteAsync(int id)
+    [HttpDelete]
+    public async Task<IActionResult> DeleteAsync(Role role)
     {
-        if (id == 0) return BadRequest("Invalid id. No service was deleted.");
+        if (role == null) return BadRequest("Incorrect input. Failed to delete.");
 
-        var deleted = await _roleService.DeleteAsync(id);
+        bool deleted = await _roleService.DeleteAsync(role);
         if (!deleted) return NotFound("No service was found.");
 
         return Ok("The service was successfully deleted.");

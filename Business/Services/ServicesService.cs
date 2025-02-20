@@ -10,9 +10,9 @@ namespace Business.Services
 {
     public class ServicesService(IBaseRepository<ServiceEntity> repository)
         : BaseService<Service, ServiceEntity, ServiceRegForm>(repository, 
-            ServiceFactory.CreateModelFromEntity, 
-            ServiceFactory.CreateEntityFromModel, 
-            ServiceFactory.CreateEntityFromDto), 
+            ServiceFactory.Create, 
+            ServiceFactory.Create, 
+            ServiceFactory.Create), 
         IServicesService
     {
     }

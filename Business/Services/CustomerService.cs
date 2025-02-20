@@ -11,36 +11,39 @@ using System.Linq.Expressions;
 namespace Business.Services;
 
 public class CustomerService(IBaseRepository<CustomerEntity> repository)
-    : BaseService<Customer, CustomerEntity, CustomerRegForm>(repository, CustomerFactory.CreateModelFromEntity, CustomerFactory.CreateEntityFromModel, CustomerFactory.CreateEntityFromDto), ICustomerService
+    : BaseService<Customer, CustomerEntity, CustomerRegForm>(repository, 
+        CustomerFactory.Create, 
+        CustomerFactory.Create, 
+        CustomerFactory.Create), 
+    ICustomerService
 {
 
 
-    public async Task<Customer> GetCustomerWithDetailsAsync(string field, string value)
+    public async Task<Customer> GetWithDetailsAsync(int id)
     {
-        var expression = CreateExpressionAsync(field, value);
-        var entity = await _repository.GetOneAsync(expression);
+        var entity = await _repository.GetOneAsync(x => x.Id == id);
         if (entity == null) return null!;
 
-        var customer = CustomerFactory.CreateModelFromEntity(entity);
+        var customer = CustomerFactory.Create(entity);
 
-        return customer;
+        return customer ?? null!;
     }
 
     public override async Task<Customer> CreateAsync(CustomerRegForm dto)
     {
-        if (await _repository.ExistsAsync(c => c.CustomerName == dto.CustomerName))
+        if (await _repository.AlreadyExists(c => c.CustomerName == dto.CustomerName))
         {
             Debug.WriteLine("A customer with the same name already exists.");
             return null!;
         }
 
-        if (await _repository.ExistsAsync(c => c.PhoneNumber == dto.PhoneNumber))
+        if (await _repository.AlreadyExists(c => c.PhoneNumber == dto.PhoneNumber))
         {
             Debug.WriteLine("A customer with the same phone number already exists.");
             return null!;
         }
 
-        if (await _repository.ExistsAsync(c => c.Email == dto.Email))
+        if (await _repository.AlreadyExists(c => c.Email == dto.Email))
         {
             Debug.WriteLine("A customer with the same email already exists.");
             return null!;
