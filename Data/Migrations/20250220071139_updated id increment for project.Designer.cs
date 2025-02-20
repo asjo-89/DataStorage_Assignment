@@ -4,6 +4,7 @@ using Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250220071139_updated id increment for project")]
+    partial class updatedidincrementforproject
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,7 +47,7 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("Data.Entities.EmployeeEntity", b =>
@@ -71,7 +74,7 @@ namespace Data.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("Data.Entities.ProjectEntity", b =>
@@ -121,7 +124,7 @@ namespace Data.Migrations
 
                     b.HasIndex("StatusInformationId");
 
-                    b.ToTable("Projects", (string)null);
+                    b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("Data.Entities.RoleEntity", b =>
@@ -142,7 +145,7 @@ namespace Data.Migrations
                     b.HasIndex("RoleName")
                         .IsUnique();
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Data.Entities.ServiceEntity", b =>
@@ -170,7 +173,7 @@ namespace Data.Migrations
                     b.HasIndex("ServiceName")
                         .IsUnique();
 
-                    b.ToTable("Services", (string)null);
+                    b.ToTable("Services");
                 });
 
             modelBuilder.Entity("Data.Entities.StatusInformationEntity", b =>
@@ -191,7 +194,7 @@ namespace Data.Migrations
                     b.HasIndex("StatusName")
                         .IsUnique();
 
-                    b.ToTable("StatusInformation", (string)null);
+                    b.ToTable("StatusInformation");
                 });
 
             modelBuilder.Entity("Data.Entities.EmployeeEntity", b =>

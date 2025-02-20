@@ -11,7 +11,7 @@ public class CustomerEntity : IEntity
     public int Id { get; set; }
 
     [Required]
-    [Column(TypeName = "nvarchar(100)")]
+    [Column(TypeName = "nvarchar(50)")]
     public string CustomerName { get; set; } = null!;
 
     [Required]

@@ -14,41 +14,10 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<CustomerEntity>(entity =>
-        {
-            entity.Property(e => e.Id)
-                  .ValueGeneratedOnAdd() 
-                  .HasAnnotation("SqlServer:Identity", "1, 1");
-        });
-        modelBuilder.Entity<EmployeeEntity>(entity =>
-        {
-            entity.Property(e => e.Id)
-                  .ValueGeneratedOnAdd()
-                  .HasAnnotation("SqlServer:Identity", "1, 1");
-        });
         modelBuilder.Entity<ProjectEntity>(entity =>
         {
             entity.Property(e => e.Id)
-                  .ValueGeneratedOnAdd()
-                  .HasAnnotation("SqlServer:Identity", "101, 1");
-        });
-        modelBuilder.Entity<RoleEntity>(entity =>
-        {
-            entity.Property(e => e.Id)
-                  .ValueGeneratedOnAdd()
-                  .HasAnnotation("SqlServer:Identity", "1, 1");
-        });
-        modelBuilder.Entity<StatusInformationEntity>(entity =>
-        {
-            entity.Property(e => e.Id)
-                  .ValueGeneratedOnAdd()
-                  .HasAnnotation("SqlServer:Identity", "1, 1");
-        });
-        modelBuilder.Entity<ServiceEntity>(entity =>
-        {
-            entity.Property(e => e.Id)
-                  .ValueGeneratedOnAdd()
-                  .HasAnnotation("SqlServer:Identity", "1, 1");
+                  .UseIdentityColumn(101, 1);
         });
         base.OnModelCreating(modelBuilder);
     }
