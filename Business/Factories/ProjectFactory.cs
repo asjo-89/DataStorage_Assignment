@@ -23,7 +23,7 @@ namespace Business.Factories
             ServiceId = dto.ServiceId
         };
 
-        public static ProjectEntity CreateEntityFromModel(Project model) => new()
+        public static ProjectEntity Create(Project model) => new()
         {
             Id = model.Id,
             ProjectTitle = model.ProjectTitle,

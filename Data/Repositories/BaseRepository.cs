@@ -46,32 +46,32 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
 
     #region CRUD
 
-    public virtual async Task CreateAsync(TEntity entity)
-    {
-        await _entities.AddAsync(entity);        
-    }
+    //public virtual async Task CreateAsync(TEntity entity)
+    //{
+    //    await _entities.AddAsync(entity);
+    //}
 
-    public virtual async Task<IEnumerable<TEntity>> GetAsync()
-    {
-        IEnumerable<TEntity> entities = await _entities.ToListAsync();
-        return entities;
-    }
+    //public virtual async Task<IEnumerable<TEntity>> GetAsync()
+    //{
+    //    IEnumerable<TEntity> entities = await _entities.ToListAsync();
+    //    return entities;
+    //}
 
-    public virtual async Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> expression)
-    {
-        TEntity? entity = await _entities.FirstOrDefaultAsync(expression);
-        return entity;
-    }
+    //public virtual async Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> expression)
+    //{
+    //    TEntity? entity = await _entities.FirstOrDefaultAsync(expression);
+    //    return entity;
+    //}
 
-    public virtual void UpdateAsync(TEntity entity)
-    {
-        _entities.Update(entity);
-    }
+    //public virtual void UpdateAsync(TEntity entity)
+    //{
+    //    _entities.Update(entity);
+    //}
 
-    public virtual void DeleteAsync(TEntity entity)
-    {
-        _entities.Remove(entity);
-    }
+    //public virtual void DeleteAsync(TEntity entity)
+    //{
+    //    _entities.Remove(entity);
+    //}
 
     public virtual async Task<int> SaveChangesAsync()
     {
@@ -81,106 +81,90 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
 
     #endregion
 
-    //public async Task<TEntity> CreateAsync(TEntity entity)
-    //{
-    //    if (entity == null) return null!;
-    //    try
-    //    {
-    //        await _context.Set<TEntity>().AddAsync(entity);
-    //        await _context.SaveChangesAsync();
-    //        return entity;
-    //    }
-    //    catch(Exception ex)
-    //    {
-    //        Debug.WriteLine($"Error creating customer : {ex.Message}");
-    //        return null!;
-    //    }
-    //}  
+    public async Task<TEntity> CreateAsync(TEntity entity)
+    {
+        if (entity == null) return null!;
+        try
+        {
+            await _context.Set<TEntity>().AddAsync(entity);
+            return entity;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error creating customer : {ex.Message}");
+            return null!;
+        }
+    }
 
-    //public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
-    //{
-    //    try
-    //    {
-    //        return await _context.Set<TEntity>().ToListAsync();
-    //    }
-    //    catch(Exception ex)
-    //    {
-    //        Debug.WriteLine($"Error getting list from database : {ex.Message}");
-    //        return [];
-    //    }
-    //}
+    public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
+    {
+        try
+        {
+            return await _context.Set<TEntity>().ToListAsync();
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error getting list from database : {ex.Message}");
+            return [];
+        }
+    }
 
-    //public async Task<TEntity?> GetOneAsync(Expression<Func<TEntity, bool>> expression)
-    //{
-    //    try
-    //    {
-    //        var entity = await _context.Set<TEntity>()
-    //            .FirstOrDefaultAsync(expression);
-    //        if (entity == null) return null!;
+    public async Task<TEntity?> GetOneAsync(Expression<Func<TEntity, bool>> expression)
+    {
+        try
+        {
+            var entity = await _context.Set<TEntity>()
+                .FirstOrDefaultAsync(expression);
+            if (entity == null) return null!;
 
-    //        return entity;
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        Debug.WriteLine($"Error finding entity in database : {ex.Message}");
-    //        return null!;
-    //    }
-    //}
+            return entity;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error finding entity in database : {ex.Message}");
+            return null!;
+        }
+    }
 
-    //public async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression)
-    //{
-    //    try
-    //    {
-    //        return await _context.Set<TEntity>()
-    //            .AnyAsync(expression);
-    //    }
-    //    catch(Exception ex)
-    //    {
-    //        Debug.WriteLine($"Error checking if entity exists : {ex.Message}");
-    //        return false;
-    //    }
-    //}
 
-    //public async Task<TEntity?> UpdateAsync(int id, TEntity updatedEntity)
-    //{
-    //    try
-    //    {
-    //        if (updatedEntity == null) return null!;
+    public async Task<TEntity?> UpdateAsync(TEntity updatedEntity)
+    {
+        try
+        {
+            if (updatedEntity == null) return null!;
 
-    //        var entityToUpdate = await _context.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id);
-    //        if (entityToUpdate != null)
-    //        {
-    //            _context.Entry(entityToUpdate)
-    //                .CurrentValues.SetValues(updatedEntity);
-    //            await _context.SaveChangesAsync();
-    //            return updatedEntity ?? null!;
-    //        }
-    //        return null!;
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        Debug.WriteLine($"Error updating entity { ex.Message }");
-    //        return null!;
-    //    }
-    //}
+            var entityToUpdate = await _context.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id);
+            if (entityToUpdate != null)
+            {
+                _context.Entry(entityToUpdate)
+                    .CurrentValues.SetValues(updatedEntity);
+                return updatedEntity ?? null!;
+            }
+            return null!;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error updating entity {ex.Message}");
+            return null!;
+        }
+    }
 
-    //public async Task<bool> DeleteAsync(int id)
-    //{
-    //    try
-    //    {
-    //        var entity = await _context.Set<TEntity>()
-    //            .FirstOrDefaultAsync(e => e.Id == id);
-    //        if (entity == null) return false;
+    public async Task<bool> DeleteAsync(TEntity entity)
+    {
+        try
+        {
+            var entity = await _context.Set<TEntity>()
+                .FirstOrDefaultAsync(e => e.Id == id);
+            if (entity == null) return false;
 
-    //        _context.Set<TEntity>().Remove(entity);
-    //        await _context.SaveChangesAsync();
-    //        return true;
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        Debug.WriteLine($"Error deleting entity { ex.Message }");
-    //        return false;
-    //    }
-    //}
+            _context.Set<TEntity>().Remove(entity);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error deleting entity {ex.Message}");
+            return false;
+        }
+    }
 
 }

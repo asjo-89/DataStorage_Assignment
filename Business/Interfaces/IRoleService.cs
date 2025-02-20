@@ -4,6 +4,6 @@ using Data.Entities;
 
 namespace Business.Interfaces;
 
-public interface IRoleService : IBaseService<Role, RoleEntity, RoleRegForm>
+public interface IRoleService : IBaseService<Role, RoleRegForm>
 {
 }
