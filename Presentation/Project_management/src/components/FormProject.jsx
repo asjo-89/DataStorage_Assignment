@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 function FormProject() {
   const [inputs, setInputs] = useState({
@@ -10,7 +10,7 @@ function FormProject() {
     statusInformationId: "",
     employeeId: "",
     customerId: "",
-    serviceId: "",
+    serviceId: ""
   });
   const [statuses, setStatuses] = useState([]);
   const [services, setServices] = useState([]);
@@ -23,6 +23,8 @@ function FormProject() {
     fetchEmployees();
     fetchCustomers();
   }, []);
+
+  const navigate = useNavigate();
 
   const fetchStatuses = async () => {
     const response = await fetch("https://localhost:7273/api/statusInformation");
@@ -48,17 +50,11 @@ function FormProject() {
     setCustomers(data);
   }
   
-  
-  
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const fieldNotEmpty = Object.fromEntries(
       Object.entries(inputs).map(([key, value]) => [key, value === "" ? null : value])
     );
-    console.log("Sending data:", JSON.stringify(fieldNotEmpty));
-
     try {
       const response = await fetch(`https://localhost:7273/api/project/`, {
         method: "post",
@@ -71,7 +67,9 @@ function FormProject() {
       }
 
       const data = await response.json();
-      console.log("POST succeeded: ", {data})
+      console.log("POST succeeded: ", {data});
+
+      navigate("/");
     }
     catch (error) {
       console.log({error})

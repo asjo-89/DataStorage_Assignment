@@ -41,13 +41,12 @@ public class EmployeeService
             await _repository.BeginTransactionAsync();
 
             EmployeeEntity entity = EmployeeFactory.Create(dto);
-            EntityEntry<EmployeeEntity> entry = await _repository.CreateAsync(entity);
+            EmployeeEntity entry = await _repository.CreateAsync(entity);
             if (entry == null) return null!;
 
             await _repository.SaveChangesAsync();
             await _repository.CommitTransactionAsync();
 
-            entity = entry.Entity;
             Employee employee = EmployeeFactory.Create(entity);
             return employee ?? null!;
         }

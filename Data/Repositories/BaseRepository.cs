@@ -53,10 +53,10 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
 
     #region CRUD
 
-    public virtual async Task<EntityEntry<TEntity>> CreateAsync(TEntity entity)
+    public virtual async Task<TEntity> CreateAsync(TEntity entity)
     {
-        var newEntity = await _entities.AddAsync(entity);
-        return newEntity;
+        await _entities.AddAsync(entity);
+        return entity;
     }
 
     public virtual async Task<IEnumerable<TEntity>> GetAllAsync()

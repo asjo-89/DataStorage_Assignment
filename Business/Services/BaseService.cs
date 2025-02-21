@@ -25,14 +25,13 @@ public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> reposit
         {
             await _repository.BeginTransactionAsync();
 
-            EntityEntry<TEntity> entry = await _repository.CreateAsync(entity);
+            TEntity entry = await _repository.CreateAsync(entity);
             if (entry == null) return null!;
 
             await _repository.SaveChangesAsync();
             await _repository.CommitTransactionAsync();
 
-            TEntity newEntity = entry.Entity;
-            TModel model = _entityToModel(newEntity);
+            TModel model = _entityToModel(entity);
             return model;
         }
         catch (Exception ex)

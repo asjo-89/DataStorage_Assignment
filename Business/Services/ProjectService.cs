@@ -41,15 +41,13 @@ public class ProjectService
             await _repository.BeginTransactionAsync();
 
             ProjectEntity? entity = ProjectFactory.Create(dto);
-            EntityEntry<ProjectEntity> entry = await _repository.CreateAsync(entity);
-            if (entry == null!) return null!;
+            entity = await _repository.CreateAsync(entity);
+            if (entity == null!) return null!;
 
             await _repository.SaveChangesAsync();
             await _repository.CommitTransactionAsync();
 
-            entity = entry.Entity;
-            var newEntity = _projectRepository.GetWithDetailsAsync(x => x.Id == entity.Id);
-            entity = await newEntity;
+            ProjectEntity newEntity = await _projectRepository.GetWithDetailsAsync(x => x.Id == entity.Id);
             Project newProject = ProjectFactory.Create(entity);
             return newProject ?? null!;
         }
@@ -85,6 +83,8 @@ public class ProjectService
         if (project == null) return null!;
         ProjectEntity updatedEntity = ProjectFactory.Create(project);
 
+        Console.WriteLine(updatedEntity);
+
         try
         {
             await _repository.BeginTransactionAsync();
@@ -95,6 +95,7 @@ public class ProjectService
             await _repository.SaveChangesAsync();
             await _repository.CommitTransactionAsync();
 
+            updatedEntity = await _projectRepository.GetWithDetailsAsync(x => x.Id == project.Id);
             Project updatedProject = ProjectFactory.Create(updatedEntity);
             return updatedProject ?? null!;
         }

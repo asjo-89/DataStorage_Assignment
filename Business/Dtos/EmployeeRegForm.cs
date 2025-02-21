@@ -8,11 +8,11 @@ public class EmployeeRegForm
     public int Id { get; set; }
 
     [Required]
-    [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+    //[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
     public string FirstName { get; set; } = null!;
 
     [Required]
-    [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+    //[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
     public string LastName { get; set; } = null!;
 
     [Required]

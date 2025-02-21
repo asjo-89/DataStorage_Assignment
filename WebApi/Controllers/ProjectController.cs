@@ -45,15 +45,12 @@ namespace WebApi.Controllers
             return Ok(project);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateAsync(ProjectRegForm dto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateAsync(Project model)
         {
-            if (dto == null) return BadRequest("Incorrect data. Failed to update project.");
+            if (model == null) return BadRequest("Incorrect data. Failed to update project.");
             
-            ProjectEntity entity = ProjectFactory.Create(dto);
-            if (entity == null) return BadRequest("Failed to update project. Could not convert from form to model.");
-
-            Project? project = await _projectService.UpdateAsync(ProjectFactory.Create(entity));
+            Project? project = await _projectService.UpdateProjectAsync(model);
             if (project == null) return BadRequest("Unable to update project.");
 
             return Ok(project);

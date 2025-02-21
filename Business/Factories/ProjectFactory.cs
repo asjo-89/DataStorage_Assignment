@@ -2,6 +2,7 @@
 using Business.Models;
 using Data.Entities;
 using Data.Interfaces;
+using Microsoft.EntityFrameworkCore.Migrations.Internal;
 
 namespace Business.Factories
 {
@@ -19,7 +20,7 @@ namespace Business.Factories
             EndDate = dto.EndDate,
             StatusInformationId = dto.StatusInformationId,
             CustomerId = dto.CustomerId,
-            EmployeeId = dto.EmployeeId,
+            EmployeeId = dto.EmployeeId,            
             ServiceId = dto.ServiceId
         };
 
@@ -33,7 +34,37 @@ namespace Business.Factories
             StatusInformationId = model.StatusInformationId,
             CustomerId = model.CustomerId,
             EmployeeId = model.EmployeeId,
-            ServiceId = model.ServiceId
+            ServiceId = model.ServiceId,
+            //StatusInformation = new StatusInformationEntity
+            //{
+            //    Id = model.StatusInformationId,
+            //    StatusName = model.StatusInformation.StatusName,
+            //},
+            //Customer = new CustomerEntity
+            //{
+            //    Id = model.CustomerId,
+            //    CustomerName = model.Customer.CustomerName,
+            //    PhoneNumber = model.Customer.PhoneNumber,
+            //    Email = model.Customer?.Email
+            //},
+            //Employee = new EmployeeEntity
+            //{
+            //    Id = model.EmployeeId,
+            //    FirstName = model.Employee.FirstName,
+            //    LastName = model.Employee.LastName,
+            //    Role = new RoleEntity
+            //    {
+            //        Id = model.Employee.Role.Id,
+            //        RoleName = model.Employee.Role.RoleName
+            //    }
+            //},
+            //Service = new ServiceEntity
+            //{
+            //    Id = model.ServiceId,
+            //    ServiceName = model.Service.ServiceName,
+            //    Price = model.Service.Price,
+            //    Unit = model.Service.Unit
+            //}
         };
 
         public static Project Create(ProjectEntity entity) => new()
