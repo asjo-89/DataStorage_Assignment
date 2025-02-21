@@ -56,9 +56,12 @@ namespace WebApi.Controllers
             return Ok(project);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteAsync(Project project)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
         {
+            if (id == 0) return BadRequest("Invalid request. Project could not be deleted.");
+
+            Project project = await _projectService.GetOneAsync(x => x.Id == id);
             if (project == null) return BadRequest("Invalid request. Project could not be deleted.");
 
             bool deleted = await _projectService.DeleteAsync(project);

@@ -108,7 +108,21 @@ namespace Business.Factories
                 Price = entity.Service.Price,
                 Unit = entity.Service.Unit
             }
-        };        
+        };
+
+        public static Project CreateForDelete(ProjectEntity entity) => new()
+        {
+            Id = entity.Id,
+            ProjectTitle = entity.ProjectTitle,
+            Description = entity.Description,
+            StartDate = entity.StartDate,
+            EndDate = entity.EndDate,
+            StatusInformationId = entity.StatusInformationId,
+            CustomerId = entity.CustomerId,
+            EmployeeId = entity.EmployeeId,
+            ServiceId = entity.ServiceId,
+        };
+
     }
 }
 

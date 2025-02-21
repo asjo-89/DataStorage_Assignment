@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 function Details({project}) {
 
@@ -73,6 +73,8 @@ useEffect(() => {
   fetchStatuses();
 }, []);
 
+const navigate = useNavigate();
+
   const fetchEmployees = async () => {
     const response = await fetch("https://localhost:7273/api/employee");
     const data = await response.json();
@@ -96,12 +98,37 @@ useEffect(() => {
     const data = await response.json();
     setEditedStatus(data);
   } 
-  const handleClick = async (e) => {
+  const handleSave = async (e) => {
       if (isEditing) 
       {
         await handleSubmit(e);
       }      
       setIsEditing(!isEditing);
+  }
+
+  const handleDelete = async (e) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this project?");
+    if (!confirmDelete) return;
+
+    try 
+    {
+      const response = await fetch(`https://localhost:7273/api/project/${editedProject.id}`, {
+        method: "DELETE"
+      });
+
+      if (!response.ok) {
+        const errorMessage = await response.text(); // Läs felmeddelande från backend
+        console.error(`Failed to delete project: ${response.status} - ${errorMessage}`);
+        return;
+      }
+
+      console.log("Project deleted successfully");
+      navigate('/');
+    }
+    catch (error) 
+    {
+      console.log("Delete failed: ", {error});
+    }
   }
 
   const handleSubmit = async (e) => {
@@ -226,8 +253,11 @@ useEffect(() => {
           </h3>
         </div>
         <div className="buttons">
-          <button className="btn save" type="button" onClick={handleClick}>
+          <button className="btn save" type="button" onClick={handleSave}>
             {isEditing ? "Save" : "Edit"}
+          </button>
+          <button className="btn delete" type="button" onClick={handleDelete}>
+            Delete
           </button>
           <NavLink to="/" className="btn cancel">
             {isEditing ? "Cancel" : "Go back"}

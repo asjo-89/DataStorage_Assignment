@@ -106,4 +106,12 @@ public class ProjectService
             return null!;
         }
     }
+
+    public override async Task<Project> GetOneAsync(Expression<Func<ProjectEntity, bool>> expression)
+    {
+        ProjectEntity? entity = await _repository.GetOneAsync(expression);
+        Project model = ProjectFactory.CreateForDelete(entity);
+
+        return model ?? null!;
+    }
 }

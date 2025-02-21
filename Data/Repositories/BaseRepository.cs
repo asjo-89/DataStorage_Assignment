@@ -67,7 +67,9 @@ public class BaseRepository<TEntity>(DataContext context) : IBaseRepository<TEnt
 
     public virtual async Task<TEntity?> GetOneAsync(Expression<Func<TEntity, bool>> expression)
     {
-        TEntity? entity = await _entities.FirstOrDefaultAsync(expression);
+        TEntity? entity = await _entities
+            .AsNoTracking()
+            .FirstOrDefaultAsync(expression);
         return entity ?? null!;
     }
 

@@ -19,6 +19,8 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
             entity.Property(e => e.Id)
                   .UseIdentityColumn(101, 1);
         });
+
         base.OnModelCreating(modelBuilder);
     }
+
 }
