@@ -39,6 +39,19 @@ public class RoleController(IRoleService roleService) : ControllerBase
         return Ok(role);
     }
 
+    [HttpPut]
+    public async Task<IActionResult> UpdateAsync(Role model)
+    {
+        if (model == null) return BadRequest("Incorrect data. Failed to update role.");
+
+        Role? role = await _roleService.UpdateAsync(model);
+        if (role == null) return BadRequest("Unable to update project.");
+
+        return Ok(role);
+    }
+
+
+    //Ska inte gå att ta bort om en roll är kopplad till en anställd.
     [HttpDelete]
     public async Task<IActionResult> DeleteAsync(Role role)
     {

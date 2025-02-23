@@ -67,17 +67,6 @@ public class ProjectService
         return projects ?? [];
     }
 
-    public async Task<Project> GetOneAsync(int id)
-    {
-        if (id == 0) return null!;
-
-        ProjectEntity entity = await _projectRepository.GetWithDetailsAsync(x => x.Id == id);
-        if (entity == null) return null!;
-
-        Project project = ProjectFactory.Create(entity);
-        return project ?? null!;
-    }
-
     public async Task<Project> UpdateProjectAsync(Project project)
     {
         if (project == null) return null!;
@@ -110,7 +99,9 @@ public class ProjectService
     public override async Task<Project> GetOneAsync(Expression<Func<ProjectEntity, bool>> expression)
     {
         ProjectEntity? entity = await _repository.GetOneAsync(expression);
-        Project model = ProjectFactory.CreateForDelete(entity);
+
+        if (entity == null) return null!;
+        Project model = ProjectFactory.CreateSimple(entity);
 
         return model ?? null!;
     }

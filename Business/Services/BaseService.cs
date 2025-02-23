@@ -1,6 +1,5 @@
 ﻿using Business.Interfaces;
 using Data.Interfaces;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Diagnostics;
 using System.Linq.Expressions;
 
@@ -52,6 +51,7 @@ public class BaseService<TModel, TEntity, TDto>(IBaseRepository<TEntity> reposit
     public virtual async Task<TModel> GetOneAsync(Expression<Func<TEntity, bool>> expression)
     {
         TEntity? entity = await _repository.GetOneAsync(expression);
+        if (entity == null) return null!;
         TModel model = _entityToModel(entity);
 
         return model ?? null!;

@@ -111,7 +111,9 @@ function FormProject() {
       ? services.map((service) => (
         {
           id: service.id, 
-          name: service.serviceName
+          name: service.serviceName,
+          price: service.price,
+          unit: service.unit
         }))
       : [];
 
@@ -120,18 +122,21 @@ function FormProject() {
     <>
         <form className="container" onSubmit={handleSubmit}>
           <div className="name">
-            <label className="input-label" htmlFor="projectTitle"> Project name {inputs.projectTitle} </label>
+            <label className="input-label" htmlFor="projectTitle"> Project name * </label>
             <input className="input" type="text" name="projectTitle" value={inputs.projectTitle} onChange={handleChange} />
           </div>
 
           <div className="description">
-            <label className="input-label" htmlFor="description"> Description {inputs.description} </label>
+            <label className="input-label" htmlFor="description"> Description * </label>
             <textarea className="input" type="text" name="description" value={inputs.description} onChange={handleChange} />
           </div>
 
           <div className="manager">
-            <label className="input-label" htmlFor="employeeId"> Manager {inputs.employeeId} </label>
+            <label className="input-label" htmlFor="employeeId"> Manager * </label>
             <select className="input" type="text" name="employeeId" value={inputs.employeeId} onChange={handleChange}>
+              <option value="" disabled>
+                Choose manager...
+              </option>
               {employeeList.map((employee) => (
                 <option key={employee.id} value={employee.id}>{employee.name}</option>
               ))}              
@@ -139,18 +144,21 @@ function FormProject() {
           </div>
 
           <div className="start-date">
-            <label className="input-label" htmlFor="startDate"> Start date {inputs.startDate} </label>
+            <label className="input-label" htmlFor="startDate"> Start date </label>
             <input className="input" type="date" name="startDate" value={inputs.startDate} onChange={handleChange} />
           </div>
 
           <div className="end-date">
-            <label className="input-label" htmlFor="endDate"> End date {inputs.endDate} </label>
+            <label className="input-label" htmlFor="endDate"> End date </label>
             <input className="input" type="date" name="endDate" value={inputs.endDate} onChange={handleChange} />
           </div>
 
           <div className="customer">
-            <label className="input-label" htmlFor="customerId"> Customer {inputs.customerId} </label>
+            <label className="input-label" htmlFor="customerId"> Customer * </label>
             <select className="input" type="text" name="customerId" value={inputs.customerId} onChange={handleChange}>
+            <option value="" disabled>
+                Choose customer...
+              </option>
               {customerList.map((customer) => (
                 <option key={customer.id} value={customer.id}>
                   {customer.name}
@@ -160,19 +168,25 @@ function FormProject() {
           </div>
 
           <div className="service">
-            <label className="input-label" htmlFor="serviceId"> Service {inputs.serviceId} </label>
+            <label className="input-label" htmlFor="serviceId"> Service * </label>
             <select className="input" type="text" name="serviceId" value={inputs.serviceId} onChange={handleChange}>
+            <option value="" disabled>
+                Choose service...
+              </option>
               {serviceList.map((service) => (
                 <option key={service.id} value={service.id}>
-                  {service.name}
+                  {service.name} {service.price} {service.unit}
                 </option>
               ))}
             </select>
           </div>
 
           <div className="status">
-            <label className="input-label" htmlFor="statusInformationId"> Status {inputs.statusInformationId} </label>
+            <label className="input-label" htmlFor="statusInformationId"> Status * </label>
             <select className="input" type="text" name="statusInformationId" value={inputs.statusInformationId} onChange={handleChange}>
+            <option value="" disabled>
+                Choose status...
+              </option>
               {statusList.map((status) => (
                 <option key={status.id} value={status.id}>
                   {status.name}

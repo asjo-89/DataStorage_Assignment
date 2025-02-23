@@ -28,29 +28,4 @@ public class ProjectRepository(DataContext context) : BaseRepository<ProjectEnti
                 .ThenInclude(r => r.Role)
             .ToListAsync() ?? [];
     }
-
-
-
-
-
-
-    //public async Task<ProjectEntity> GetProjectAsync(int id)
-    //{
-    //    return await _context.Projects
-    //        .Include(p => p.Customer)
-    //        .Include(p => p.Employee)
-    //        .Include(p => p.Service)
-    //        .Include(p => p.StatusInformation)
-    //        .FirstOrDefaultAsync(p => p.Id == id) ?? null!;
-    //}
-
-    //public async Task<ICollection<ProjectEntity>> GetAllProjectsAsync()
-    //{
-    //    return await _context.Projects
-    //        .Include(p => p.Customer)
-    //        .Include(p => p.Employee)
-    //        .Include(p => p.Service)
-    //        .Include(p => p.StatusInformation)
-    //        .ToListAsync() ?? [];
-    //}
 }

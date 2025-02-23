@@ -22,10 +22,12 @@ function ProjectList() {
   }
   
 
+//Behöver kopplas på bättre sätt till statusinformation ifall status får nytt id.
+
   return (
     <>
         <ProjectCards classname="ongoing" title="Ongoing" projects={projects.filter(p => p.statusInformationId === 1)} />
-        <ProjectCards classname="not-started" title="Not started" projects={projects.filter(p => p.statusInformationId === 2)} />
+        <ProjectCards classname="not-started" title="Not started" projects={projects.filter(p => p.statusInformationId === 5)} />
         <ProjectCards classname="completed" title="Completed" projects={projects.filter(p => p.statusInformationId === 3)} />
     </>
   )

@@ -2,6 +2,7 @@
 using Business.Factories;
 using Business.Interfaces;
 using Business.Models;
+using Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -39,12 +40,27 @@ namespace WebApi.Controllers
             return Ok(status);
         }
 
-        [HttpDelete("{id}")]
+        [HttpPut]
+        public async Task<IActionResult> UpdateAsync(StatusInformation model)
+        {
+            if (model == null) return BadRequest("Incorrect data. Failed to update role.");
+
+            StatusInformation? status = await _statusInformationService.UpdateAsync(model);
+            if (status == null) return BadRequest("Unable to update project.");
+
+            return Ok(status);
+        }
+
+        //Att fixa: Ska inte gå att ta bort om en status är kopplad till ett projekt.
+
+        [HttpDelete]
         public async Task<IActionResult> DeleteAsync(StatusInformation status)
         {
             if (status == null) return BadRequest("Invalid id. No status was deleted.");
+
             bool deleted = await _statusInformationService.DeleteAsync(status);
             if (!deleted) return NotFound("No status was found.");
+
             return Ok("The status was successfully deleted.");
         }
     }

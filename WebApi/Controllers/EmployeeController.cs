@@ -39,7 +39,8 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetOneAsync(int id)
         {
             Employee employee = await _employeeService.GetOneAsync(x => x.Id == id);
-            if (employee == null) return BadRequest("No employee was found");
+            if (employee == null) return NotFound("No employee found.");
+
             return Ok(employee);
         }
 
@@ -52,6 +53,8 @@ namespace WebApi.Controllers
 
             return NotFound("Update failed. Employee was not found.");
         }
+
+        //Att fixa: Ska inte kunna tas bort om personen är kopplad till ett projekt.
 
         [HttpDelete]
         public async Task<IActionResult> DeleteAsync(Employee employee)

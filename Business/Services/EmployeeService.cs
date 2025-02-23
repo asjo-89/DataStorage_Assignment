@@ -8,6 +8,7 @@ using Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Diagnostics;
+using System.Linq.Expressions;
 
 namespace Business.Services;
 
@@ -41,12 +42,13 @@ public class EmployeeService
             await _repository.BeginTransactionAsync();
 
             EmployeeEntity entity = EmployeeFactory.Create(dto);
-            EmployeeEntity entry = await _repository.CreateAsync(entity);
-            if (entry == null) return null!;
+            entity = await _repository.CreateAsync(entity);
+            if (entity == null) return null!;
 
             await _repository.SaveChangesAsync();
             await _repository.CommitTransactionAsync();
 
+            EmployeeEntity newEmployee = await _employeeRepository.GetWithDetailsAsync(x => x.Id == entity.Id);
             Employee employee = EmployeeFactory.Create(entity);
             return employee ?? null!;
         }
@@ -66,29 +68,11 @@ public class EmployeeService
         return employees ?? [];
     }
 
-    public  async Task<Employee> GetOneAsync(int id)
+    public override async Task<Employee> GetOneAsync(Expression<Func<EmployeeEntity, bool>> expression)
     {
-        EmployeeEntity entity = await _employeeRepository.GetWithDetailsAsync(x => x.Id == id);
+        EmployeeEntity? entity = await _employeeRepository.GetWithDetailsAsync(expression);
         if (entity == null) return null!;
         Employee employee = EmployeeFactory.Create(entity);
         return employee ?? null!;
     }
-
-    //public async Task<Employee> UpdateEmployeeAsync(Employee model)
-    //{
-    //    try
-    //    {
-    //        if (model != null)
-    //        {
-    //            EmployeeEntity? entity = EmployeeFactory.Create(model);
-    //            EmployeeEntity? updatedEntity = _repository.UpdateAsync(entity);
-    //            return EmployeeFactory.Create(updatedEntity!) ?? null!;
-    //        }
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        Debug.WriteLine($"Failed to update :: {ex.Message}");
-    //    }
-    //    return null!;
-    //}
 }

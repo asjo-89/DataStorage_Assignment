@@ -54,6 +54,8 @@ namespace WebApi.Controllers
             return NotFound("Update failed. Customer was not found.");
         }
 
+
+        //Att fixa: Ska inte kunna tas bort om kund är kopplad till ett projekt.
         [HttpDelete]
         public async Task<IActionResult> DeleteAsync(Customer customer)
         {

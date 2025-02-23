@@ -40,6 +40,19 @@ namespace WebApi.Controllers
             return Ok(service);
         }
 
+        [HttpPut]
+        public async Task<IActionResult> UpdateAsync(Service model)
+        {
+            if (model == null) return BadRequest("Incorrect data. Failed to update role.");
+
+            Service? service = await _servicesService.UpdateAsync(model);
+            if (service == null) return BadRequest("Unable to update project.");
+
+            return Ok(service);
+        }
+
+        //Att fixa: Ska inte gå att ta bort om en tjänst är kopplad till ett projekt.
+
         [HttpDelete]
         public async Task<IActionResult> DeleteAsync(Service service)
         {

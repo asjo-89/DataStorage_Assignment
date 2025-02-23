@@ -28,6 +28,10 @@ function Details({project}) {
 
 
   useEffect(() => {
+    const button = document.querySelector('.btn');
+    if (button) {
+      button.blur();
+    }
     if (project)
     {
       setEditedProject({
@@ -62,8 +66,16 @@ function Details({project}) {
           price: project.service.price,
           unit: project.service.unit
         }
-    })};
-
+      })
+      
+      sessionStorage.setItem("projectData", JSON.stringify(project));
+    }
+    else {
+      const storedData = sessionStorage.getItem("projectData");
+      if(storedData) {
+        setEditedProject(JSON.parse(storedData));
+      }
+    }
 }, [project]);
 
 useEffect(() => {
@@ -104,6 +116,15 @@ const navigate = useNavigate();
         await handleSubmit(e);
       }      
       setIsEditing(!isEditing);
+  }
+
+  const handleGoBack = () => {
+    if(isEditing) {
+      setIsEditing(!isEditing);
+    }
+    else {
+      navigate("/");
+    }
   }
 
   const handleDelete = async (e) => {
@@ -253,15 +274,15 @@ const navigate = useNavigate();
           </h3>
         </div>
         <div className="buttons">
-          <button className="btn save" type="button" onClick={handleSave}>
+          <button className={`btn ${isEditing ? "save" : "edit"}`} type="button" onClick={handleSave}>
             {isEditing ? "Save" : "Edit"}
           </button>
           <button className="btn delete" type="button" onClick={handleDelete}>
             Delete
           </button>
-          <NavLink to="/" className="btn cancel">
+          <button className="btn cancel" onClick={handleGoBack}>
             {isEditing ? "Cancel" : "Go back"}
-          </NavLink>
+          </button>
         </div>
       </div>
 

@@ -56,6 +56,7 @@ namespace WebApi.Controllers
             return Ok(project);
         }
 
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
