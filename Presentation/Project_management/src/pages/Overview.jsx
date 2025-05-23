@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../components/sidebar'
+import Sidebar from '../components/Sidebar'
 import ProjectList from '../components/ProjectList'
 import { NavLink } from 'react-router-dom'
 

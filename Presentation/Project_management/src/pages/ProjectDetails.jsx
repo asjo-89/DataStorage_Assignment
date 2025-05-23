@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../components/sidebar'
+import Sidebar from '../components/Sidebar'
 import Details from '../components/Details'
 import { NavLink, useLocation } from 'react-router-dom'
 

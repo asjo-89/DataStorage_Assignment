@@ -158,7 +158,9 @@ const roleSubmit = async (e) => {
               <input className="input" name="lastName" id="lastName"></input>
               <label className="input-label" htmlFor="role">Role</label>
               <select className="input" name="role" id="role">
-                <option value="" disabled>Select role</option>
+                <option value="" disabled selected>
+                  Select a role
+                </option>
                 {roles.map((role) => (
                   <option key={role.id} value={role.id}>
                     {role.roleName}

@@ -1,6 +1,6 @@
 import React from 'react'
 import CustomersList from '../components/CustomersList'
-import Sidebar from '../components/sidebar'
+import Sidebar from '../components/Sidebar'
 import { NavLink } from 'react-router-dom'
 
 function Customers() {

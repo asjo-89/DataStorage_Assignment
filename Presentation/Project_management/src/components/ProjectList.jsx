@@ -26,6 +26,7 @@ function ProjectList() {
         return;
       }
       const data = await response.json();
+      console.log('Fetched projects:', data);
       setProjects(data);
     }
     catch (error) 
@@ -39,9 +40,9 @@ function ProjectList() {
 
   return (
     <>
-        <ProjectCards classname="ongoing" title="Ongoing" projects={projects.filter(p => p.statusInformationName === "Not started")} errors={errors} />
-        <ProjectCards classname="not-started" title="Not started" projects={projects.filter(p => p.statusInformationName === "Ongoing")} errors={errors} />
-        <ProjectCards classname="completed" title="Completed" projects={projects.filter(p => p.statusInformationName === "Completed")} errors={errors} />
+        <ProjectCards classname="ongoing" title="Ongoing" projects={projects.filter(p => p.statusInformation.statusName === "Ongoing")} errors={errors} />
+        <ProjectCards classname="not-started" title="Not started" projects={projects.filter(p => p.statusInformation.statusName === "Not started")} errors={errors} />
+        <ProjectCards classname="completed" title="Completed" projects={projects.filter(p => p.statusInformation.statusName === "Completed")} errors={errors} />
     </>
   )
 }

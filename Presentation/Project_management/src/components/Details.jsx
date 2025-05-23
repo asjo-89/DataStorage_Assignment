@@ -230,6 +230,15 @@ const fetchServices = async () => {
 
       const data = await response.json();
       console.log("Update successful.", data);
+      setEditedProject({
+        ...editedProject,
+        ...data,
+        // Behåll relationer (om de är annorlunda i svaret)
+        employee: data.employee || editedProject.employee,
+        customer: data.customer || editedProject.customer,
+        service: data.service || editedProject.service,
+        statusInformation: data.statusInformation || editedProject.statusInformation,
+      });
     }
     catch (error) {
       console.log("Update failed: ", {error});
