@@ -68,22 +68,10 @@ builder.Services.AddScoped<IStatusInformationService, StatusInformationService>(
 builder.Services.AddScoped<IProjectService, ProjectService>();
 
 
-//var AllowedConnections = "_allowedConnections";
-
-//builder.Services.AddCors(options =>
-//{
-//    options.AddPolicy(name: AllowedConnections,
-//        policy =>
-//        {
-//            policy.WithOrigins("http://localhost:5174", "http://localhost:5173")
-//                  .AllowAnyMethod()
-//                  .AllowAnyHeader();
-//        });
-//});
-
 var app = builder.Build();
 
-    app.MapOpenApi();
+app.MapOpenApi();
+
 
 
 app.UseHttpsRedirection();
@@ -93,5 +81,26 @@ app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 app.UseAuthorization();
 
 app.MapControllers();
+
+void AddStatusesOnStartup(IServiceProvider services)
+{
+    using var scope = services.CreateScope();
+    var context = scope.ServiceProvider.GetRequiredService<DataContext>();
+
+    if (!context.StatusInformation.Any())
+    {
+        var started = new StatusInformationEntity { StatusName = "Not started" };
+        var ongoing = new StatusInformationEntity { StatusName = "Ongoing" };
+        var completed = new StatusInformationEntity { StatusName = "Completed" };
+
+        context.AddRange(started, ongoing, completed);
+
+        context.SaveChanges();
+    }
+    else
+        return;
+}
+
+AddStatusesOnStartup(app.Services);
 
 app.Run();

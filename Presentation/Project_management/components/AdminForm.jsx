@@ -79,32 +79,6 @@ const serviceSubmit = async (e) => {
   }
 }
 
-const statusSubmit = async (e) => {
-  e.preventDefault();
-  const form = new FormData(e.target);
-
-  const status = {
-    StatusName: form.get('statusName')
-  };
-
-  console.log(status);
-  const response = await fetch(`https://localhost:7273/api/status`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(status)
-  });
-
-  if (response.ok) {
-    const data = await response.json();
-    console.log('Status added:', data);
-  }
-  else {
-    console.error('Error adding status:', response.data);
-  }
-}
-
 const managerSubmit = async (e) => {
   e.preventDefault();
   const form = new FormData(e.target);
@@ -174,6 +148,7 @@ const roleSubmit = async (e) => {
               <button type="submit" className="btn save">Save</button>
             </form>
         </div>
+
         <div className="card manager">
             <h2>Add new manager</h2>
             <form className="admin-form" onSubmit={managerSubmit}>
@@ -193,6 +168,7 @@ const roleSubmit = async (e) => {
               <button type="submit" className="btn save">Save</button>
             </form>
         </div>
+
         <div className="card service">
             <h2>Add new service</h2>            
             <form className="admin-form" onSubmit={serviceSubmit}>
@@ -205,14 +181,7 @@ const roleSubmit = async (e) => {
               <button type="submit" className="btn save">Save</button>
             </form>
         </div>
-        <div className="card status">
-            <h2>Add new status</h2>
-            <form className="admin-form" onSubmit={statusSubmit}>
-              <label className="input-label" htmlFor="statusName">Status name</label>
-              <input className="input" name="statusName" id="statusName"></input>
-              <button type="submit" className="btn save">Save</button>
-            </form>
-        </div>
+
         <div className="card role">
             <h2>Add new role</h2>
             <form className="admin-form" onSubmit={roleSubmit}>

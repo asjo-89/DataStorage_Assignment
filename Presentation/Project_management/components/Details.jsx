@@ -94,33 +94,78 @@ useEffect(() => {
 
 const navigate = useNavigate();
 
-  const fetchEmployees = async () => {
-    const response = await fetch("https://localhost:7273/api/employee");
-    const data = await response.json();
-    setEditedEmployee(data);
-  }                                     
+ const fetchEmployees = async () => {
+    try 
+    {
+      const response = await fetch('https://localhost:7273/api/employees');
+      if (!response.ok) {
+        console.error('Failed to fetch managers:', response.data);
+        return;
+      }
+      const data = await response.json();
+      setEditedEmployee(data);
+    }
+    catch (error) 
+    {
+      console.error('Error fetching managers:', error);
+    }
+ }
+ 
+  const fetchStatuses = async () => {
+    try 
+    {
+      const response = await fetch('https://localhost:7273/api/status');
+      if (!response.ok) {
+        console.error('Failed to fetch statuses:', response.data);
+        return;
+      }
+      const data = await response.json();
+      setEditedStatus(data);
+    } 
+    catch (error) 
+    {
+      console.error('Error fetching statuses:', error);
+    }
+  }
+
+const fetchServices = async () => {
+    try 
+    {
+      const response = await fetch('https://localhost:7273/api/services');
+      if (!response.ok) {
+        console.error('Failed to fetch services:', response.data);
+        return;
+      }
+      const data = await response.json();
+      setEditedService(data);
+    } 
+    catch (error) 
+    {
+      console.error('Error fetching services:', error);
+    }
+  }
 
   const fetchCustomers = async () => {
-    const response = await fetch("https://localhost:7273/api/customer");
-    const data = await response.json();
-    setEditedCustomer(data);
-  } 
+    try 
+    {
+      const response = await fetch('https://localhost:7273/api/customer');
+      if (!response.ok) {
+        console.error('Failed to fetch customers:', response.data);
+        return;
+      }
+      const data = await response.json();
+      setEditedCustomer(data);
+    } 
+    catch (error) 
+    {
+      console.error('Error fetching customers:', error);
+    }
+  }
 
-  const fetchServices = async () => {
-    const response = await fetch("https://localhost:7273/api/services");
-    const data = await response.json();
-    setEditedService(data);
-  } 
-  
-  const fetchStatuses = async () => {
-    const response = await fetch("https://localhost:7273/api/statusInformation");
-    const data = await response.json();
-    setEditedStatus(data);
-  } 
-  const handleSave = async (e) => {
+  const handleSave = async () => {
       if (isEditing) 
       {
-        await handleSubmit(e);
+        await onSubmit();
       }      
       setIsEditing(!isEditing);
   }
@@ -159,12 +204,10 @@ const navigate = useNavigate();
     }
   }
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
+  const onSubmit = async () => {
     console.log("Edited project before sending:", editedProject);
 
-    const fieldNotEmpty = {
+    const fields = {
       ...editedProject,
       customerId: Number(editedProject.customerId),
       employeeId: Number(editedProject.employeeId),
@@ -172,19 +215,17 @@ const navigate = useNavigate();
       serviceId: Number(editedProject.serviceId),
     };
 
-    fieldNotEmpty.employee = editedProject.employee;
-
-    console.log("Sending data to API:", fieldNotEmpty);
+    console.log("Sending data:", fields);
 
     try {
       const response = await fetch(`https://localhost:7273/api/project/${editedProject.id}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(fieldNotEmpty)
+        body: JSON.stringify(fields)
       });
       
       if (!response.ok) {
-        console.log("Failed to update changes", JSON.stringify(fieldNotEmpty));
+        console.log("Failed to update changes", JSON.stringify(fields));
       }
 
       const data = await response.json();
@@ -195,57 +236,52 @@ const navigate = useNavigate();
     }
   }
 
-  const handleChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;    
-    if (name === "customerId" || name === "employeeId" || name === "statusInformationId" || name === "serviceId") {
-      const numValue = Number(value);
-      setEditedProject((prev) => ({
-        ...prev,
-        [name]: numValue, 
-      }));
-    } else {
-      setEditedProject((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
-    }
-    if (name === "customerId") {
-      const customer = editedCustomer.find(c => c.id == Number(value));
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  const numberFields = ["customerId", "employeeId", "statusInformationId", "serviceId"].includes(name);
+  const newValue = numberFields ? Number(value) : value;
 
-      setEditedProject((prev) => ({
-        ...prev,
-        customerId: value,
-        customer: customer 
-      }));
+  setEditedProject((prev) => {
+    const updated = {
+      ...prev,
+      [name]: newValue,
+    };
+
+    if (name === "customerId") {
+      const customer = editedCustomer.find(c => c.id === Number(value));
+      updated.customer = customer || "";
+      updated.customerId = customer ? customer.id : "";
     }
+
     if (name === "serviceId") {
       const selectedService = editedService.find(service => service.id === Number(value));
-      setEditedProject(prev => ({
-        ...prev,
-        serviceId: value,
-        service: {
+      if (selectedService) {
+        updated.service = {
           id: selectedService.id,
           serviceName: selectedService.serviceName,
           price: selectedService.price,
-          unit: selectedService ? selectedService.unit : "", 
-    }}));
+          unit: selectedService.unit || "",
+        };
+        updated.serviceId = selectedService.id;
+      }
     }
 
-    setEditedProject((prev) => ({...prev, [name]: value}));
-    console.log("edited", {editedProject});
-  }    
+    return updated;
+  });
+
+  console.log("edited", editedProject);
+};
 
 
   return (
     <>
-    <form className="container" onSubmit={handleSubmit(onSubmit)} >
+    <form className="container" onSubmit={onSubmit} >
       <div className="card-1">
         <div className="title-box">
           <h2 className="title-1">{editedProject.id || ""} - {isEditing ? (
             <>
               <input className="input" type="text" name="projectTitle" value={editedProject.projectTitle || ""} onChange={handleChange} 
-                {...register("projectTitle")}
+                // {...register("projectTitle")}
               />
               {formErrors.projectTitle && (<p class="error">{formErrors.projectTitle?.message}</p>)}
             </>
@@ -254,12 +290,12 @@ const navigate = useNavigate();
           {isEditing ? (
             <>
               <input className="input" type="date" name="startDate" value={editedProject.startDate || ""} onChange = {handleChange} 
-                {...register("startDate")} 
+                // {...register("startDate")} 
               />
                 {formErrors.startDate && <p class="error">{formErrors.startDate?.message}</p>}
                 - 
               <input className="input" type="date"name="endDate" value={editedProject.endDate || ""} onChange = {handleChange} 
-                {...register("endDate")} 
+                // {...register("endDate")} 
               />
                 {formErrors.endDate && <p class="error">{formErrors.endDate?.message}</p>}
             </>)
@@ -272,7 +308,7 @@ const navigate = useNavigate();
               <>
                 <textarea className="input description" type="text"  name="description"
                   value={editedProject.description || ""} onChange = {handleChange}
-                  {...register("description")}  
+                  // {...register("description")}  
                 />
                   {formErrors.description && <p class="error">{formErrors.description?.message}</p>}
               </>
@@ -286,7 +322,7 @@ const navigate = useNavigate();
               <>
                 <select className="input manager-opt" type="text"  name="employeeId"
                   value={editedProject.employeeId} onChange = {handleChange}
-                  {...register("employeeId")}  
+                  // {...register("employeeId")}  
                 >
                   {editedEmployee.map((employee) => (
                   <option key={employee.id} value={employee.id}>
@@ -320,7 +356,7 @@ const navigate = useNavigate();
               <select className="input customer-opt" type="text" name="customerId"
                 value={editedProject.customerId} 
                 onChange={handleChange}
-                {...register("customerId")}  
+                // {...register("customerId")}  
               >
                 {editedCustomer.map((customer) => (
                   <option key={customer.id} value={customer.id}>
@@ -348,7 +384,7 @@ const navigate = useNavigate();
             <select className="input service-opt" type="text" name="serviceId"
             value={editedProject.serviceId} 
             onChange={handleChange}
-            {...register("serviceId")}  
+            // {...register("serviceId")}  
             >
               {editedService.map((service) => (
                 <option key={service.id} value={service.id}>
@@ -367,7 +403,7 @@ const navigate = useNavigate();
             <select className="input status-opt" type="text" name="statusInformationId"
               value={editedProject.statusInformationId} 
               onChange={handleChange}
-              {...register("statusInformationId")}  
+              // {...register("statusInformationId")}  
             >
                 {editedStatus.map((status) => (
                   <option key={status.id} value={status.id}>

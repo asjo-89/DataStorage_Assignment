@@ -39,9 +39,9 @@ function ProjectList() {
 
   return (
     <>
-        <ProjectCards classname="ongoing" title="Ongoing" projects={projects.filter(p => p.statusInformationId === 1)} errors={errors} />
-        <ProjectCards classname="not-started" title="Not started" projects={projects.filter(p => p.statusInformationId === 5)} errors={errors} />
-        <ProjectCards classname="completed" title="Completed" projects={projects.filter(p => p.statusInformationId === 3)} errors={errors} />
+        <ProjectCards classname="ongoing" title="Ongoing" projects={projects.filter(p => p.statusInformationName === "Not started")} errors={errors} />
+        <ProjectCards classname="not-started" title="Not started" projects={projects.filter(p => p.statusInformationName === "Ongoing")} errors={errors} />
+        <ProjectCards classname="completed" title="Completed" projects={projects.filter(p => p.statusInformationName === "Completed")} errors={errors} />
     </>
   )
 }
