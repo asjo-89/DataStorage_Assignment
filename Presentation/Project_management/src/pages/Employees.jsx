@@ -9,8 +9,8 @@ function Employees() {
         <div className="wrapper">
             <div className="main-container">
             <div className="main-title">
-              <NavLink to="/admin" className="btn">
-                  Add employee
+              <NavLink to="/addProject" className="btn">
+                  Add project
               </NavLink>
               <h1>Employees</h1>
             </div>

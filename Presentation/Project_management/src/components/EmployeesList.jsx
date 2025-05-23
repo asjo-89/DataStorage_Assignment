@@ -11,7 +11,7 @@ function EmployeesList() {
   
     const fetchEmployees = async () => {
       try {
-        const response = await fetch('https://localhost:7273/api/employee');
+        const response = await fetch('https://localhost:7273/api/employees');
         const data = await response.json();
         setEmployees(data);
   
@@ -43,10 +43,10 @@ function EmployeesList() {
     return (
       <>
         {employees.map((employee) => (
-          <button key={employee.id} className="employee-mini">
+          <div key={employee.id} className="employee-mini">
             <h3>{employee.firstName} {employee.lastName}</h3>
             <h4 className="projects">{roles[employee.roleId] || "Unknown Role"}</h4>
-          </button>
+          </div>
         ))}
       </>
     );

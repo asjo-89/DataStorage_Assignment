@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
 
 function AdminForm() {
 
@@ -165,7 +164,7 @@ const roleSubmit = async (e) => {
       <div className="container-admin">
         <div className="card customer">
             <h2>Add new customer</h2>
-            <form onSubmit={customerSubmit}>
+            <form className="admin-form" onSubmit={customerSubmit}>
               <label className="input-label" htmlFor="customerName">Customer name</label>
               <input className="input" name="customerName" id="customerName"></input>
               <label className="input-label" htmlFor="phoneNumber">Phone number</label>
@@ -177,14 +176,14 @@ const roleSubmit = async (e) => {
         </div>
         <div className="card manager">
             <h2>Add new manager</h2>
-            <form onSubmit={managerSubmit}>
+            <form className="admin-form" onSubmit={managerSubmit}>
               <label className="input-label" htmlFor="firstName">First name</label>
               <input className="input" name="firstName" id="firstName"></input>
               <label className="input-label" htmlFor="lastName">Last name</label>
               <input className="input" name="lastName" id="lastName"></input>
               <label className="input-label" htmlFor="role">Role</label>
               <select className="input" name="role" id="role">
-                <option value="">Select role</option>
+                <option value="" disabled>Select role</option>
                 {roles.map((role) => (
                   <option key={role.id} value={role.id}>
                     {role.roleName}
@@ -196,7 +195,7 @@ const roleSubmit = async (e) => {
         </div>
         <div className="card service">
             <h2>Add new service</h2>            
-            <form onSubmit={serviceSubmit}>
+            <form className="admin-form" onSubmit={serviceSubmit}>
               <label className="input-label" htmlFor="serviceName">Service name</label>
               <input className="input" name="serviceName" id="serviceName"></input>
               <label className="input-label" htmlFor="price">Price</label>
@@ -208,7 +207,7 @@ const roleSubmit = async (e) => {
         </div>
         <div className="card status">
             <h2>Add new status</h2>
-            <form onSubmit={statusSubmit}>
+            <form className="admin-form" onSubmit={statusSubmit}>
               <label className="input-label" htmlFor="statusName">Status name</label>
               <input className="input" name="statusName" id="statusName"></input>
               <button type="submit" className="btn save">Save</button>
@@ -216,7 +215,7 @@ const roleSubmit = async (e) => {
         </div>
         <div className="card role">
             <h2>Add new role</h2>
-            <form onSubmit={roleSubmit}>
+            <form className="admin-form" onSubmit={roleSubmit}>
               <label className="input-label" htmlFor="roleName">Role name</label>
               <input className="input" name="roleName" id="roleName"></input>
               <button type="submit" className="btn save">Save</button>

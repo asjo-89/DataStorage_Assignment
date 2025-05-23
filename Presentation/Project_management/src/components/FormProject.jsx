@@ -22,7 +22,6 @@ function FormProject() {
     fetchServices();
     fetchEmployees();
     fetchCustomers();
-    fetchRoles();
   }, []);
 
   const navigate = useNavigate();
@@ -92,22 +91,6 @@ const fetchServices = async () => {
     catch (error) 
     {
       console.error('Error fetching customers:', error);
-    }
-  }
-
-const fetchRoles = async () => {
-    try {
-      const response = await fetch('https://localhost:7273/api/role');
-      if (!response.ok) {
-        console.error('Failed to fetch roles:', response.statusText);
-        return;
-      }
-      const data = await response.json();
-      setRoles(data);
-    } 
-    catch (error) 
-    {
-      console.error('Error fetching roles:', error);
     }
   }
   
