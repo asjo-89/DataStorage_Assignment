@@ -4,8 +4,9 @@ namespace Business.Dtos;
 
 public class RoleRegForm
 {
-    public int Id { get; set; }
+    //public int Id { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Role name is required.")]
+    [StringLength(20, ErrorMessage = "Role name can only be 20 characters long.")]
     public string RoleName { get; set; } = null!;
 }

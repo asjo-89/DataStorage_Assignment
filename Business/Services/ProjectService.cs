@@ -63,6 +63,9 @@ public class ProjectService
     public override async Task<IEnumerable<Project>> GetAllAsync()
     {
         var entities = await _projectRepository.GetAllWithDetailsAsync();
+        if (entities.Count() == 0)
+            return [];
+
         var projects = entities.Select(p => ProjectFactory.Create(p)).ToList();
         return projects ?? [];
     }

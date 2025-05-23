@@ -7,12 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/services")]
     [ApiController]
     public class ServicesController(IServicesService servicesService) : ControllerBase
     {
         private readonly IServicesService _servicesService = servicesService;
 
+        [Route("create")]
         [HttpPost]
         public async Task<IActionResult> CreateServiceAsync(ServiceRegForm dto)
         {

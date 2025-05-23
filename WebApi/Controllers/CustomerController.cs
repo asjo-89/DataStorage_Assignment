@@ -7,13 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/customer")]
     [ApiController]
     public class CustomerController(ICustomerService customerService) : ControllerBase
     {
         private readonly ICustomerService _customerService = customerService;
 
 
+        [Route("create")]
         [HttpPost]
         public async Task<IActionResult> CreateAsync(CustomerRegForm dto)
         {
@@ -26,6 +27,7 @@ namespace WebApi.Controllers
             return Ok(newCustomer);
         }
 
+        //[Route("getAll")]
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {

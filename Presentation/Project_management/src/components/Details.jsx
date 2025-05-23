@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
-function Details({project}) {
+function Details({project, errors}) {
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedProject, setEditedProject] = useState({
@@ -26,6 +27,12 @@ function Details({project}) {
   const [editedService, setEditedService] = useState([]);
   const [editedStatus, setEditedStatus] = useState([]);
 
+ const {
+       register,
+       handleSubmit,
+       setError,
+       formState: { errors: formErrors },
+     } = useForm();
 
   useEffect(() => {
     const button = document.querySelector('.btn');
@@ -152,19 +159,18 @@ const navigate = useNavigate();
     }
   }
 
-  const handleSubmit = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     console.log("Edited project before sending:", editedProject);
 
-    const fieldNotEmpty = Object.fromEntries(
-      Object.entries(editedProject).map(([key, value]) => {
-        if (["customerId", "employeeId", "statusInformationId", "serviceId"].includes(key)) {
-          return [key, value ? Number(value) : null];
-        }
-        return [key, value === "" ? null : value];
-      })
-    );
+    const fieldNotEmpty = {
+      ...editedProject,
+      customerId: Number(editedProject.customerId),
+      employeeId: Number(editedProject.employeeId),
+      statusInformationId: Number(editedProject.statusInformationId),
+      serviceId: Number(editedProject.serviceId),
+    };
 
     fieldNotEmpty.employee = editedProject.employee;
 
@@ -233,18 +239,29 @@ const navigate = useNavigate();
 
   return (
     <>
-    <form className="container">
+    <form className="container" onSubmit={handleSubmit(onSubmit)} >
       <div className="card-1">
         <div className="title-box">
           <h2 className="title-1">{editedProject.id || ""} - {isEditing ? (
-            <input className="input" type="text" name="projectTitle" value={editedProject.projectTitle || ""} onChange={handleChange} />
+            <>
+              <input className="input" type="text" name="projectTitle" value={editedProject.projectTitle || ""} onChange={handleChange} 
+                {...register("projectTitle")}
+              />
+              {formErrors.projectTitle && (<p class="error">{formErrors.projectTitle?.message}</p>)}
+            </>
             ) : (editedProject.projectTitle || "")}</h2>  
           <p className="text-1">
           {isEditing ? (
             <>
-              <input className="input" type="date" name="startDate" value={editedProject.startDate || ""} onChange = {handleChange} />
+              <input className="input" type="date" name="startDate" value={editedProject.startDate || ""} onChange = {handleChange} 
+                {...register("startDate")} 
+              />
+                {formErrors.startDate && <p class="error">{formErrors.startDate?.message}</p>}
                 - 
-              <input className="input" type="date"name="endDate" value={editedProject.endDate || ""} onChange = {handleChange} />
+              <input className="input" type="date"name="endDate" value={editedProject.endDate || ""} onChange = {handleChange} 
+                {...register("endDate")} 
+              />
+                {formErrors.endDate && <p class="error">{formErrors.endDate?.message}</p>}
             </>)
           : (`${editedProject.startDate || ""} - ${editedProject.endDate || ""}`)}</p>
         </div>
@@ -252,8 +269,13 @@ const navigate = useNavigate();
         <div className="description-box">
           <h3 className="title">Description</h3>
             {isEditing ? (
-              <textarea className="input description" type="text"  name="description"
-                value={editedProject.description || ""} onChange = {handleChange} />
+              <>
+                <textarea className="input description" type="text"  name="description"
+                  value={editedProject.description || ""} onChange = {handleChange}
+                  {...register("description")}  
+                />
+                  {formErrors.description && <p class="error">{formErrors.description?.message}</p>}
+              </>
               ) 
               : <p className="text description">{editedProject.description || ""}</p>}
         </div>
@@ -261,14 +283,19 @@ const navigate = useNavigate();
         <div className="manager">
           <h3 className="title">Manager: 
             {isEditing ? (
-              <select className="input manager-opt" type="text"  name="employeeId"
-                value={editedProject.employeeId} onChange = {handleChange}>
-                {editedEmployee.map((employee) => (
-                <option key={employee.id} value={employee.id}>
-                  {employee.firstName} {employee.lastName}
-                </option>
-                ))}
-              </select>
+              <>
+                <select className="input manager-opt" type="text"  name="employeeId"
+                  value={editedProject.employeeId} onChange = {handleChange}
+                  {...register("employeeId")}  
+                >
+                  {editedEmployee.map((employee) => (
+                  <option key={employee.id} value={employee.id}>
+                    {employee.firstName} {employee.lastName}
+                  </option>
+                  ))}
+                </select>
+                {formErrors.employeeId && <p class="error">{formErrors.employeeId.message}</p>}
+              </>
               ) 
               : (<p className="text manager-name">{editedProject.employee ? `${editedProject.employee.firstName} ${editedProject.employee.lastName}` : ""}</p>)}
           </h3>
@@ -289,15 +316,21 @@ const navigate = useNavigate();
       <div className="card-2">
           <h3 className="title">Customer</h3>
           {isEditing ? (
-            <select className="input customer-opt" type="text" name="customerId"
-              value={editedProject.customerId} 
-              onChange={handleChange}>
-              {editedCustomer.map((customer) => (
-                <option key={customer.id} value={customer.id}>
-                  {customer.customerName}
-                </option>
-              ))}
-            </select>)
+            <>
+              <select className="input customer-opt" type="text" name="customerId"
+                value={editedProject.customerId} 
+                onChange={handleChange}
+                {...register("customerId")}  
+              >
+                {editedCustomer.map((customer) => (
+                  <option key={customer.id} value={customer.id}>
+                    {customer.customerName}
+                  </option>
+                ))}
+              </select>
+              {formErrors.customerId && <p class="error">{formErrors.customerId.message}</p>}
+            </>
+          )
           : (<p className="text">{editedProject.customer ? `${editedProject.customer.customerName}` : ""}</p>)}
 
           <h3 className="title">Phone number</h3>
@@ -311,29 +344,40 @@ const navigate = useNavigate();
       <div className="card-3">
         <h3 className="title">Service</h3>
         {isEditing ? (
+          <>
             <select className="input service-opt" type="text" name="serviceId"
             value={editedProject.serviceId} 
-            onChange={handleChange}>
+            onChange={handleChange}
+            {...register("serviceId")}  
+            >
               {editedService.map((service) => (
                 <option key={service.id} value={service.id}>
                   {service.serviceName} {service.price} {service.unit}
                 </option>
               ))}
-            </select>)
+            </select>
+            {formErrors.serviceId && <p class="error">{formErrors.serviceId.message}</p>}
+          </>
+          )
           : (<p className="text">{editedProject.service ? `${editedProject.service.serviceName} - ${editedProject.service.price} ${editedProject.service.unit}` : ""}</p>)}
           
         <h3 className="title">Status</h3>
-        {isEditing 
-          ? (
-          <select className="input status-opt" type="text" name="statusInformationId"
-            value={editedProject.statusInformationId} 
-            onChange={handleChange}>
-              {editedStatus.map((status) => (
-                <option key={status.id} value={status.id}>
-                  {status.statusName}
-                </option>
-              ))}
-          </select>)
+        {isEditing ? (
+          <>
+            <select className="input status-opt" type="text" name="statusInformationId"
+              value={editedProject.statusInformationId} 
+              onChange={handleChange}
+              {...register("statusInformationId")}  
+            >
+                {editedStatus.map((status) => (
+                  <option key={status.id} value={status.id}>
+                    {status.statusName}
+                  </option>
+                ))}
+            </select>
+            {formErrors.statusInformationId && <p class="error">{formErrors.statusInformationId.message}</p>}
+          </>
+        )
           : (<p className="text">{editedProject.statusInformation.statusName || ""}</p>)}
         </div>
       </form>

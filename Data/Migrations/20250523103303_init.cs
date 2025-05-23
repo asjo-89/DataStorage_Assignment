@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,9 +17,9 @@ namespace Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerName = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    CustomerName = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "varchar(20)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -40,6 +40,21 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Services",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ServiceName = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Unit = table.Column<string>(type: "varchar(10)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Services", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "StatusInformation",
                 columns: table => new
                 {
@@ -50,19 +65,6 @@ namespace Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_StatusInformation", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Units",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Unit = table.Column<string>(type: "nvarchar(20)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Units", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -87,41 +89,19 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Services",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ServiceName = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    UnitId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Services", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Services_Units_UnitId",
-                        column: x => x.UnitId,
-                        principalTable: "Units",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Projects",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("SqlServer:Identity", "101, 1"),
                     ProjectTitle = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(300)", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    StatusId = table.Column<int>(type: "int", nullable: false),
+                    StatusInformationId = table.Column<int>(type: "int", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     EmployeeId = table.Column<int>(type: "int", nullable: false),
-                    ServiceId = table.Column<int>(type: "int", nullable: false),
-                    StatusInformationId = table.Column<int>(type: "int", nullable: false)
+                    ServiceId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -196,20 +176,9 @@ namespace Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Services_UnitId",
-                table: "Services",
-                column: "UnitId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_StatusInformation_StatusName",
                 table: "StatusInformation",
                 column: "StatusName",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Units_Unit",
-                table: "Units",
-                column: "Unit",
                 unique: true);
         }
 
@@ -233,9 +202,6 @@ namespace Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Roles");
-
-            migrationBuilder.DropTable(
-                name: "Units");
         }
     }
 }

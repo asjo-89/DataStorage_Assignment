@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/status")]
     [ApiController]
     public class StatusInformationController(IStatusInformationService statusInformationService) : ControllerBase
     {

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/employees")]
     [ApiController]
     public class EmployeeController(IEmployeeService employeeService) : ControllerBase
     {

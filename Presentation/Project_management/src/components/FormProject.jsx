@@ -22,32 +22,93 @@ function FormProject() {
     fetchServices();
     fetchEmployees();
     fetchCustomers();
+    fetchRoles();
   }, []);
 
   const navigate = useNavigate();
 
+  const fetchEmployees = async () => {
+    try 
+    {
+      const response = await fetch('https://localhost:7273/api/employees');
+      if (!response.ok) {
+        console.error('Failed to fetch managers:', response.data);
+        return;
+      }
+      const data = await response.json();
+      setEmployees(data);
+    }
+    catch (error) 
+    {
+      console.error('Error fetching managers:', error);
+    }
+ }
+ 
   const fetchStatuses = async () => {
-    const response = await fetch("https://localhost:7273/api/statusInformation");
-    const data = await response.json();
-    setStatuses(data);
-  }
-  
-  const fetchServices = async () => {
-    const response = await fetch("https://localhost:7273/api/services");
-    const data = await response.json();
-    setServices(data);
+    try 
+    {
+      const response = await fetch('https://localhost:7273/api/status');
+      if (!response.ok) {
+        console.error('Failed to fetch statuses:', response.data);
+        return;
+      }
+      const data = await response.json();
+      setStatuses(data);
+    } 
+    catch (error) 
+    {
+      console.error('Error fetching statuses:', error);
+    }
   }
 
-  const fetchEmployees = async () => {
-    const response = await fetch("https://localhost:7273/api/employee");
-    const data = await response.json();
-    setEmployees(data);
+const fetchServices = async () => {
+    try 
+    {
+      const response = await fetch('https://localhost:7273/api/services');
+      if (!response.ok) {
+        console.error('Failed to fetch services:', response.data);
+        return;
+      }
+      const data = await response.json();
+      setServices(data);
+    } 
+    catch (error) 
+    {
+      console.error('Error fetching services:', error);
+    }
   }
 
   const fetchCustomers = async () => {
-    const response = await fetch("https://localhost:7273/api/customer");
-    const data = await response.json();
-    setCustomers(data);
+    try 
+    {
+      const response = await fetch('https://localhost:7273/api/customer');
+      if (!response.ok) {
+        console.error('Failed to fetch customers:', response.data);
+        return;
+      }
+      const data = await response.json();
+      setCustomers(data);
+    } 
+    catch (error) 
+    {
+      console.error('Error fetching customers:', error);
+    }
+  }
+
+const fetchRoles = async () => {
+    try {
+      const response = await fetch('https://localhost:7273/api/role');
+      if (!response.ok) {
+        console.error('Failed to fetch roles:', response.statusText);
+        return;
+      }
+      const data = await response.json();
+      setRoles(data);
+    } 
+    catch (error) 
+    {
+      console.error('Error fetching roles:', error);
+    }
   }
   
   const handleSubmit = async (e) => {
@@ -137,8 +198,8 @@ function FormProject() {
               <option value="" disabled>
                 Choose manager...
               </option>
-              {employeeList.map((employee) => (
-                <option key={employee.id} value={employee.id}>{employee.name}</option>
+              {employees.map((employee) => (
+                <option key={employee.id} value={employee.id}>{employee.firstName} {employee.lastName}</option>
               ))}              
             </select>                
           </div>
@@ -159,9 +220,9 @@ function FormProject() {
             <option value="" disabled>
                 Choose customer...
               </option>
-              {customerList.map((customer) => (
+              {customers.map((customer) => (
                 <option key={customer.id} value={customer.id}>
-                  {customer.name}
+                  {customer.customerName}
                 </option>
               ))}
             </select>
@@ -173,9 +234,9 @@ function FormProject() {
             <option value="" disabled>
                 Choose service...
               </option>
-              {serviceList.map((service) => (
+              {services.map((service) => (
                 <option key={service.id} value={service.id}>
-                  {service.name} {service.price} {service.unit}
+                  {service.serviceName} {service.price} {service.unit}
                 </option>
               ))}
             </select>
@@ -187,9 +248,9 @@ function FormProject() {
             <option value="" disabled>
                 Choose status...
               </option>
-              {statusList.map((status) => (
+              {statuses.map((status) => (
                 <option key={status.id} value={status.id}>
-                  {status.name}
+                  {status.statusName}
                 </option>
               ))}
             </select>

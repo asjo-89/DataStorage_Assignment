@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/project")]
     [ApiController]
     public class ProjectController(IProjectService projectService) : ControllerBase
     {
@@ -20,6 +20,14 @@ namespace WebApi.Controllers
         {
 
             if (dto == null) return BadRequest("No data available to create new project.");
+
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState
+                    .Where(x => x.Value!.Errors.Any())
+                    .ToDictionary(k => k.Key, v => v.Value!.Errors.Select(e => e.ErrorMessage)).ToArray();
+                return BadRequest(errors);
+            }
             
             Project project = await _projectService.CreateAsync(dto);
             if (project == null) return BadRequest("Project could not be created.");

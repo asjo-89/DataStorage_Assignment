@@ -5,15 +5,17 @@ namespace Business.Dtos;
 
 public class EmployeeRegForm
 {
-    public int Id { get; set; }
+    //public int Id { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "First name is required.")]
+    [StringLength(20, ErrorMessage = "First name can only be 30 characters long.")]
     public string FirstName { get; set; } = null!;
 
-    [Required]
+    [Required(ErrorMessage = "Last name is required.")]
+    [StringLength(50, ErrorMessage = "Last name can only be 50 characters long.")]
     public string LastName { get; set; } = null!;
 
-    [Required]
+    [Required(ErrorMessage = "Role is required.")]
     public int RoleId { get; set; }
 
     public IEnumerable<ProjectRegForm>? Projects { get; set; }

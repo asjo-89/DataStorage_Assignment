@@ -1,34 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import ProjectCards from './ProjectCards';
+import { useForm } from 'react-hook-form';
 
 function ProjectList() {
 
   const [projects, setProjects] = useState([]);
+  const {
+    register,
+    onSubmit,
+    setError,
+    formState: { errors },
+  } = useForm();
+
   
   useEffect(() => {
     fetchProjects();
   }, []);
 
-  const fetchProjects = async () => {
-    try {
-      const response = await fetch("https://localhost:7273/api/project");
+    const fetchProjects = async () => {
+    try 
+    {
+      const response = await fetch(`https://localhost:7273/api/project`);
+      if (!response.ok) {
+        console.error('Failed to fetch projects:', response.data);
+        return;
+      }
       const data = await response.json();
       setProjects(data);
-      console.log("fetch", {data})
     }
-    catch (error) {
-      console.log("fetching projects failed", {error});
+    catch (error) 
+    {
+      console.error('Error fetching projects:', error);
     }
-  }
+ }
   
 
 //Behöver kopplas på bättre sätt till statusinformation ifall status får nytt id.
 
   return (
     <>
-        <ProjectCards classname="ongoing" title="Ongoing" projects={projects.filter(p => p.statusInformationId === 1)} />
-        <ProjectCards classname="not-started" title="Not started" projects={projects.filter(p => p.statusInformationId === 5)} />
-        <ProjectCards classname="completed" title="Completed" projects={projects.filter(p => p.statusInformationId === 3)} />
+        <ProjectCards classname="ongoing" title="Ongoing" projects={projects.filter(p => p.statusInformationId === 1)} errors={errors} />
+        <ProjectCards classname="not-started" title="Not started" projects={projects.filter(p => p.statusInformationId === 5)} errors={errors} />
+        <ProjectCards classname="completed" title="Completed" projects={projects.filter(p => p.statusInformationId === 3)} errors={errors} />
     </>
   )
 }

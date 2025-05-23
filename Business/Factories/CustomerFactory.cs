@@ -12,7 +12,7 @@ namespace Business.Factories
         public static CustomerRegForm Create() => new();
 
 
-        public static CustomerEntity Create(CustomerRegForm dto) => new()
+        public static CustomerEntity CreateEntityFromDto(CustomerRegForm dto) => new()
         {
             CustomerName = dto.CustomerName,
             PhoneNumber = dto.PhoneNumber,

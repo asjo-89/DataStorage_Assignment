@@ -31,7 +31,7 @@ builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 builder.Services.AddScoped(typeof(IBaseService<Customer,CustomerEntity, CustomerRegForm>), typeof(BaseService<Customer, CustomerEntity, CustomerRegForm>));
 builder.Services.AddScoped<Func<CustomerEntity, Customer>>(p => (entity) => CustomerFactory.Create(entity));
 builder.Services.AddScoped<Func<Customer, CustomerEntity>>(p => (model) => CustomerFactory.Create(model));
-builder.Services.AddScoped<Func<CustomerRegForm, CustomerEntity>>(p => (dto) => CustomerFactory.Create(dto));
+builder.Services.AddScoped<Func<CustomerRegForm, CustomerEntity>>(p => (dto) => CustomerFactory.CreateEntityFromDto(dto));
 
 builder.Services.AddScoped(typeof(IBaseService<Employee, EmployeeEntity, EmployeeRegForm>), typeof(BaseService<Employee, EmployeeEntity, EmployeeRegForm>));
 builder.Services.AddScoped<Func<EmployeeEntity, Employee>>(p => (entity) => EmployeeFactory.Create(entity));
@@ -68,29 +68,27 @@ builder.Services.AddScoped<IStatusInformationService, StatusInformationService>(
 builder.Services.AddScoped<IProjectService, ProjectService>();
 
 
-var AllowedConnections = "_allowedConnections";
+//var AllowedConnections = "_allowedConnections";
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: AllowedConnections,
-        policy =>
-        {
-            policy.WithOrigins("http://localhost:5174", "http://localhost:5173")
-                  .AllowAnyMethod()
-                  .AllowAnyHeader();
-        });
-});
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy(name: AllowedConnections,
+//        policy =>
+//        {
+//            policy.WithOrigins("http://localhost:5174", "http://localhost:5173")
+//                  .AllowAnyMethod()
+//                  .AllowAnyHeader();
+//        });
+//});
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
     app.MapOpenApi();
-}
+
 
 app.UseHttpsRedirection();
 
-app.UseCors(AllowedConnections);
+app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 app.UseAuthorization();
 

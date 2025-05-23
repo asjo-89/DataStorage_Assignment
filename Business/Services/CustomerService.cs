@@ -11,7 +11,7 @@ namespace Business.Services;
 
 public class CustomerService(IBaseRepository<CustomerEntity> repository)
     : BaseService<Customer, CustomerEntity, CustomerRegForm>(repository, 
-        CustomerFactory.Create, 
+        CustomerFactory.CreateEntityFromDto, 
         CustomerFactory.Create, 
         CustomerFactory.Create), 
     ICustomerService
@@ -48,7 +48,26 @@ public class CustomerService(IBaseRepository<CustomerEntity> repository)
             return null!;
         }
 
-        Customer customer = await base.CreateAsync(dto);
-        return customer ?? null!;
+        try
+        {
+            await _repository.BeginTransactionAsync();
+
+            var entity = CustomerFactory.CreateEntityFromDto(dto);
+        
+            var newEntity = await _repository.CreateAsync(entity);
+
+            if (newEntity == null)
+                return null!;
+
+            await _repository.SaveChangesAsync();
+            await _repository.CommitTransactionAsync();
+
+            return CustomerFactory.Create(entity) ?? null!;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Failed to create customer: \n{ex.Message}");
+            return null!;
+        }
     }
 }
